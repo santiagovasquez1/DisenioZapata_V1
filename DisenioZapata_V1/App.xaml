@@ -15,6 +15,7 @@
             <Setter Property="FontFamily" Value="Verdana"/>
             <Setter Property="Foreground" Value="Azure"/>
             <Setter Property="Background" Value="#2D2D30"/>
+            <Setter Property="BorderBrush" Value="#2D2D30"/>
         </Style>
     </Application.Resources>
 </Application>

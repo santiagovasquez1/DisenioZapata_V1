@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="B_Lectura_E2K">
+      <HintPath>..\..\BibliotecaE2K\bin\Debug\netstandard2.0\B_Lectura_E2K.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Numerics" />
@@ -74,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,13 +92,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\CortanteBiridireccional.cs" />
     <Compile Include="Model\CortanteUnidireccional.cs" />
     <Compile Include="Model\Dimensionamiento.cs" />
     <Compile Include="Model\Flexion.cs" />
+    <Compile Include="Model\Fuerzas_Modelo.cs" />
     <Compile Include="Model\ICalculo.cs" />
+    <Compile Include="Model\ILectorFuerzas.cs" />
+    <Compile Include="Model\I_Fuerzas_Modelo_Factory.cs" />
+    <Compile Include="Model\Lector_Fuerzas_Etabs.cs" />
     <Compile Include="Model\NotificationObject.cs" />
     <Compile Include="Model\Zapata.cs" />
     <Compile Include="Model\Zapata_Concentrica.cs" />

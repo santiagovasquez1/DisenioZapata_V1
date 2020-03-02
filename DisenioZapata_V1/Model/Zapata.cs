@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using B_Lectura_E2K.Entidades;
 
 namespace DisenioZapata_V1.Model
 {
@@ -45,19 +46,19 @@ namespace DisenioZapata_V1.Model
 			get { return lcy; }
 			set { lcy = value; OnPropertyChanged(); }
 		}
-		//private List<ICalculo> calculos;
-		//public List<ICalculo> Calculos
-		//{
-		//	get { return calculos; }
-		//	set { calculos = value; }
-		//}
-
-		//private MPoint point;
-
-		//public MPoint Point
-		//{
-		//	get { return point; }
-		//	set { point = value; }
-		//}
+		private List<ICalculo> calculos;
+		public List<ICalculo> Calculos
+		{
+			get { return calculos; }
+			set { calculos = value; OnPropertyChanged(); }
+		}
+		
+		private MPoint point;
+		public MPoint Point
+		{
+			get { return point; }
+			set { point = value; }
+		}
+		public Fuerzas_Modelo Fuerzas { get; set; }
 	}
 }
