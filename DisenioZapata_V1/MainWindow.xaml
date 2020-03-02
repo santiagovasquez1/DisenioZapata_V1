@@ -6,7 +6,35 @@
         xmlns:local="clr-namespace:DisenioZapata_V1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid RenderTransformOrigin="0.483,0.162">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="217*"/>
+            <ColumnDefinition Width="47*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="395*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <Menu >
+                <MenuItem Name="Archivo"
+                                      Header="Archivo">
+                    <MenuItem Name="Abrir"
+                                          Header="Abrir proyecto" />
+                    <MenuItem Name="Nuevo"
+                                         Header="Nuevo proyecto"/>
+                </MenuItem>
+
+                <MenuItem Name="Editar"
+                                       Header="Editar proyecto" />
+                <MenuItem Name="Ver"
+                                      Header="Ver" />
+                <MenuItem Name="Ayuda"
+                                      Header="Ayuda" >
+                    <MenuItem Name="Acerca"
+                                          Header="Acerca de Diseño de Zapates"/>
+                </MenuItem>
+            </Menu>
+        </Grid>
     </Grid>
 </Window>

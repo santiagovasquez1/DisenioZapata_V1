@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DisenioZapata_V1.Model
 {
-   public class Zapata
+   public abstract class Zapata:NotificationObject
     {
 		private float l1;
 
 		public float L1
 		{
 			get { return l1; }
-			set { l1 = value; }
+			set { l1 = value; OnPropertyChanged(); }
 		}
 
 		private float l2;
@@ -21,7 +21,7 @@ namespace DisenioZapata_V1.Model
 		public float L2
 		{
 			get { return l2; }
-			set { l2 = value; }
+			set { l2 = value; OnPropertyChanged(); }
 		}
 
 		private float h;
@@ -29,21 +29,21 @@ namespace DisenioZapata_V1.Model
 		public float H
 		{
 			get { return h; }
-			set { h = value; }
+			set { h = value; OnPropertyChanged(); }
 		}
 		private float lcx;
 
 		public float LcX
 		{
 			get { return lcx; }
-			set { lcx = value; }
+			set { lcx = value; OnPropertyChanged(); }
 		}
 		private float lcy;
 
 		public float LcY
 		{
 			get { return lcy; }
-			set { lcy = value; }
+			set { lcy = value; OnPropertyChanged(); }
 		}
 		//private List<ICalculo> calculos;
 		//public List<ICalculo> Calculos

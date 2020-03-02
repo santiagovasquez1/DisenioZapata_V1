@@ -4,6 +4,17 @@
              xmlns:local="clr-namespace:DisenioZapata_V1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style  TargetType="Menu">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="Foreground" Value="Azure"/>
+            <Setter Property="Background" Value="#2D2D30"/>
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="Foreground" Value="Azure"/>
+            <Setter Property="Background" Value="#2D2D30"/>
+        </Style>
     </Application.Resources>
 </Application>
