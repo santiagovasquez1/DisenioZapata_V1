@@ -68,5 +68,9 @@ namespace DisenioZapata_V1.Model
 			set { point = value; }
 		}
 		public List<Fuerzas_Modelo> Fuerzas { get; set; }
+		public override string ToString()
+		{
+			return $"ZapataId {Label}";
+		}
 	}
 }

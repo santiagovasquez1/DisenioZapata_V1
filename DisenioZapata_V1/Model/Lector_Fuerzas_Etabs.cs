@@ -63,5 +63,10 @@ namespace DisenioZapata_V1.Model
 
             Reader.Close();
         }
+
+        public List<Fuerzas_Modelo> Get_Fuerzas()
+        {
+            return Fuerzas;
+        }
     }
 }

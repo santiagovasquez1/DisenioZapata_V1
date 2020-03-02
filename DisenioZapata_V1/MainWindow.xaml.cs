@@ -1,4 +1,5 @@
-﻿using DisenioZapata_V1.Model;
+﻿using B_Lectura_E2K.Entidades;
+using DisenioZapata_V1.Model;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace DisenioZapata_V1
     public partial class MainWindow : Window
     {
         public ILectorFuerzas Lector { get; set; }
-        public Modelo_Estructura modelo_proyecto { get; set; }
+        public Modelo_Etabs modelo_proyecto { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace DisenioZapata_V1
         {
             OpenModel();
             AbrirFuerzas();
+            Builder();
         }
         private void OpenModel()
         {
@@ -39,7 +41,7 @@ namespace DisenioZapata_V1
             openFileDialog.Title = "Modelo Estructural";
             openFileDialog.ShowDialog();
             string Ruta = openFileDialog.FileName;
-            modelo_proyecto = new Modelo_Estructura(Ruta);
+            modelo_proyecto = new Modelo_Estructura(Ruta).Modelo;
         }
         private void AbrirFuerzas()
         {
@@ -49,6 +51,12 @@ namespace DisenioZapata_V1
             openFileDialog.ShowDialog();
             string Ruta = openFileDialog.FileName;
             Lector = new Lector_Fuerzas_Etabs(Ruta);
+        }
+
+        private void Builder()
+        {
+            BuilderZapatas builder = new BuilderZapatas();
+            builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Concentrica, modelo_proyecto);
         }
     }
 }

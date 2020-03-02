@@ -76,31 +76,12 @@
   <Class Name="DisenioZapata_V1.Model.Lector_Fuerzas_Etabs">
     <Position X="14.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAgAAAAAAAEAAAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAEgAAAAAAAEAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>Model\Lector_Fuerzas_Etabs.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Fuerzas" />
     </ShowAsCollectionAssociation>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="DisenioZapata_V1.MainWindow">
-    <Position X="17.25" Y="2" Width="1.5" />
-    <AssociationLine Name="Lector" Type="DisenioZapata_V1.Model.ILectorFuerzas" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="18.312" Y="2" />
-        <Point X="18.312" Y="1.25" />
-        <Point X="15.75" Y="1.25" />
-      </Path>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAQAAAAAAgAAAAAIAAAAAAAg=</HashCode>
-      <FileName>MainWindow.xaml.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Lector" />
-      <Property Name="modelo_proyecto" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="DisenioZapata_V1.Model.Modelo_Estructura">
@@ -120,6 +101,24 @@
       <Property Name="Zapatas" />
     </ShowAsCollectionAssociation>
   </Class>
+  <Class Name="DisenioZapata_V1.MainWindow">
+    <Position X="17.25" Y="2" Width="1.5" />
+    <AssociationLine Name="Lector" Type="DisenioZapata_V1.Model.ILectorFuerzas" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.312" Y="2" />
+        <Point X="18.312" Y="1.25" />
+        <Point X="15.75" Y="1.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAQgAAAAAgAAAAAIAAAAAAAg=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Lector" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="DisenioZapata_V1.Model.ICalculo">
     <Position X="6.75" Y="1" Width="1.5" />
     <TypeIdentifier>
@@ -130,7 +129,7 @@
   <Interface Name="DisenioZapata_V1.Model.ILectorFuerzas">
     <Position X="14.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ILectorFuerzas.cs</FileName>
     </TypeIdentifier>
   </Interface>
