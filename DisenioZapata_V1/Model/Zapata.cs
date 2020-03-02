@@ -9,6 +9,14 @@ namespace DisenioZapata_V1.Model
 {
    public abstract class Zapata:NotificationObject
     {
+		private string label;
+
+		public string Label
+		{
+			get { return label; }
+			set { label = value; }
+		}
+
 		private float l1;
 
 		public float L1
@@ -59,6 +67,6 @@ namespace DisenioZapata_V1.Model
 			get { return point; }
 			set { point = value; }
 		}
-		public Fuerzas_Modelo Fuerzas { get; set; }
+		public List<Fuerzas_Modelo> Fuerzas { get; set; }
 	}
 }

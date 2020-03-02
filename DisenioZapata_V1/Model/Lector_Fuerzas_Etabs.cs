@@ -33,26 +33,32 @@ namespace DisenioZapata_V1.Model
 
         public void LectorArchivo(string RutaArchivo)
         {
+            int cont = 0;
             string sline;
             var Reader = new StreamReader(RutaArchivo);
             Fuerzas_Modelo fuerza = null;
             do
             {
                 sline = Reader.ReadLine();
-                var Datos = sline.Split(';');
-                fuerza = new Fuerzas_Modelo()
+
+                if (cont > 0 && sline!=null)
                 {
-                    Story = Datos[0] ,
-                    PointLabel = Datos[1],
-                    Load=Datos[2],
-                    Fx=float.Parse(Datos[3]),
-                    Fy= float.Parse(Datos[3]) ,
-                    Fz = float.Parse(Datos[4]) ,
-                    Mx = float.Parse(Datos[5]) ,
-                    My = float.Parse(Datos[6]) ,
-                    Mz = float.Parse(Datos[7]) ,
-                };
-                Fuerzas.Add(fuerza);
+                    var Datos = sline.Split(';');
+                    fuerza = new Fuerzas_Modelo()
+                    {
+                        Story = Datos[0] ,
+                        PointLabel = Datos[1] ,
+                        Load = Datos[2] ,
+                        Fx = float.Parse(Datos[3]) ,
+                        Fy = float.Parse(Datos[3]) ,
+                        Fz = float.Parse(Datos[4]) ,
+                        Mx = float.Parse(Datos[5]) ,
+                        My = float.Parse(Datos[6]) ,
+                        Mz = float.Parse(Datos[7]) ,
+                    };
+                    Fuerzas.Add(fuerza);
+                }
+                cont++;
             } while (!(sline == null));
 
             Reader.Close();

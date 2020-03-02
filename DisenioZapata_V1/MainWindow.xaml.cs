@@ -23,12 +23,25 @@ namespace DisenioZapata_V1
     public partial class MainWindow : Window
     {
         public ILectorFuerzas Lector { get; set; }
+        public Modelo_Estructura modelo_proyecto { get; set; }
         public MainWindow()
         {
             InitializeComponent();
         }
-
         private void AbrirClick(object sender , RoutedEventArgs e)
+        {
+            OpenModel();
+            AbrirFuerzas();
+        }
+        private void OpenModel()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Modelo Estructural";
+            openFileDialog.ShowDialog();
+            string Ruta = openFileDialog.FileName;
+            modelo_proyecto = new Modelo_Estructura(Ruta);
+        }
+        private void AbrirFuerzas()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "csv |*.csv";

@@ -17,5 +17,10 @@ namespace DisenioZapata_V1.Model
         public double Mx { get; set; }
         public double My { get; set; }
         public double Mz { get; set; }
+
+        public override string ToString()
+        {
+            return $"{PointLabel} {Load}";
+        }
     }
 }

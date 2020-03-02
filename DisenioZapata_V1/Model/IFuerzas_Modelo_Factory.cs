@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DisenioZapata_V1.Model
 {
-    interface I_Fuerzas_Modelo_Factory
+    interface IFuerzas_Modelo_Factory
     {
 
     }

@@ -10,6 +10,7 @@
     
     <Window.Resources>
         <local1:Fuerzas_Modelo x:Key="Datos_Fuerza"/>
+        
     </Window.Resources>
     
     <Grid RenderTransformOrigin="0.483,0.162">

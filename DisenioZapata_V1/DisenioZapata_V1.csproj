@@ -77,6 +77,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\BuilderZapatas.cs" />
+    <Compile Include="ETipoZapata.cs" />
+    <Compile Include="Model\Modelo_Estructura.cs" />
+    <Compile Include="View\ListViewPage1.xaml.cs">
+      <DependentUpon>ListViewPage1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
@@ -92,6 +98,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ListViewPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
     <Page Include="View\Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,7 +114,7 @@
     <Compile Include="Model\Fuerzas_Modelo.cs" />
     <Compile Include="Model\ICalculo.cs" />
     <Compile Include="Model\ILectorFuerzas.cs" />
-    <Compile Include="Model\I_Fuerzas_Modelo_Factory.cs" />
+    <Compile Include="Model\IFuerzas_Modelo_Factory.cs" />
     <Compile Include="Model\Lector_Fuerzas_Etabs.cs" />
     <Compile Include="Model\NotificationObject.cs" />
     <Compile Include="Model\Zapata.cs" />
