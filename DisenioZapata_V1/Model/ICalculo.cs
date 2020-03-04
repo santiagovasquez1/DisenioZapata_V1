@@ -10,5 +10,6 @@ namespace DisenioZapata_V1.Model
     {
         Zapata Zapata { get; set; }
         void Calculo_Clase();
+        void Chequeos_Clase();
     }
 }

@@ -36,13 +36,22 @@
                 <MenuItem Name="Editar"
                                        Header="Editar proyecto" />
                 <MenuItem Name="Ver"
-                                      Header="Ver" />
+                                      Header="Ver" >
+                    <MenuItem Name="Dimensionamiento"
+                                          Header="Dimensionamiento Zapatas"/>
+                    <MenuItem Name="CortanteUnidireccional"
+                                          Header="Cortante unidireccional Zapatas"/>
+                    <MenuItem Name="CortanteBidireccional"
+                                          Header="Cortante bidireccional Zapatas"/>
+                    <MenuItem Name="Flexion"
+                                          Header="Flexion en Zapatas"/>
+                </MenuItem>
                 <MenuItem Name="Ayuda"
                                       Header="Ayuda" >
                     <MenuItem Name="Acerca"
                                           Header="Acerca de Diseño de Zapates"/>
                 </MenuItem>
             </Menu>
-        </Grid>
+        </Grid>        
     </Grid>
 </Window>

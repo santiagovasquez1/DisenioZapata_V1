@@ -20,5 +20,10 @@ namespace DisenioZapata_V1.Model
         {
             throw new NotImplementedException();
         }
+
+        public void Chequeos_Clase()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

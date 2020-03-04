@@ -33,5 +33,10 @@ namespace DisenioZapata_V1.Model
                 
             }
         }
+
+        public void Chequeos_Clase()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

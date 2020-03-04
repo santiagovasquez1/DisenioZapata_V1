@@ -13,5 +13,9 @@ namespace DisenioZapata_V1
     /// </summary>
     public partial class App : Application
     {
+        private void MenuItem_MouseDown(object sender , System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
