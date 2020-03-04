@@ -52,8 +52,8 @@ namespace DisenioZapata_V1.Model
                         Fx = float.Parse(Datos[3]) ,
                         Fy = float.Parse(Datos[3]) ,
                         Fz = float.Parse(Datos[4]) ,
-                        Mx = float.Parse(Datos[5]) ,
-                        My = float.Parse(Datos[6]) ,
+                        My = float.Parse(Datos[5]) ,
+                        Mx = float.Parse(Datos[6]) ,
                         Mz = float.Parse(Datos[7]) ,
                     };
                     Fuerzas.Add(fuerza);
