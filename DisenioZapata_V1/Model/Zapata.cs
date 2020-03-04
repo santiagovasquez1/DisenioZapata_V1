@@ -9,7 +9,8 @@ namespace DisenioZapata_V1.Model
 {
    public abstract class Zapata:NotificationObject
     {
-		private string label;
+        #region Variables_que_cambian
+        private string label;
 
 		public string Label
 		{
@@ -67,7 +68,19 @@ namespace DisenioZapata_V1.Model
 			get { return point; }
 			set { point = value; }
 		}
+		private float area;
+
+		public float Area
+		{
+			get { return area; }
+			set { area = value;OnPropertyChanged(); }
+		}
+		#endregion
 		public List<Fuerzas_Modelo> Fuerzas { get; set; }
+		public void CalcArea()
+		{
+			Area = L2 * L2;
+		}
 		public override string ToString()
 		{
 			return $"ZapataId {Label}";

@@ -17,5 +17,19 @@
             <Setter Property="Background" Value="#2D2D30"/>
             <Setter Property="BorderBrush" Value="#2D2D30"/>
         </Style>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property ="Width" Value="Auto"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="1.2"/>
+            <Setter Property="Foreground" Value="Azure"/>
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Margin" Value ="0,0,0,0"/>
+        </Style>
     </Application.Resources>
 </Application>

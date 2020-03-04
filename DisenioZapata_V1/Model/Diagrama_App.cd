@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="DisenioZapata_V1.Model.CortanteBiridireccional">
-    <Position X="0.75" Y="5.75" Width="1.5" />
+  <Class Name="DisenioZapata_V1.Model.CortanteBiridireccional" Collapsed="true">
+    <Position X="0.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAEAAAAAAAAA=</HashCode>
       <FileName>Model\CortanteBiridireccional.cs</FileName>
@@ -11,10 +11,10 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DisenioZapata_V1.Model.CortanteUnidireccional" BaseTypeListCollapsed="true">
+  <Class Name="DisenioZapata_V1.Model.CortanteUnidireccional" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="0.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAEAAAAAAAAQAAAAEAAQAAAACA=</HashCode>
       <FileName>Model\CortanteUnidireccional.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -22,10 +22,10 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DisenioZapata_V1.Model.Dimensionamiento" BaseTypeListCollapsed="true">
-    <Position X="0.75" Y="0.5" Width="1.5" />
+  <Class Name="DisenioZapata_V1.Model.Dimensionamiento" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AoACAAAAAAACgFAAEAAUAAAAABAAQAAQAEAAEAAEAgA=</HashCode>
       <FileName>Model\Dimensionamiento.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -55,7 +55,7 @@
   <Class Name="DisenioZapata_V1.Model.Zapata">
     <Position X="3.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgCAEAAAgBAAAAAQABAAAAAQAAgAQBAIAEAAAAI=</HashCode>
+      <HashCode>AAAAAgCAEAAAgBAEAAAQABAAAAAQAAgAQBAIAEAAAAI=</HashCode>
       <FileName>Model\Zapata.cs</FileName>
     </TypeIdentifier>
   </Class>

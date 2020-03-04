@@ -15,10 +15,23 @@ namespace DisenioZapata_V1.Model
             get { return zapata; }
             set { zapata = value; }
         }
-
+        public List<float> VuX { get; set; }
+        public List<float> VuY { get; set; }
+        public List<float> euX { get; set; }
+        public List<float> euY { get; set; }
+        public List<float> Fvc { get; set; }
         public void Calculo_Clase()
         {
-            throw new NotImplementedException();
+            VuX=new List<float>();
+            VuY=new List<float>();
+            euX=new List<float>();
+            euY=new List<float>();
+            Fvc = new List<float>();
+
+            foreach (var fuerza in zapata.Fuerzas)
+            {
+                
+            }
         }
     }
 }
