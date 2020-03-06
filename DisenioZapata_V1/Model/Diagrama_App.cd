@@ -3,7 +3,7 @@
   <Class Name="DisenioZapata_V1.Model.CortanteBiridireccional" Collapsed="true">
     <Position X="0.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAQAQAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAYAAAEAAAAAAAAQIQAAEAAgAAAACA=</HashCode>
       <FileName>Model\CortanteBiridireccional.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -76,9 +76,12 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AIAAggCAEAIAgBAEAAAQABAAAAAQAAhAwBAJAUAAAYM=</HashCode>
+      <HashCode>AIAAggCAEAIAgBAEAAAQABAAAAAQAAhAyBAJAUgAAYM=</HashCode>
       <FileName>Model\Zapata.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoColumna" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Calculos" />
     </ShowAsCollectionAssociation>
@@ -165,8 +168,15 @@
   <Enum Name="DisenioZapata_V1.ETipoZapata">
     <Position X="14.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAAAAABAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ETipoZapata.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DisenioZapata_V1.Model.ETipoColumnas" Collapsed="true">
+    <Position X="0.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ETipoColumnas.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

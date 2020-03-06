@@ -56,7 +56,7 @@ namespace DisenioZapata_V1
         private void Builder()
         {
             BuilderZapatas builder = new BuilderZapatas();
-            builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Concentrica, modelo_proyecto);
+            builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Aislada, modelo_proyecto);
         }
     }
 }

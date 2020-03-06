@@ -94,6 +94,13 @@ namespace DisenioZapata_V1.Model
             get { return area; }
             set { area = value; OnPropertyChanged(); }
         }
+        private ETipoColumnas tipoColumna;
+
+        public ETipoColumnas TipoColumna
+        {
+            get { return tipoColumna; }
+            set { tipoColumna = value; OnPropertyChanged(); }
+        }
 
         #endregion Variables_que_cambian
 

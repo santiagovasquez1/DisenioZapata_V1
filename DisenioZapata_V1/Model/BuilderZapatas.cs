@@ -27,7 +27,7 @@ namespace DisenioZapata_V1
             {
                 var FuerzasLabel = fuerzas.FindAll(x => x.PointLabel == Label).ToList();
                 var punto = modelo.Points.Find(x => x.Name == Label);
-                if(tipoZapata == ETipoZapata.Zapata_Concentrica)
+                if(tipoZapata == ETipoZapata.Zapata_Aislada)
                 {
                     zapatai = new Zapata_Concentrica(Label , punto , FuerzasLabel);
                 }

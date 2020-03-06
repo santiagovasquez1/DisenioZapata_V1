@@ -7,8 +7,8 @@ namespace DisenioZapata_V1
 {
     public enum ETipoZapata
     {
-        Zapata_Concentrica,
-        Zapata_Esquinera,
+        Zapata_Aislada,
+        Zapata_Continua,
         Zapata_Medianera
     }
 }
