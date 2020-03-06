@@ -83,6 +83,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\BuilderZapatas.cs" />
     <Compile Include="ETipoZapata.cs" />
+    <Compile Include="Model\ConstructorCalculos\ICalculoBuilder.cs" />
     <Compile Include="Model\ETipoColumnas.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
     <Compile Include="View\FuerzasPage.xaml.cs">
@@ -124,7 +125,7 @@
     <Compile Include="Model\Lector_Fuerzas_Etabs.cs" />
     <Compile Include="Model\NotificationObject.cs" />
     <Compile Include="Model\Zapata.cs" />
-    <Compile Include="Model\Zapata_Concentrica.cs" />
+    <Compile Include="Model\Zapata_Aislada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

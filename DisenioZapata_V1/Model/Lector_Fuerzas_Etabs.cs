@@ -2,17 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace DisenioZapata_V1.Model
 {
     public class Lector_Fuerzas_Etabs : ILectorFuerzas
     {
-        List<Fuerzas_Modelo> Fuerzas { get; set; }
+        private List<Fuerzas_Modelo> Fuerzas { get; set; }
         public ICommand OpenFileDialogCommand { get; set; }
 
         public Lector_Fuerzas_Etabs(string Ruta)
@@ -41,20 +37,20 @@ namespace DisenioZapata_V1.Model
             {
                 sline = Reader.ReadLine();
 
-                if (cont > 0 && sline!=null)
+                if (cont > 0 && sline != null)
                 {
                     var Datos = sline.Split(';');
                     fuerza = new Fuerzas_Modelo()
                     {
-                        Story = Datos[0] ,
-                        PointLabel = Datos[1] ,
-                        Load = Datos[2] ,
-                        Fx = float.Parse(Datos[3]) ,
-                        Fy = float.Parse(Datos[3]) ,
-                        Fz = float.Parse(Datos[4]) ,
-                        My = float.Parse(Datos[5]) ,
-                        Mx = float.Parse(Datos[6]) ,
-                        Mz = float.Parse(Datos[7]) ,
+                        Story = Datos[0],
+                        PointLabel = Datos[1],
+                        Load = Datos[2],
+                        Fx = Math.Abs(float.Parse(Datos[3])),
+                        Fy = Math.Abs(float.Parse(Datos[4])),
+                        Fz = Math.Abs(float.Parse(Datos[5])),
+                        My = Math.Abs(float.Parse(Datos[6])),
+                        Mx = Math.Abs(float.Parse(Datos[7])),
+                        Mz = Math.Abs(float.Parse(Datos[8])),
                     };
                     Fuerzas.Add(fuerza);
                 }

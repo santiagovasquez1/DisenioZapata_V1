@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="DisenioZapata_V1.Model.CortanteBiridireccional" Collapsed="true">
-    <Position X="0.75" Y="4.25" Width="1.5" />
+    <Position X="0.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAYAAAEAAAAAAAAQIQAAEAAgAAAACA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAA4BAAEAAAAAAAAQIQAAEAAgAAAACA=</HashCode>
       <FileName>Model\CortanteBiridireccional.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -42,13 +42,8 @@
   </Class>
   <Class Name="DisenioZapata_V1.Model.Flexion" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.75" Y="1.75" Width="1.5" />
-    <AssociationLine Name="Zapata" Type="DisenioZapata_V1.Model.Zapata">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.659" Y="0.225" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAQAQAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAEAAAAAAAAQAQAAEAAAAAAAAA=</HashCode>
       <FileName>Model\Flexion.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -64,43 +59,30 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DisenioZapata_V1.Model.Zapata">
-    <Position X="3.75" Y="2.75" Width="3.75" />
+  <Class Name="DisenioZapata_V1.Model.Zapata_Aislada">
+    <Position X="4" Y="5.75" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
-    <InheritanceLine Type="DisenioZapata_V1.Model.NotificationObject" FixedToPoint="true">
+    <InheritanceLine Type="DisenioZapata_V1.Model.Zapata" FixedToPoint="true">
       <Path>
-        <Point X="4.5" Y="1.062" />
-        <Point X="4.5" Y="2.75" />
+        <Point X="5" Y="3.941" />
+        <Point X="5" Y="5.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AIAAggCAEAIAgBAEAAAQABAAAAAQAAhAyBAJAUgAAYM=</HashCode>
-      <FileName>Model\Zapata.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="TipoColumna" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="Calculos" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="DisenioZapata_V1.Model.Zapata_Concentrica">
-    <Position X="9.25" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\Zapata_Concentrica.cs</FileName>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Zapata_Aislada.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DisenioZapata_V1.Model.Fuerzas_Modelo">
+  <Class Name="DisenioZapata_V1.Model.Fuerzas_Modelo" Collapsed="true">
     <Position X="9.25" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAQggAAAAAAEAIEABAAAAAAAEAAAAAAAAAAQAgAAAA=</HashCode>
       <FileName>Model\Fuerzas_Modelo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DisenioZapata_V1.Model.Lector_Fuerzas_Etabs">
+  <Class Name="DisenioZapata_V1.Model.Lector_Fuerzas_Etabs" Collapsed="true">
     <Position X="14.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAEgAAAAAAAEAAAAAAABAAAAAAAAA=</HashCode>
@@ -111,8 +93,8 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DisenioZapata_V1.Model.Modelo_Estructura">
-    <Position X="14.25" Y="4.5" Width="1.5" />
+  <Class Name="DisenioZapata_V1.Model.Modelo_Estructura" Collapsed="true">
+    <Position X="14.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Model\Modelo_Estructura.cs</FileName>
@@ -120,25 +102,17 @@
   </Class>
   <Class Name="DisenioZapata_V1.BuilderZapatas">
     <Position X="9.25" Y="5.25" Width="1.5" />
-    <AssociationLine Name="Zapatas" Type="DisenioZapata_V1.Model.Zapata">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.1" Y="-0.336" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <HashCode>QAIQACAACAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAABCA=</HashCode>
       <FileName>Model\BuilderZapatas.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Zapatas" />
-    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="DisenioZapata_V1.MainWindow">
-    <Position X="17.5" Y="2" Width="1.5" />
+  <Class Name="DisenioZapata_V1.MainWindow" Collapsed="true">
+    <Position X="18.5" Y="1.25" Width="1.5" />
     <AssociationLine Name="Lector" Type="DisenioZapata_V1.Model.ILectorFuerzas" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="18.562" Y="2" />
-        <Point X="18.562" Y="0.825" />
+        <Point X="19.562" Y="1.25" />
+        <Point X="19.562" Y="0.825" />
         <Point X="15.75" Y="0.825" />
       </Path>
     </AssociationLine>
@@ -150,6 +124,20 @@
       <Property Name="Lector" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DisenioZapata_V1.Model.Zapata" Collapsed="true">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAghCAEAIAgBAEAAAQABAAAAAQAAhAyBAJAUgAAYM=</HashCode>
+      <FileName>Model\Zapata.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoColumna" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Calculos" />
+      <Property Name="Fuerzas" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Interface Name="DisenioZapata_V1.Model.ICalculo" Collapsed="true">
     <Position X="7.75" Y="0.75" Width="1.5" />
@@ -172,8 +160,8 @@
       <FileName>ETipoZapata.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="DisenioZapata_V1.Model.ETipoColumnas" Collapsed="true">
-    <Position X="0.75" Y="5.25" Width="1.5" />
+  <Enum Name="DisenioZapata_V1.Model.ETipoColumnas">
+    <Position X="6.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ETipoColumnas.cs</FileName>

@@ -21,6 +21,11 @@ namespace DisenioZapata_V1.Model
         public float PhiVc { get; set; }
         public string ChequeoVu { get; set; }
 
+        public CortanteBiridireccional(Zapata zapata_I)
+        {
+            Zapata = zapata_I;
+        }
+
         public void Calculo_Clase()
         {
             Vu = new ObservableCollection<float>();

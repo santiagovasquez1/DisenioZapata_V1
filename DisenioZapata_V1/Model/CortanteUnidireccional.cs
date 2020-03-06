@@ -20,7 +20,10 @@ namespace DisenioZapata_V1.Model
         public List<float> euY { get; set; }
         public float PhiVc { get; set; }
         public string ChequeoCortante { get; set; }
-
+        public CortanteUnidireccional(Zapata zapata_I)
+        {
+            Zapata = zapata_I;
+        }
         public void Calculo_Clase()
         {
             VuX = new List<float>();
@@ -48,7 +51,7 @@ namespace DisenioZapata_V1.Model
 
         private float CalculoVu(float Lado1, float Lado2, float Dimension_Pedestal, float EsfuerzoMax, float r)
         {
-            float Vu = EsfuerzoMax * Lado1 * 1.4f * ((Lado1 / 2) - (Dimension_Pedestal / 2) - Zapata.H - r);
+            float Vu = EsfuerzoMax * Lado1 * 1.4f * ((Lado1 / 2) - (Dimension_Pedestal / 2) - (Zapata.H - r));
             return Vu;
         }
 
@@ -67,7 +70,7 @@ namespace DisenioZapata_V1.Model
         private string Mensaje_PhiVc()
         {
             float eumax = Math.Max(euX.Max(), euY.Max());
-            if (eumax * 1000 > PhiVc)
+            if (eumax/10 > PhiVc)
                 return ("Esfuerzos cortante superan el esfuerzo maximo del concreto");
             else
                 return ("Ok");

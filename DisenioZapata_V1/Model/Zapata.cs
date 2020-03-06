@@ -70,6 +70,22 @@ namespace DisenioZapata_V1.Model
             get { return fc; }
             set { fc = value; OnPropertyChanged(); }
         }
+        private float gammaConcreto;
+
+        public float GammaConcreto
+        {
+            get { return gammaConcreto; }
+            set { gammaConcreto = value; OnPropertyChanged(); }
+        }
+
+        private float pesopropio;
+
+        public float PesoPropio
+        {
+            get { return pesopropio; }
+            set { pesopropio = value; }
+        }
+
 
         private List<ICalculo> calculos;
 
@@ -110,7 +126,10 @@ namespace DisenioZapata_V1.Model
         {
             Area = L2 * L2;
         }
-
+        public void CalcPesoPropio()
+        {
+            PesoPropio = GammaConcreto * Area * H;
+        }
         public override string ToString()
         {
             return $"ZapataId {Label}";
@@ -175,5 +194,6 @@ namespace DisenioZapata_V1.Model
             }
             return calculoi;
         }
+        public abstract void SetCalculos();
     }
 }
