@@ -23,6 +23,9 @@ namespace PruebasUnitarias
             BuilderZapatas builder = new BuilderZapatas();
             builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Aislada, modelo_proyecto);
 
+            string Palabra = "dabalearrozalazorraelabad";
+            var prueba = Palindromo(Palabra);
+
             Zapata zapataTest = builder.Zapatas[0];
             zapataTest.L1 = 2.0f;
             zapataTest.L2 = 2.0f;
@@ -39,6 +42,23 @@ namespace PruebasUnitarias
             foreach (ICalculo calculo in zapataTest.Calculos)
             {
                 calculo.Calculo_Clase();
+            }
+        }
+
+        public bool Palindromo(string palabra)
+        {
+            string Temp = "";
+            for(int i = palabra.Length-1; i >= 0; i--)
+            {
+                Temp += palabra.Substring(i, 1);
+            }
+            if (Temp == palabra)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

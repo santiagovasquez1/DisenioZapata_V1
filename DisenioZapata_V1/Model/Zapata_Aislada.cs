@@ -20,7 +20,7 @@ namespace DisenioZapata_V1.Model
             CortanteUnidireccional cortanteUnidireccional = new CortanteUnidireccional(this);
             Flexion flexion = new Flexion(this);
 
-            Calculos.AddRange(new ICalculo[] { dimensionamiento, cortanteUnidireccional, cortanteBiridireccional, cortanteUnidireccional });
+            Calculos.AddRange(new ICalculo[] { dimensionamiento, cortanteUnidireccional, cortanteBiridireccional, flexion });
         }
     }
 }

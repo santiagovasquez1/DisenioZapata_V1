@@ -29,7 +29,7 @@ namespace DisenioZapata_V1.Model
             Muy = new List<float>();
             for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
             {
-                var Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminX[i], dimensionamiento.QminY[i] }.Min();
+                var Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminX[i], dimensionamiento.QminY[i] }.Max();
                 Mux.Add(CalcMu(Zapata.L2, Zapata.L1, Zapata.LcX, Qmax));
                 Muy.Add(CalcMu(Zapata.L1, Zapata.L2, Zapata.LcY, Qmax));
             }

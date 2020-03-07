@@ -2,16 +2,11 @@
 using DisenioZapata_V1;
 using DisenioZapata_V1.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PruebasUnitarias
 {
     [TestClass]
-    class ZapataTest
+    internal class ZapataTest
     {
         public ILectorFuerzas Lector { get; set; }
         public Modelo_Etabs modelo_proyecto { get; set; }
@@ -30,8 +25,6 @@ namespace PruebasUnitarias
 
             Zapata zapataTest = builder.Zapatas[0];
             zapataTest.SetCalculos();
-
-
         }
     }
 }

@@ -56,9 +56,9 @@ namespace DisenioZapata_V1.Model
             float d, A1, A2, Ac, Vu;
 
             d = Zapata.H - Zapata.R;
-            A1 = Zapata.L2 * ((Zapata.L1 - d - Zapata.LcX) / 2);
-            A2 = (d - Zapata.LcX) * ((Zapata.L2 - Zapata.LcY - d) / 2);
-            Ac = A1 + A2;
+            A1 = Zapata.L1 * Zapata.L2;
+            A2 = (Zapata.LcX + d) * (Zapata.LcY + d);
+            Ac = A1 - A2;
             Vu = 1.4f * Qmax * Ac;
             return Vu;
         }
@@ -83,7 +83,7 @@ namespace DisenioZapata_V1.Model
             float asd, b0, phivc;
             float d = Zapata.H - Zapata.R;
 
-            b0 = 2 * (Zapata.LcX + d) + 2 * (Zapata.LcY + d);
+            b0 = (2 * (Zapata.LcX + d) + 2 * (Zapata.LcY + d)) * 100;
             asd = 0;
 
             switch (Zapata.TipoColumna)
