@@ -101,7 +101,7 @@ namespace DisenioZapata_V1.Model
                     break;
             }
 
-            phivc = 0.75f * 0.27f * (2f + (asd / b0)) * (float)Math.Sqrt(Zapata.Fc);
+            phivc = 0.75f * 0.27f * (2f + (asd*d*100 / b0)) * (float)Math.Sqrt(Zapata.Fc);
             return phivc;
         }
     }

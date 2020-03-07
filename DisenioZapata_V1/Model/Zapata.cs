@@ -70,6 +70,14 @@ namespace DisenioZapata_V1.Model
             get { return fc; }
             set { fc = value; OnPropertyChanged(); }
         }
+        private float fy;
+
+        public float Fy
+        {
+            get { return fy; }
+            set { fy = value; OnPropertyChanged(); }
+        }
+
         private float gammaConcreto;
 
         public float GammaConcreto

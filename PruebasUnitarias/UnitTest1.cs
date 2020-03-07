@@ -34,6 +34,7 @@ namespace PruebasUnitarias
             zapataTest.H = 0.30f;
             zapataTest.R = 0.07f;
             zapataTest.Fc = 210f;
+            zapataTest.Fy = 4220f;
             zapataTest.GammaConcreto = 2.4f;
             zapataTest.CalcArea();
             zapataTest.CalcPesoPropio();
