@@ -37,7 +37,7 @@ namespace DisenioZapata_V1
 
             MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToDimensiones", (a) =>
             {
-                Main.Content = new PropiedadesPage();
+                MainProp.Content = new PropiedadesPage();
             });
         }
       

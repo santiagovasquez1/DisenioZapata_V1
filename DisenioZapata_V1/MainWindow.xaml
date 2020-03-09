@@ -57,10 +57,21 @@
                 </MenuItem>
             </Menu>
         </Grid>
-        <ListBox 
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ListBox 
             ItemsSource="{Binding Zapatas,Mode=TwoWay}"
-            SelectedItem="{Binding Zapata_Seleccionada,Mode=TwoWay}"
-            Grid.Row="1"></ListBox>
+            SelectedItem="{Binding Zapata_Seleccionada,Mode=TwoWay}">                
+            </ListBox>
+            <Frame x:Name="MainProp"
+                        Background="#2D2D30"
+                        Grid.Row="1"
+                        NavigationUIVisibility="Hidden"/>
+        </Grid>
+
         <Frame x:Name="Main"
                         Background="AliceBlue"
                         Grid.Column="1"

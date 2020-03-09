@@ -1,6 +1,7 @@
 ﻿using B_Lectura_E2K.Entidades;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DisenioZapata_V1.Model
 {
@@ -21,7 +22,13 @@ namespace DisenioZapata_V1.Model
         public float L1
         {
             get { return l1; }
-            set { l1 = value; OnPropertyChanged(); }
+            set
+            {
+                l1 = value;
+                CalcArea(L1, L2);
+                CalcPesoPropio();
+                OnPropertyChanged();
+            }
         }
 
         private float l2;
@@ -29,7 +36,7 @@ namespace DisenioZapata_V1.Model
         public float L2
         {
             get { return l2; }
-            set { l2 = value; OnPropertyChanged(); }
+            set { l2 = value; CalcArea(L1, L2); CalcPesoPropio(); OnPropertyChanged(); }
         }
 
         private float h;
@@ -37,7 +44,7 @@ namespace DisenioZapata_V1.Model
         public float H
         {
             get { return h; }
-            set { h = value; OnPropertyChanged(); }
+            set { h = value; CalcPesoPropio(); OnPropertyChanged(); }
         }
 
         private float lcx;
@@ -71,6 +78,7 @@ namespace DisenioZapata_V1.Model
             get { return fc; }
             set { fc = value; OnPropertyChanged(); }
         }
+
         private float fy;
 
         public float Fy
@@ -92,9 +100,16 @@ namespace DisenioZapata_V1.Model
         public float PesoPropio
         {
             get { return pesopropio; }
-            set { pesopropio = value; }
+            set { pesopropio = value; OnPropertyChanged(); }
         }
 
+        private Suelo suelo;
+
+        public Suelo Suelo
+        {
+            get { return suelo; }
+            set { suelo = value; CalcArea(); OnPropertyChanged(); }
+        }
 
         private List<ICalculo> calculos;
 
@@ -119,6 +134,7 @@ namespace DisenioZapata_V1.Model
             get { return area; }
             set { area = value; OnPropertyChanged(); }
         }
+
         private ETipoColumnas tipoColumna;
 
         public ETipoColumnas TipoColumna
@@ -128,22 +144,37 @@ namespace DisenioZapata_V1.Model
         }
 
         #endregion Variables_que_cambian
+
         private List<Fuerzas_Modelo> fuerzas;
 
         public List<Fuerzas_Modelo> Fuerzas
         {
             get { return fuerzas; }
-            set { fuerzas = value;OnPropertyChanged(); }
+            set { fuerzas = value; OnPropertyChanged(); }
         }
 
         public void CalcArea()
         {
-            Area = L2 * L2;
+            if (Fuerzas != null)
+            {
+                float Pmax = (float)Fuerzas.Select(x => x.Fz).Max();
+                Area = Pmax / Suelo.SigmaAdmi;
+                CalcLado();
+            }
         }
+
+        public void CalcArea(float L1, float L2)
+        {
+            if (L1 > 0 & L2 > 0)
+                Area = L1 * L2;
+        }
+
         public void CalcPesoPropio()
         {
-            PesoPropio = GammaConcreto * Area * H;
+            if (L1 > 0 & L2 > 0 & H > 0)
+                PesoPropio = GammaConcreto * L1 * L2 * H;
         }
+
         public override string ToString()
         {
             return $"ZapataId {Label}";
@@ -208,6 +239,13 @@ namespace DisenioZapata_V1.Model
             }
             return calculoi;
         }
+
+        private void CalcLado()
+        {
+            L1 = (float)Math.Sqrt(Area);
+            L2 = (float)Math.Sqrt(Area);
+        }
+
         public abstract void SetCalculos();
     }
 }

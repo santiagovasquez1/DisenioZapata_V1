@@ -1,16 +1,11 @@
 ﻿using B_Lectura_E2K.Entidades;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xamarin.Forms;
 
 namespace DisenioZapata_V1.Model
 {
-   public class Datos_Zapatas:NotificationObject
+    public class Datos_Zapatas : NotificationObject
     {
         public ILectorFuerzas Lector { get; set; }
         public Modelo_Etabs modelo_proyecto { get; set; }
@@ -23,35 +18,70 @@ namespace DisenioZapata_V1.Model
             set { zapatas = value; OnPropertyChanged(); }
         }
 
+        private Dimensionamiento dimensionamiento;
+
+        public Dimensionamiento Dimensionamiento
+        {
+            get { return dimensionamiento; }
+            set
+            {
+                dimensionamiento = value;
+                OnPropertyChanged();
+            }
+        }
+
         private Zapata zapataSeleccionada;
 
         public Zapata Zapata_Seleccionada
         {
             get { return zapataSeleccionada; }
-            set { zapataSeleccionada = value; OnPropertyChanged(); }
+            set { zapataSeleccionada = value; OnPropertyChanged();SetDimensionamiento(); }
         }
+        private Suelo suelo;
+
+        public Suelo Suelo
+        {
+            get { return suelo; }
+            set { suelo = value;OnPropertyChanged(); }
+        }
+
+
         public MiComando NuevoProyectoCommand { get; set; }
         public MiComando FuerzasProyectoCommand { get; set; }
         public MiComando PropiedadesProyectoCommand { get; set; }
+
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
             FuerzasProyectoCommand = new MiComando(FuerzasProyectoCommandExecute);
-            PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);
+            PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);           
+        }
+        private void SetDimensionamiento()
+        {
+            zapataSeleccionada.SetCalculos();
+            Dimensionamiento = zapataSeleccionada.ReturnDimensionamiento();
+            Dimensionamiento.Calculo_Clase();
         }
         private void NuevoProyectoCommandExecute()
         {
             OpenModel();
             AbrirFuerzas();
             Builder();
+            PropiedadesProyectoCommandExecute();
         }
+
         private void FuerzasProyectoCommandExecute()
         {
             MessagingCenter.Send(this, "GoToFuerzas");
         }
+
         private void PropiedadesProyectoCommandExecute()
         {
             MessagingCenter.Send(this, "GoToDimensiones");
+        }
+        private void SetSuelo()
+        {
+            //Suelo = new Suelo("D", 12f);
         }
         private void OpenModel()
         {
@@ -61,6 +91,7 @@ namespace DisenioZapata_V1.Model
             string Ruta = openFileDialog.FileName;
             modelo_proyecto = new Modelo_Estructura(Ruta).Modelo;
         }
+
         private void AbrirFuerzas()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
