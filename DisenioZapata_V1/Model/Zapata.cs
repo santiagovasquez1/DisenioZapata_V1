@@ -1,5 +1,6 @@
 ﻿using B_Lectura_E2K.Entidades;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DisenioZapata_V1.Model
 {
@@ -127,8 +128,13 @@ namespace DisenioZapata_V1.Model
         }
 
         #endregion Variables_que_cambian
+        private List<Fuerzas_Modelo> fuerzas;
 
-        public List<Fuerzas_Modelo> Fuerzas { get; set; }
+        public List<Fuerzas_Modelo> Fuerzas
+        {
+            get { return fuerzas; }
+            set { fuerzas = value;OnPropertyChanged(); }
+        }
 
         public void CalcArea()
         {

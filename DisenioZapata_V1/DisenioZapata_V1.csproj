@@ -84,13 +84,18 @@
     <Compile Include="Model\BuilderZapatas.cs" />
     <Compile Include="ETipoZapata.cs" />
     <Compile Include="Model\ConstructorCalculos\ICalculoBuilder.cs" />
+    <Compile Include="Model\Datos_Zapatas.cs" />
     <Compile Include="Model\ETipoColumnas.cs" />
+    <Compile Include="Model\MiComando.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
     <Compile Include="View\FuerzasPage.xaml.cs">
       <DependentUpon>FuerzasPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PlantaZapatasView.xaml.cs">
       <DependentUpon>PlantaZapatasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PropiedadesPage.xaml.cs">
+      <DependentUpon>PropiedadesPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PlantaZapatasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PropiedadesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

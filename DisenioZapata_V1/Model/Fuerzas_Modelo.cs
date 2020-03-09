@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DisenioZapata_V1.Model
 {
-   public  class Fuerzas_Modelo
+   public  class Fuerzas_Modelo:NotificationObject
     {
         public string Story { get; set; }
         public string PointLabel { get; set; }

@@ -4,39 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DisenioZapata_V1.View"
+      xmlns:local1="clr-namespace:DisenioZapata_V1.Model"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
-
-    <Grid Background="Azure">
-        <DataGrid Margin="0,0,0,0" 
-                  BorderThickness="5"
-                  BorderBrush="#00304F">
-            <DataGrid.Columns >
-                <DataGridTextColumn Header="Point"                                     
-                                    IsReadOnly="True"/>
-                <DataGridTextColumn Header="Load"
-                                    IsReadOnly="True"/>
-                <DataGridTextColumn Header="Fx (Tonf)" 
-                                    Width="Auto"
-                                    IsReadOnly="True"/>
-                <DataGridTextColumn Header="Fy (Tonf)"     
-                                    Width="Auto"
-                                    IsReadOnly="True"/>
-                <DataGridTextColumn Header="Fz (Tonf)"  
-                                    Width="Auto"
-                                    IsReadOnly="True"/>
-                <DataGridTextColumn Header="Mx (Tonf-m)" 
-                                    Width="Auto"
-                                    IsReadOnly="True"/>
-                <DataGridTextColumn Header="My (Tonf-m)"
-                                    Width="Auto"
-                                    IsReadOnly="True"/>
-                <DataGridTextColumn Header="Mz (Tonf-m)"       
-                                    Width="Auto"
-                                    IsReadOnly="True"/>                
-            </DataGrid.Columns>     
-            
+    
+    <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
+        Background="Azure">
+        <DataGrid  ItemsSource="{Binding Zapata_Seleccionada.Fuerzas, Mode=OneWay}"
+                            Margin="0,0,0,0" 
+                            BorderThickness="5"
+                            BorderBrush="#2D2D30">            
         </DataGrid>
     </Grid>
 </Page>

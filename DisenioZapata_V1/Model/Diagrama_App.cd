@@ -43,7 +43,7 @@
   <Class Name="DisenioZapata_V1.Model.Flexion" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="6.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAMACBAAAAAQAAAAAAAEAAAAAAAAQAQAAEAAAAAAAAg=</HashCode>
+      <HashCode>AAMACBAAAAAQAAAAAAAEAAAAAAAQQAQAAEAAAAAAAAg=</HashCode>
       <FileName>Model\Flexion.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -117,7 +117,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAQgAAAAAgAAAAAIAAAAAAAg=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

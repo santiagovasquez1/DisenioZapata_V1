@@ -9,11 +9,11 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-        <local1:Fuerzas_Modelo x:Key="Datos_Fuerza"/>
 
     </Window.Resources>
 
-    <Grid RenderTransformOrigin="0.483,0.162">
+    <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
+        RenderTransformOrigin="0.483,0.162">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="28*"/>
@@ -30,15 +30,19 @@
                                           Header="Abrir proyecto" />
                     <MenuItem Name="Nuevo"
                                          Header="Nuevo proyecto"
-                                         Click="AbrirClick"/>
+                                         Command="{Binding NuevoProyectoCommand}"/>
                 </MenuItem>
 
                 <MenuItem Name="Editar"
                                        Header="Editar proyecto" />
                 <MenuItem Name="Ver"
                                       Header="Ver" >
+                    <MenuItem Name="Fuerzas"
+                                          Header="Fuerzas Zapatas"
+                                          Command="{Binding FuerzasProyectoCommand}"/>
                     <MenuItem Name="Dimensionamiento"
-                                          Header="Dimensionamiento Zapatas"/>
+                                          Header="Dimensionamiento Zapatas"
+                                          Command="{Binding PropiedadesProyectoCommand}"/>
                     <MenuItem Name="CortanteUnidireccional"
                                           Header="Cortante unidireccional Zapatas"/>
                     <MenuItem Name="CortanteBidireccional"
@@ -53,5 +57,14 @@
                 </MenuItem>
             </Menu>
         </Grid>
+        <ListBox 
+            ItemsSource="{Binding Zapatas,Mode=TwoWay}"
+            SelectedItem="{Binding Zapata_Seleccionada,Mode=TwoWay}"
+            Grid.Row="1"></ListBox>
+        <Frame x:Name="Main"
+                        Background="AliceBlue"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

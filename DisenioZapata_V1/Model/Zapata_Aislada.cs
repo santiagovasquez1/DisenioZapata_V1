@@ -1,5 +1,6 @@
 ﻿using B_Lectura_E2K.Entidades;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DisenioZapata_V1.Model
 {

@@ -1,5 +1,6 @@
 ﻿using B_Lectura_E2K.Entidades;
 using DisenioZapata_V1.Model;
+using DisenioZapata_V1.View;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xamarin.Forms;
 
 namespace DisenioZapata_V1
 {
@@ -28,35 +30,16 @@ namespace DisenioZapata_V1
         public MainWindow()
         {
             InitializeComponent();
-        }
-        private void AbrirClick(object sender , RoutedEventArgs e)
-        {
-            OpenModel();
-            AbrirFuerzas();
-            Builder();
-        }
-        private void OpenModel()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Modelo Estructural";
-            openFileDialog.ShowDialog();
-            string Ruta = openFileDialog.FileName;
-            modelo_proyecto = new Modelo_Estructura(Ruta).Modelo;
-        }
-        private void AbrirFuerzas()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "csv |*.csv";
-            openFileDialog.Title = "Reacciones modelo";
-            openFileDialog.ShowDialog();
-            string Ruta = openFileDialog.FileName;
-            Lector = new Lector_Fuerzas_Etabs(Ruta);
-        }
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToFuerzas", (a) =>
+            {
+                Main.Content = new Page1();               
+            });
 
-        private void Builder()
-        {
-            BuilderZapatas builder = new BuilderZapatas();
-            builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Aislada, modelo_proyecto);
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToDimensiones", (a) =>
+            {
+                Main.Content = new PropiedadesPage();
+            });
         }
+      
     }
 }

@@ -2,15 +2,16 @@
 using DisenioZapata_V1.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace DisenioZapata_V1
 {
     public class BuilderZapatas : NotificationObject
     {
-        private List<Zapata> zapatas;
+        private ObservableCollection<Zapata> zapatas;
 
-        public List<Zapata> Zapatas
+        public ObservableCollection<Zapata> Zapatas
         {
             get { return zapatas; }
             set { zapatas = value; OnPropertyChanged(); }
@@ -23,7 +24,7 @@ namespace DisenioZapata_V1
 
         public void BuildZapatas(List<Fuerzas_Modelo> fuerzas, ETipoZapata tipoZapata, Modelo_Etabs modelo)
         {
-            zapatas = new List<Zapata>();
+            zapatas = new ObservableCollection<Zapata>();
             Zapata zapatai = null;
             var PuntosI = fuerzas.Select(x => x.PointLabel).Distinct().ToList();
             PuntosLimite(PuntosI, modelo);
