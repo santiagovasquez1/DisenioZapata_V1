@@ -24,5 +24,6 @@ namespace DisenioZapata_V1.View
         {
             InitializeComponent();
         }
+
     }
 }

@@ -42,9 +42,13 @@ namespace DisenioZapata_V1
 
             MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToPresiones", (a) =>
             {
-                Main.Content = new DatosPresionesPAge();
+                Main.Content = new DatosPresionesPage();
             });
         }
-      
+
+        private void PresionesOnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

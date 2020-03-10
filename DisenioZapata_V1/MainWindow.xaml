@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DisenioZapata_V1"
         xmlns:local1="clr-namespace:DisenioZapata_V1.Model"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="587" Width="1269">
 
     <Window.Resources>
 
@@ -64,7 +64,7 @@
             </Grid.RowDefinitions>
             <ListBox 
             ItemsSource="{Binding Zapatas,Mode=TwoWay}"
-            SelectedItem="{Binding Zapata_Seleccionada,Mode=TwoWay}">                
+            SelectedItem="{Binding Zapata_Seleccionada,Mode=TwoWay}">
             </ListBox>
             <Frame x:Name="MainProp"
                         Background="#2D2D30"

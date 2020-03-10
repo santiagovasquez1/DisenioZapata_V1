@@ -46,7 +46,9 @@
             <Style TargetType="{x:Type DataGridCell}">
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontFamily" Value="Verdana"/>
-                <Setter Property="ContentStringFormat" Value="{Binding StringFormat='{}{0:0.00}'}"/>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Text" Value="{Binding  StringFormat='{}{0:0.00}'}"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
