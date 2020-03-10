@@ -42,7 +42,7 @@
                                           Command="{Binding FuerzasProyectoCommand}"/>
                     <MenuItem Name="Dimensionamiento"
                                           Header="Dimensionamiento Zapatas"
-                                          Command="{Binding PropiedadesProyectoCommand}"/>
+                                          Command="{Binding DatosPresionesCommand}"/>
                     <MenuItem Name="CortanteUnidireccional"
                                           Header="Cortante unidireccional Zapatas"/>
                     <MenuItem Name="CortanteBidireccional"

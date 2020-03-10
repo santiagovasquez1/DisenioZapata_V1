@@ -18,49 +18,66 @@ namespace DisenioZapata_V1.Model
             set { zapatas = value; OnPropertyChanged(); }
         }
 
-        private Dimensionamiento dimensionamiento;
+        private ObservableCollection<DatosPresiones> presiones;
 
-        public Dimensionamiento Dimensionamiento
+        public ObservableCollection<DatosPresiones> Presiones
         {
-            get { return dimensionamiento; }
-            set
-            {
-                dimensionamiento = value;
-                OnPropertyChanged();
-            }
+            get { return presiones; }
+            set { presiones = value; OnPropertyChanged(); }
         }
 
         private Zapata zapataSeleccionada;
 
         public Zapata Zapata_Seleccionada
         {
-            get { return zapataSeleccionada; }
-            set { zapataSeleccionada = value; OnPropertyChanged();SetDimensionamiento(); }
+            get { return zapataSeleccionada; SetPresiones(); }
+            set { zapataSeleccionada = value; OnPropertyChanged(); SetPresiones(); }
         }
+
         private Suelo suelo;
 
         public Suelo Suelo
         {
             get { return suelo; }
-            set { suelo = value;OnPropertyChanged(); }
+            set { suelo = value; OnPropertyChanged(); }
         }
-
 
         public MiComando NuevoProyectoCommand { get; set; }
         public MiComando FuerzasProyectoCommand { get; set; }
         public MiComando PropiedadesProyectoCommand { get; set; }
+        public MiComando DatosPresionesCommand { get; set; }
 
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
             FuerzasProyectoCommand = new MiComando(FuerzasProyectoCommandExecute);
-            PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);           
+            PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);
+            DatosPresionesCommand = new MiComando(DatosPresionesCommandExecute);
         }
-        private void SetDimensionamiento()
+
+        private void SetPresiones()
         {
-            zapataSeleccionada.SetCalculos();
-            Dimensionamiento = zapataSeleccionada.ReturnDimensionamiento();
-            Dimensionamiento.Calculo_Clase();
+
+            StartCalculo(Zapata_Seleccionada, "Dimensionamiento");
+            Dimensionamiento Datos_Dim = Zapata_Seleccionada.ReturnDimensionamiento();
+            Presiones = new ObservableCollection<DatosPresiones>();
+
+            for (int i = 0; i < Datos_Dim.Ex.Count; i++)
+            {
+                DatosPresiones datoi = new DatosPresiones(Datos_Dim.QmaxX[i], Datos_Dim.QmaxY[i], Datos_Dim.Ex[i], Datos_Dim.Ey[i]);
+                Presiones.Add(datoi);
+            }
+        }
+        private void StartCalculo(Zapata zapata, string NameCalculo)
+        {
+            foreach (var Calculo in zapata.Calculos)
+            {
+                var Type = Calculo.GetType().Name;
+                if (Type == NameCalculo)
+                {
+                    Calculo.Calculo_Clase();
+                }
+            }
         }
         private void NuevoProyectoCommandExecute()
         {
@@ -79,10 +96,16 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToDimensiones");
         }
+        private void DatosPresionesCommandExecute()
+        {
+            MessagingCenter.Send(this, "GoToPresiones");
+        }
+
         private void SetSuelo()
         {
             //Suelo = new Suelo("D", 12f);
         }
+
         private void OpenModel()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -107,6 +130,49 @@ namespace DisenioZapata_V1.Model
             BuilderZapatas builder = new BuilderZapatas();
             builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Aislada, modelo_proyecto);
             Zapatas = builder.Zapatas;
+        }
+    }
+
+    public class DatosPresiones : NotificationObject
+    {
+        private float ex;
+
+        public float Ex
+        {
+            get { return ex; }
+            set { ex = value; OnPropertyChanged(); }
+        }
+
+        private float ey;
+
+        public float Ey
+        {
+            get { return ey; }
+            set { ey = value; OnPropertyChanged(); }
+        }
+
+        private float qx;
+
+        public float Qx
+        {
+            get { return qx; }
+            set { qx = value; OnPropertyChanged(); }
+        }
+
+        private float qy;
+
+        public float Qy
+        {
+            get { return qy; }
+            set { qy = value; OnPropertyChanged(); }
+        }
+
+        public DatosPresiones(float qx, float qy, float ex, float ey)
+        {
+            Ex = ex;
+            Ey = ey;
+            Qx = qx;
+            Qy = qy;
         }
     }
 }

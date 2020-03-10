@@ -89,6 +89,9 @@
     <Compile Include="Model\MiComando.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
     <Compile Include="Model\Suelo.cs" />
+    <Compile Include="View\DatosPresionesPAge.xaml.cs">
+      <DependentUpon>DatosPresionesPAge.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FuerzasPage.xaml.cs">
       <DependentUpon>FuerzasPage.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DatosPresionesPAge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FuerzasPage.xaml">
       <SubType>Designer</SubType>

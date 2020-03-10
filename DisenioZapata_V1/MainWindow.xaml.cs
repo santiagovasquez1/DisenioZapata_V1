@@ -39,6 +39,11 @@ namespace DisenioZapata_V1
             {
                 MainProp.Content = new PropiedadesPage();
             });
+
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToPresiones", (a) =>
+            {
+                Main.Content = new DatosPresionesPAge();
+            });
         }
       
     }
