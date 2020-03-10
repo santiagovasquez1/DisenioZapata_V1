@@ -95,6 +95,9 @@
     <Compile Include="View\PlantaZapatasView.xaml.cs">
       <DependentUpon>PlantaZapatasView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PresionesSueloPage.xaml.cs">
+      <DependentUpon>PresionesSueloPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PropiedadesPage.xaml.cs">
       <DependentUpon>PropiedadesPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PlantaZapatasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PresionesSueloPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

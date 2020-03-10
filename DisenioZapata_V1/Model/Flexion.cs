@@ -46,18 +46,18 @@ namespace DisenioZapata_V1.Model
 
         public void Calculo_Clase()
         {
-            Dimensionamiento dimensionamiento = Zapata.ReturnDimensionamiento();
-            Mux = new List<float>();
-            Muy = new List<float>();
-            for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
-            {
-                var Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminX[i], dimensionamiento.QminY[i] }.Max();
-                Mux.Add(CalcMu(Zapata.L2, Zapata.L1, Zapata.LcX, Qmax));
-                Muy.Add(CalcMu(Zapata.L1, Zapata.L2, Zapata.LcY, Qmax));
-            }
-            Asmin = CalcAsMin();
-            AsreqX = CalcAsReq(Mux.Max());
-            AsreqY = CalcAsReq(Mux.Max());
+            //Dimensionamiento dimensionamiento = Zapata.ReturnDimensionamiento();
+            //Mux = new List<float>();
+            //Muy = new List<float>();
+            //for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
+            //{
+            //    var Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminX[i], dimensionamiento.QminY[i] }.Max();
+            //    Mux.Add(CalcMu(Zapata.L2, Zapata.L1, Zapata.LcX, Qmax));
+            //    Muy.Add(CalcMu(Zapata.L1, Zapata.L2, Zapata.LcY, Qmax));
+            //}
+            //Asmin = CalcAsMin();
+            //AsreqX = CalcAsReq(Mux.Max());
+            //AsreqY = CalcAsReq(Mux.Max());
         }
 
         public void Chequeos_Clase()
@@ -104,6 +104,11 @@ namespace DisenioZapata_V1.Model
 
             AsDef = new float[] { As1, As2 }.Min();
             return AsDef;
+        }
+
+        public void Calculo_Clase(Fuerzas_Modelo Fuerza, float Qmax)
+        {
+            throw new NotImplementedException();
         }
     }
 }

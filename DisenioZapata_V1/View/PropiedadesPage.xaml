@@ -86,7 +86,7 @@
                                  Grid.Column="1" Height="35" VerticalAlignment="Top"/>
                 <Label Content="Tipo de zapata:" Margin="0" Height="35" VerticalAlignment="Top"
                               Grid.Row="8"/>
-                <TextBox Text="{Binding Zapata_Seleccionada.TipoColumna,StringFormat='{}{0:0.00}',Mode=TwoWay}"
+                <TextBox Text="{Binding Zapata_Seleccionada.TipoColumna,Mode=TwoWay}"
                                  Grid.Row="8"
                                  Grid.Column="1" Height="35" VerticalAlignment="Top"/>
                 <Label Content="Esfuerzo admisible (Tonf/m²):" Margin="0" Height="35" VerticalAlignment="Top"

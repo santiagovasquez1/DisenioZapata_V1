@@ -1,0 +1,32 @@
+﻿<Page x:Class="DisenioZapata_V1.View.PresionesSuelo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DisenioZapata_V1.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PresionesSuelo">
+
+    <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
+        Background="Azure">
+        <DataGrid  ItemsSource="{Binding Dimensionamiento.Ex, Mode=OneWay}"
+                            Margin="0,0,0,0" 
+                            BorderThickness="5"
+                            BorderBrush="#2D2D30"
+                            ColumnWidth="Auto"
+                            CanUserReorderColumns="False"
+                            CanUserAddRows="False"
+                            CanUserDeleteRows="False"
+                            CanUserResizeColumns="False"
+                            ItemStringFormat="{}}{0:0.00}"
+                            IsReadOnly="True">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Ex }"
+                    Header="Ex"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Ey }"
+                    Header="Ey"></DataGridTextColumn>
+            </DataGrid.Columns>-->
+        </DataGrid>
+    </Grid>
+</Page>

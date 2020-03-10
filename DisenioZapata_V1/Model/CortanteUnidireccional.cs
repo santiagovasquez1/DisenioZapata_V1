@@ -24,25 +24,25 @@ namespace DisenioZapata_V1.Model
         {
             Zapata = zapata_I;
         }
-        public void Calculo_Clase()
-        {
-            VuX = new List<float>();
-            VuY = new List<float>();
-            euX = new List<float>();
-            euY = new List<float>();
-            PhiVc = CalcPhiVc(Zapata.Fc);
+        //public void Calculo_Clase()
+        //{
+        //    VuX = new List<float>();
+        //    VuY = new List<float>();
+        //    euX = new List<float>();
+        //    euY = new List<float>();
+        //    PhiVc = CalcPhiVc(Zapata.Fc);
 
-            Dimensionamiento dimensionamiento = Zapata.ReturnDimensionamiento();
+        //    Dimensionamiento dimensionamiento = Zapata.ReturnDimensionamiento();
 
-            for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
-            {
-                float Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QminX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminY[i] }.Max();
-                VuX.Add(CalculoVu(Zapata.L1, Zapata.L2, Zapata.LcX, Qmax, Zapata.R));
-                VuY.Add(CalculoVu(Zapata.L2, Zapata.L1, Zapata.LcY, Qmax, Zapata.R));
-                euX.Add(CalculoEsfuerzoCortante(Zapata.L2, VuX.Last(), Zapata.R));
-                euY.Add(CalculoEsfuerzoCortante(Zapata.L1, VuY.Last(), Zapata.R));
-            }
-        }
+        //    for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
+        //    {
+        //        float Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QminX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminY[i] }.Max();
+        //        VuX.Add(CalculoVu(Zapata.L1, Zapata.L2, Zapata.LcX, Qmax, Zapata.R));
+        //        VuY.Add(CalculoVu(Zapata.L2, Zapata.L1, Zapata.LcY, Qmax, Zapata.R));
+        //        euX.Add(CalculoEsfuerzoCortante(Zapata.L2, VuX.Last(), Zapata.R));
+        //        euY.Add(CalculoEsfuerzoCortante(Zapata.L1, VuY.Last(), Zapata.R));
+        //    }
+        //}
 
         public void Chequeos_Clase()
         {
@@ -74,6 +74,11 @@ namespace DisenioZapata_V1.Model
                 return ("Esfuerzos cortante superan el esfuerzo maximo del concreto");
             else
                 return ("Ok");
+        }
+
+        public void Calculo_Clase(Fuerzas_Modelo Fuerza, float Qmax)
+        {
+         
         }
     }
 }

@@ -37,24 +37,16 @@ namespace DisenioZapata_V1.Model
             get { return zapataSeleccionada; }
             set { zapataSeleccionada = value; OnPropertyChanged();SetDimensionamiento(); }
         }
-        private Suelo suelo;
-
-        public Suelo Suelo
-        {
-            get { return suelo; }
-            set { suelo = value;OnPropertyChanged(); }
-        }
-
-
         public MiComando NuevoProyectoCommand { get; set; }
         public MiComando FuerzasProyectoCommand { get; set; }
         public MiComando PropiedadesProyectoCommand { get; set; }
-
+        public MiComando PresionesProyectoCommand { get; set; }
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
             FuerzasProyectoCommand = new MiComando(FuerzasProyectoCommandExecute);
-            PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);           
+            PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);
+            PresionesProyectoCommand = new MiComando(PresionesProyectoCommandExecute);
         }
         private void SetDimensionamiento()
         {
@@ -79,9 +71,9 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToDimensiones");
         }
-        private void SetSuelo()
+        private void PresionesProyectoCommandExecute()
         {
-            //Suelo = new Suelo("D", 12f);
+            MessagingCenter.Send(this, "GoToPresiones");
         }
         private void OpenModel()
         {
