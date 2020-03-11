@@ -15,8 +15,7 @@ namespace DisenioZapata_V1.Model
             H = 0.25f;
             CalcArea();
             CalcPesoPropio();
-            GammaConcreto = 2.4f;
-            Calculos = new List<ICalculo>();            
+            GammaConcreto = 2.4f;         
         }
 
         public override void SetCalculos()
@@ -24,9 +23,7 @@ namespace DisenioZapata_V1.Model
             Dimensionamiento dimensionamiento = new Dimensionamiento(this);
             CortanteBiridireccional cortanteBiridireccional = new CortanteBiridireccional(this);
             CortanteUnidireccional cortanteUnidireccional = new CortanteUnidireccional(this);
-            Flexion flexion = new Flexion(this);
-
-            Calculos.AddRange(new ICalculo[] { dimensionamiento, cortanteUnidireccional, cortanteBiridireccional, flexion });
+            Flexion flexion = new Flexion(this);            
         }
     }
 }

@@ -28,19 +28,19 @@ namespace DisenioZapata_V1.Model
 
         public void Calculo_Clase()
         {
-            //Vu = new ObservableCollection<float>();
-            //Dimensionamiento dimensionamiento = Zapata.ReturnDimensionamiento();
+            Vu = new ObservableCollection<float>();
+            Dimensionamiento dimensionamiento = Zapata.Dimensionamiento;
 
-            //PhiVc1 = CalculoPhiVc1();
-            //PhiVc2 = CalculoPhiVc2();
-            //PhiVc3 = CalculoPhiVc3();
-            //PhiVc = new float[] { PhiVc1, PhiVc2, PhiVc3 }.Min();
+            PhiVc1 = CalculoPhiVc1();
+            PhiVc2 = CalculoPhiVc2();
+            PhiVc3 = CalculoPhiVc3();
+            PhiVc = new float[] { PhiVc1, PhiVc2, PhiVc3 }.Min();
 
-            //for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
-            //{
-            //    var Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminX[i], dimensionamiento.QminY[i] }.Max();
-            //    Vu.Add(CalcVu(Qmax));
-            //}
+            for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
+            {
+                var Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminX[i], dimensionamiento.QminY[i] }.Max();
+                Vu.Add(CalcVu(Qmax));
+            }
         }
 
         public void Chequeos_Clase()
@@ -103,11 +103,6 @@ namespace DisenioZapata_V1.Model
 
             phivc = 0.75f * 0.27f * (2f + (asd*d*100 / b0)) * (float)Math.Sqrt(Zapata.Fc);
             return phivc;
-        }
-
-        public void Calculo_Clase(Fuerzas_Modelo Fuerza, float Qmax)
-        {
-            throw new NotImplementedException();
         }
     }
 }

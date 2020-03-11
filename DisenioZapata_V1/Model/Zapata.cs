@@ -7,8 +7,6 @@ namespace DisenioZapata_V1.Model
 {
     public abstract class Zapata : NotificationObject
     {
-        #region Variables_que_cambian
-
         private string label;
 
         public string Label
@@ -111,14 +109,6 @@ namespace DisenioZapata_V1.Model
             set { suelo = value; CalcArea(); OnPropertyChanged(); }
         }
 
-        private List<ICalculo> calculos;
-
-        public List<ICalculo> Calculos
-        {
-            get { return calculos; }
-            set { calculos = value; OnPropertyChanged(); }
-        }
-
         private MPoint point;
 
         public MPoint Point
@@ -143,14 +133,44 @@ namespace DisenioZapata_V1.Model
             set { tipoColumna = value; OnPropertyChanged(); }
         }
 
-        #endregion Variables_que_cambian
-
         private List<Fuerzas_Modelo> fuerzas;
 
         public List<Fuerzas_Modelo> Fuerzas
         {
             get { return fuerzas; }
             set { fuerzas = value; OnPropertyChanged(); }
+        }
+
+        private Dimensionamiento dimensionamiento;
+
+        public Dimensionamiento Dimensionamiento
+        {
+            get { return dimensionamiento; }
+            set { dimensionamiento = value; OnPropertyChanged(); }
+        }
+
+        private CortanteUnidireccional cortanteUnidireccional;
+
+        public CortanteUnidireccional CortanteUnidireccional
+        {
+            get { return cortanteUnidireccional; }
+            set { cortanteUnidireccional = value; OnPropertyChanged(); }
+        }
+
+        private CortanteBiridireccional cortanteBiridireccional;
+
+        public CortanteBiridireccional CortanteBiridireccional
+        {
+            get { return cortanteBiridireccional; }
+            set { cortanteBiridireccional = value; OnPropertyChanged(); }
+        }
+
+        private Flexion flexion;
+
+        public Flexion Flexion
+        {
+            get { return flexion; }
+            set { flexion = value; OnPropertyChanged(); }
         }
 
         public void CalcArea()
@@ -178,66 +198,6 @@ namespace DisenioZapata_V1.Model
         public override string ToString()
         {
             return $"ZapataId {Label}";
-        }
-
-        public Dimensionamiento ReturnDimensionamiento()
-        {
-            Dimensionamiento calcdimensionamiento = null;
-
-            foreach (ICalculo calculo in Calculos)
-            {
-                if (calculo is Dimensionamiento)
-                {
-                    calcdimensionamiento = (Dimensionamiento)calculo;
-                    return calcdimensionamiento;
-                }
-            }
-            return calcdimensionamiento;
-        }
-
-        public CortanteUnidireccional ReturnCortanteUnidireccional()
-        {
-            CortanteUnidireccional calculoi = null;
-
-            foreach (ICalculo calculo in Calculos)
-            {
-                if (calculo is CortanteUnidireccional)
-                {
-                    calculoi = (CortanteUnidireccional)calculo;
-                    return calculoi;
-                }
-            }
-            return calculoi;
-        }
-
-        public CortanteBiridireccional ReturnCortanteBidireccional()
-        {
-            CortanteBiridireccional calculoi = null;
-
-            foreach (ICalculo calculo in Calculos)
-            {
-                if (calculo is CortanteBiridireccional)
-                {
-                    calculoi = (CortanteBiridireccional)calculo;
-                    return calculoi;
-                }
-            }
-            return calculoi;
-        }
-
-        public Flexion ReturnFlexionl()
-        {
-            Flexion calculoi = null;
-
-            foreach (ICalculo calculo in Calculos)
-            {
-                if (calculo is Flexion)
-                {
-                    calculoi = (Flexion)calculo;
-                    return calculoi;
-                }
-            }
-            return calculoi;
         }
 
         private void CalcLado()

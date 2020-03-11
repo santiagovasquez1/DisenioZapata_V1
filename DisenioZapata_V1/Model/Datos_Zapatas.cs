@@ -73,7 +73,7 @@ namespace DisenioZapata_V1.Model
         }
 
         private void PropiedadesProyectoCommandExecute()
-        {
+        {            
             MessagingCenter.Send(this, "GoToDimensiones");
         }
 
@@ -85,11 +85,6 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToCortantes");
         }
-        private void SetSuelo()
-        {
-            MessagingCenter.Send(this, "GoToPresiones");
-        }
-
         private void OpenModel()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
