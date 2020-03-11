@@ -22,9 +22,6 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <GroupBox Header="Dimensiones zapata"
-                  FontSize="15"
-                  FontFamily="Calibri"
-                  BorderThickness="2"
                   Grid.RowSpan="2">
             <Grid>
                 <Grid.ColumnDefinitions>

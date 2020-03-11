@@ -41,13 +41,13 @@
                     <MenuItem Name="Dimensionamiento"
                                           Header="Dimensionamiento Zapatas"
                                           Command="{Binding DatosPresionesCommand}"/>
-                    <MenuItem Name="CortanteUnidireccional"
-                                          Header="Cortante unidireccional Zapatas"
+                    <MenuItem Name="Cortante"
+                                          Header="Cortante Zapatas"
                                           Command="{Binding DatosCortantesCommand}"/>
-                    <MenuItem Name="CortanteBidireccional"
-                                          Header="Cortante bidireccional Zapatas"/>
                     <MenuItem Name="Flexion"
                                           Header="Flexion en Zapatas"/>
+                    <MenuItem Name="Resumen"
+                                          Header="Resumen Zapatas"/>
                 </MenuItem>
                 <MenuItem Name="Ayuda"
                                       Header="Ayuda" >

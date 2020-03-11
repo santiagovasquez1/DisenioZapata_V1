@@ -27,6 +27,8 @@ namespace DisenioZapata_V1.Model
                 CalcArea(L1, L2);
                 CalcPesoPropio();
                 Presiones(L1, L2, H);
+                SetCortanteUnidireccional();
+                SetCortanteBidireccional();
                 OnPropertyChanged();
             }
         }
@@ -36,7 +38,16 @@ namespace DisenioZapata_V1.Model
         public float L2
         {
             get { return l2; }
-            set { l2 = value; CalcArea(L1, L2); CalcPesoPropio(); Presiones(L1, L2, H); OnPropertyChanged(); }
+            set
+            {
+                l2 = value;
+                CalcArea(L1, L2);
+                CalcPesoPropio();
+                Presiones(L1, L2, H);
+                SetCortanteUnidireccional();
+                SetCortanteBidireccional();
+                OnPropertyChanged();
+            }
         }
 
         private float h;
@@ -44,7 +55,15 @@ namespace DisenioZapata_V1.Model
         public float H
         {
             get { return h; }
-            set { h = value; CalcPesoPropio(); Presiones(L1, L2, H); OnPropertyChanged(); }
+            set
+            {
+                h = value;
+                CalcPesoPropio();
+                Presiones(L1, L2, H);
+                SetCortanteUnidireccional();
+                SetCortanteBidireccional();
+                OnPropertyChanged();
+            }
         }
 
         private float lcx;
@@ -52,7 +71,13 @@ namespace DisenioZapata_V1.Model
         public float LcX
         {
             get { return lcx; }
-            set { lcx = value; OnPropertyChanged(); }
+            set
+            {
+                lcx = value;
+                SetCortanteUnidireccional();
+                SetCortanteBidireccional();
+                OnPropertyChanged();
+            }
         }
 
         private float lcy;
@@ -60,7 +85,13 @@ namespace DisenioZapata_V1.Model
         public float LcY
         {
             get { return lcy; }
-            set { lcy = value; OnPropertyChanged(); }
+            set
+            {
+                lcy = value;
+                SetCortanteUnidireccional();
+                SetCortanteBidireccional();
+                OnPropertyChanged();
+            }
         }
 
         private float r;
@@ -76,7 +107,13 @@ namespace DisenioZapata_V1.Model
         public float Fc
         {
             get { return fc; }
-            set { fc = value; OnPropertyChanged(); }
+            set
+            {
+                fc = value;
+                SetCortanteUnidireccional();
+                SetCortanteBidireccional();
+                OnPropertyChanged();
+            }
         }
 
         private float fy;
@@ -151,7 +188,7 @@ namespace DisenioZapata_V1.Model
             set { dimensionamientos = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection< CortanteUnidireccional> cortanteUnidireccional;
+        private ObservableCollection<CortanteUnidireccional> cortanteUnidireccional;
 
         public ObservableCollection<CortanteUnidireccional> CortanteUnidireccional
         {
@@ -200,9 +237,35 @@ namespace DisenioZapata_V1.Model
                 {
                     if (Dimensionamiento != null)
                     {
-                        Dimensionamiento.Calculo_Clase(Fuerzas[cont],cont);
+                        Dimensionamiento.Calculo_Clase(Fuerzas[cont], cont);
                         Dimensionamiento.Chequeos_Clase();
                     }
+                    cont++;
+                }
+            }
+        }
+
+        public void SetCortanteUnidireccional()
+        {
+            int cont = 0;
+            if (Fc > 0 & L1 > 0 & L2 > 0 & CortanteUnidireccional != null)
+            {
+                foreach (var cortanteu in CortanteUnidireccional)
+                {
+                    cortanteu.Calculo_Clase(Fuerzas[cont], cont);
+                    cont++;
+                }
+            }
+        }
+
+        public void SetCortanteBidireccional()
+        {
+            int cont = 0;
+            if (Fc > 0 & L1 > 0 & L2 > 0 & CortanteBiridireccional != null)
+            {
+                foreach (var cortanteu in CortanteBiridireccional)
+                {
+                    cortanteu.Calculo_Clase(Fuerzas[cont], cont);
                     cont++;
                 }
             }

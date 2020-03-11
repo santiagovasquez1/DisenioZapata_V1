@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace DisenioZapata_V1.Model
 {
-    public class CortanteUnidireccional : ICalculo
+    public class CortanteUnidireccional : NotificationObject, ICalculo
     {
         private Zapata zapata;
 
@@ -18,7 +18,7 @@ namespace DisenioZapata_V1.Model
         public string Load
         {
             get { return load; }
-            set { load = value; }
+            set { load = value; OnPropertyChanged(); }
         }
 
         private float fz;
@@ -26,7 +26,7 @@ namespace DisenioZapata_V1.Model
         public float Fz
         {
             get { return fz; }
-            set { fz = value; }
+            set { fz = value; OnPropertyChanged(); }
         }
 
         private float mx;
@@ -34,24 +34,93 @@ namespace DisenioZapata_V1.Model
         public float Mx
         {
             get { return mx; }
-            set { mx = value; ; }
+            set { mx = value; OnPropertyChanged(); }
         }
 
         private float my;
+        private float vuX;
+        private float vuY;
+        private float eux;
+        private float euy;
+        private float phiVc;
+        private float qmax;
+        private string chequeoCortante;
 
         public float My
         {
             get { return my; }
-            set { my = value; }
+            set { my = value; OnPropertyChanged(); }
         }
 
-        public float VuX { get; set; }
-        public float VuY { get; set; }
-        public float euX { get; set; }
-        public float euY { get; set; }
-        public float PhiVc { get; set; }
-        public float Qmax { get; set; }
-        public string ChequeoCortante { get; set; }
+        public float VuX
+        {
+            get { return vuX; }
+            set
+            {
+                vuX = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public float VuY
+        {
+            get { return vuY; }
+            set
+            {
+                vuY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public float Eux
+        {
+            get { return eux; }
+            set
+            {
+                eux = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public float Euy
+        {
+            get { return euy; }
+            set
+            {
+                euy = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public float PhiVc
+        {
+            get { return phiVc; }
+            set
+            {
+                phiVc = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public float Qmax
+        {
+            get { return qmax; }
+            set
+            {
+                qmax = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string ChequeoCortante
+        {
+            get { return chequeoCortante; }
+            set
+            {
+                chequeoCortante = value;
+                OnPropertyChanged();
+            }
+        }
 
         public CortanteUnidireccional(Zapata zapata_I)
         {
@@ -70,8 +139,8 @@ namespace DisenioZapata_V1.Model
             Qmax = new float[] { dimensionamiento.QmaxX, dimensionamiento.QminX, dimensionamiento.QmaxY, dimensionamiento.QminY }.Max();
             VuX = (CalculoVu(Zapata.L1, Zapata.L2, Zapata.LcX, Qmax, Zapata.R));
             VuY = (CalculoVu(Zapata.L2, Zapata.L1, Zapata.LcY, Qmax, Zapata.R));
-            euX = (CalculoEsfuerzoCortante(Zapata.L2, VuX, Zapata.R));
-            euY = (CalculoEsfuerzoCortante(Zapata.L1, VuY, Zapata.R));
+            Eux = (CalculoEsfuerzoCortante(Zapata.L2, VuX, Zapata.R));
+            Euy = (CalculoEsfuerzoCortante(Zapata.L1, VuY, Zapata.R));
         }
 
         public void Chequeos_Clase()
@@ -99,7 +168,7 @@ namespace DisenioZapata_V1.Model
 
         private string Mensaje_PhiVc()
         {
-            float eumax = Math.Max(euX, euY);
+            float eumax = Math.Max(Eux, Euy);
             if (eumax / 10 > PhiVc)
                 return ("Esfuerzos cortante superan el esfuerzo maximo del concreto");
             else
