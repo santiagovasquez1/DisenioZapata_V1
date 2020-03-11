@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace DisenioZapata_V1.View
 {
     /// <summary>
-    /// Lógica de interacción para PropiedadesPage.xaml
+    /// Lógica de interacción para Cortantes.xaml
     /// </summary>
-    public partial class PropiedadesPage : Page
+    public partial class Cortantes : Page
     {
-        public PropiedadesPage()
+        public Cortantes()
         {
             InitializeComponent();
         }
-
     }
 }

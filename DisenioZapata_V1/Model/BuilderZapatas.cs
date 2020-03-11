@@ -37,6 +37,8 @@ namespace DisenioZapata_V1
                 if (tipoZapata == ETipoZapata.Zapata_Aislada)
                 {
                     zapatai = new Zapata_Aislada(Label, punto, FuerzasLabel, new Suelo("TipoD", 15f));
+                    zapatai.Fc = 210f;
+                    zapatai.SetCalculos();
                 }
 
                 DeterminarTipoColumna(zapatai);

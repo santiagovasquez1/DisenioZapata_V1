@@ -18,16 +18,12 @@ namespace DisenioZapata_V1.Model
             set { zapatas = value; OnPropertyChanged(); }
         }
 
-        private Dimensionamiento dimensionamiento;
+        private ObservableCollection<DatosPresiones> presiones;
 
-        public Dimensionamiento Dimensionamiento
+        public ObservableCollection<DatosPresiones> Presiones
         {
-            get { return dimensionamiento; }
-            set
-            {
-                dimensionamiento = value;
-                OnPropertyChanged();
-            }
+            get { return presiones; }
+            set { presiones = value; OnPropertyChanged(); }
         }
 
         private Zapata zapataSeleccionada;
@@ -35,24 +31,33 @@ namespace DisenioZapata_V1.Model
         public Zapata Zapata_Seleccionada
         {
             get { return zapataSeleccionada; }
-            set { zapataSeleccionada = value; OnPropertyChanged();SetDimensionamiento(); }
+            set
+            {
+                zapataSeleccionada = value;
+                OnPropertyChanged();
+            }
         }
+
+        private Suelo suelo;
+
+        public Suelo Suelo
+        {
+            get { return suelo; }
+            set { suelo = value; OnPropertyChanged(); }
+        }
+
         public MiComando NuevoProyectoCommand { get; set; }
         public MiComando FuerzasProyectoCommand { get; set; }
         public MiComando PropiedadesProyectoCommand { get; set; }
-        public MiComando PresionesProyectoCommand { get; set; }
+        public MiComando DatosPresionesCommand { get; set; }
+        public MiComando DatosCortantesCommand { get; set; }
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
             FuerzasProyectoCommand = new MiComando(FuerzasProyectoCommandExecute);
             PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);
-            PresionesProyectoCommand = new MiComando(PresionesProyectoCommandExecute);
-        }
-        private void SetDimensionamiento()
-        {
-            zapataSeleccionada.SetCalculos();
-            Dimensionamiento = zapataSeleccionada.ReturnDimensionamiento();
-            Dimensionamiento.Calculo_Clase();
+            DatosPresionesCommand = new MiComando(DatosPresionesCommandExecute);
+            DatosCortantesCommand = new MiComando(DatosCortantesCommandExecute);
         }
         private void NuevoProyectoCommandExecute()
         {
@@ -71,10 +76,20 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToDimensiones");
         }
-        private void PresionesProyectoCommandExecute()
+
+        private void DatosPresionesCommandExecute()
         {
             MessagingCenter.Send(this, "GoToPresiones");
         }
+        private void DatosCortantesCommandExecute()
+        {
+            MessagingCenter.Send(this, "GoToCortantes");
+        }
+        private void SetSuelo()
+        {
+            MessagingCenter.Send(this, "GoToPresiones");
+        }
+
         private void OpenModel()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -99,6 +114,121 @@ namespace DisenioZapata_V1.Model
             BuilderZapatas builder = new BuilderZapatas();
             builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Aislada, modelo_proyecto);
             Zapatas = builder.Zapatas;
+        }
+    }
+
+    public class DatosPresiones : NotificationObject
+    {
+        private string load;
+
+        public string Load
+        {
+            get { return load; }
+            set { load = value; }
+        }
+
+        private float fz;
+
+        public float Fz
+        {
+            get { return fz; }
+            set { fz = value; }
+        }
+
+        private float mx;
+
+        public float Mx
+        {
+            get { return mx; }
+            set { mx = value; }
+        }
+
+        private float my;
+
+        public float My
+        {
+            get { return my; }
+            set { my = value; }
+        }
+
+        private float ex;
+
+        public float Ex
+        {
+            get { return ex; }
+            set { ex = value; OnPropertyChanged(); }
+        }
+
+        private float ey;
+
+        public float Ey
+        {
+            get { return ey; }
+            set { ey = value; OnPropertyChanged(); }
+        }
+
+        private float qmaxx;
+
+        public float Qmaxx
+        {
+            get { return qmaxx; }
+            set { qmaxx = value; OnPropertyChanged(); }
+        }
+
+        private float qmaxy;
+
+        public float Qmaxy
+        {
+            get { return qmaxy; }
+            set { qmaxy = value; OnPropertyChanged(); }
+        }
+
+        private float qminx;
+
+        public float Qminx
+        {
+            get { return qminx; }
+            set { qminx = value; OnPropertyChanged(); }
+        }
+
+        private float qminy;
+
+        public float Qminy
+        {
+            get { return qminy; }
+            set { qminy = value; OnPropertyChanged(); }
+        }
+
+        private string Chequeoex;
+
+        public string Chequeo_Ex
+        {
+            get { return Chequeoex; }
+            set { Chequeoex = value; OnPropertyChanged(); }
+        }
+
+        private string Chequeoey;
+
+        public string Chequeo_Ey
+        {
+            get { return Chequeoey; }
+            set { Chequeoey = value; OnPropertyChanged(); }
+        }
+
+        public DatosPresiones(string load, float fz, float mx, float my, float qx, float qy, float qminx, float qminy, float ex, float ey, string checkEx, string checkEy)
+        {
+            Load = load;
+            Fz = fz;
+            Mx = mx;
+            My = my;
+            Ex = ex;
+            Ey = ey;
+            Qmaxx = qx;
+            Qmaxy = qy;
+            Qminx = qminx;
+            Qminy = qminy;
+            Chequeo_Ex = checkEx;
+            Chequeo_Ey = checkEy;
         }
     }
 }
