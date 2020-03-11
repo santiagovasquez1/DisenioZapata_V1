@@ -90,11 +90,12 @@
     <Compile Include="Model\BuilderZapatas.cs" />
     <Compile Include="ETipoZapata.cs" />
     <Compile Include="Model\ConstructorCalculos\ICalculoBuilder.cs" />
+    <Compile Include="Model\DatosTablas\DatosPresiones.cs" />
     <Compile Include="Model\Datos_Zapatas.cs" />
     <Compile Include="Model\ETipoColumnas.cs" />
     <Compile Include="Model\MiComando.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
-    <Compile Include="Model\Rename\SwitchCollectionsConverter.cs" />
+    <Compile Include="Model\Converter\SwitchCollectionsConverter.cs" />
     <Compile Include="Model\Suelo.cs" />
     <Compile Include="View\Cortantes.xaml.cs">
       <DependentUpon>Cortantes.xaml</DependentUpon>

@@ -25,6 +25,7 @@ namespace DisenioZapata_V1.Model
                 l1 = value;
                 CalcArea(L1, L2);
                 CalcPesoPropio();
+                Presiones(L1, L2, H);
                 OnPropertyChanged();
             }
         }
@@ -34,7 +35,7 @@ namespace DisenioZapata_V1.Model
         public float L2
         {
             get { return l2; }
-            set { l2 = value; CalcArea(L1, L2); CalcPesoPropio(); OnPropertyChanged(); }
+            set { l2 = value; CalcArea(L1, L2); CalcPesoPropio(); Presiones(L1, L2, H); OnPropertyChanged(); }
         }
 
         private float h;
@@ -42,7 +43,7 @@ namespace DisenioZapata_V1.Model
         public float H
         {
             get { return h; }
-            set { h = value; CalcPesoPropio(); OnPropertyChanged(); }
+            set { h = value; CalcPesoPropio(); Presiones(L1, L2, H); OnPropertyChanged(); }
         }
 
         private float lcx;
@@ -187,6 +188,15 @@ namespace DisenioZapata_V1.Model
         {
             if (L1 > 0 & L2 > 0)
                 Area = L1 * L2;
+        }
+
+        public void Presiones(float L1, float L2,float H)
+        {
+            if (L1>0 & L2>0 & H>0 & Dimensionamiento != null)
+            {
+                Dimensionamiento.Calculo_Clase();
+                Dimensionamiento.Chequeos_Clase();
+            }
         }
 
         public void CalcPesoPropio()

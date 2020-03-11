@@ -1,12 +1,11 @@
 ﻿using B_Lectura_E2K.Entidades;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace DisenioZapata_V1.Model
 {
     internal class Zapata_Aislada : Zapata
     {
-        public Zapata_Aislada(string nombre, MPoint point, List<Fuerzas_Modelo> fuerzas,Suelo sueloi)
+        public Zapata_Aislada(string nombre, MPoint point, List<Fuerzas_Modelo> fuerzas, Suelo sueloi)
         {
             Suelo = sueloi;
             Label = nombre;
@@ -15,15 +14,15 @@ namespace DisenioZapata_V1.Model
             H = 0.25f;
             CalcArea();
             CalcPesoPropio();
-            GammaConcreto = 2.4f;         
+            GammaConcreto = 2.4f;
         }
 
         public override void SetCalculos()
         {
-            Dimensionamiento dimensionamiento = new Dimensionamiento(this);
-            CortanteBiridireccional cortanteBiridireccional = new CortanteBiridireccional(this);
-            CortanteUnidireccional cortanteUnidireccional = new CortanteUnidireccional(this);
-            Flexion flexion = new Flexion(this);            
+            Dimensionamiento = new Dimensionamiento(this);
+            CortanteBiridireccional = new CortanteBiridireccional(this);
+            CortanteUnidireccional = new CortanteUnidireccional(this);
+            Flexion = new Flexion(this);
         }
     }
 }
