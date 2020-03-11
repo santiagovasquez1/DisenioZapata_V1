@@ -1,5 +1,6 @@
 ﻿using B_Lectura_E2K.Entidades;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DisenioZapata_V1.Model
 {
@@ -13,16 +14,25 @@ namespace DisenioZapata_V1.Model
             Fuerzas = fuerzas;
             H = 0.25f;
             CalcArea();
-            CalcPesoPropio();
+            CalcPesoPropio();            
             GammaConcreto = 2.4f;
+            
         }
 
         public override void SetCalculos()
         {
-            Dimensionamiento = new Dimensionamiento(this);
-            CortanteBiridireccional = new CortanteBiridireccional(this);
-            CortanteUnidireccional = new CortanteUnidireccional(this);
-            Flexion = new Flexion(this);
+            Dimensionamientos = new ObservableCollection<Dimensionamiento>();
+            CortanteUnidireccional = new ObservableCollection<CortanteUnidireccional>();
+            CortanteBiridireccional = new ObservableCollection<CortanteBiridireccional>();
+            Flexion = new ObservableCollection<Flexion>();
+
+           for(int i=0;i<Fuerzas.Count;i++)
+            {
+                Dimensionamientos.Add(new Dimensionamiento(this));
+                CortanteUnidireccional.Add(new CortanteUnidireccional(this));
+                CortanteBiridireccional.Add(new CortanteBiridireccional(this));
+                Flexion.Add(new Flexion(this));
+            }
         }
     }
 }

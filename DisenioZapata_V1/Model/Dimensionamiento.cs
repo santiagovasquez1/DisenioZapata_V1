@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace DisenioZapata_V1.Model
@@ -14,73 +13,105 @@ namespace DisenioZapata_V1.Model
             set { zapata = value; }
         }
 
-        private List<float> ex;
+        private string load;
 
-        public List<float> Ex
+        public string Load
+        {
+            get { return load; }
+            set { load = value; OnPropertyChanged(); }
+        }
+
+        private float fz;
+
+        public float Fz
+        {
+            get { return fz; }
+            set { fz = value; OnPropertyChanged(); }
+        }
+
+        private float mx;
+
+        public float Mx
+        {
+            get { return mx; }
+            set { mx = value; OnPropertyChanged(); }
+        }
+
+        private float my;
+
+        public float My
+        {
+            get { return my; }
+            set { my = value; OnPropertyChanged(); }
+        }
+
+        private float ex;
+
+        public float Ex
         {
             get { return ex; }
             set { ex = value; OnPropertyChanged(); }
         }
 
-        private List<float> ey;
+        private float ey;
 
-        public List<float> Ey
+        public float Ey
         {
             get { return ey; }
             set { ey = value; OnPropertyChanged(); }
         }
 
-        private List<float> qmaxx;
+        private float qmaxx;
 
-        public List<float> QmaxX
+        public float QmaxX
         {
             get { return qmaxx; }
             set { qmaxx = value; OnPropertyChanged(); }
         }
 
-        private List<float> qmaxy;
+        private float qmaxy;
 
-        public List<float> QmaxY
+        public float QmaxY
         {
             get { return qmaxy; }
             set { qmaxy = value; OnPropertyChanged(); }
         }
 
-        private List<float> qminx;
+        private float qminx;
 
-        public List<float> QminX
+        public float QminX
         {
             get { return qminx; }
             set { qminx = value; OnPropertyChanged(); }
         }
 
-        private List<float> qminy;
+        private float qminy;
 
-        public List<float> QminY
+        public float QminY
         {
             get { return qminy; }
             set { qminy = value; OnPropertyChanged(); }
         }
 
-        private List<string> chequeo_ex;
+        private string chequeo_ex;
 
-        public List<string> Chequeo_ex
+        public string Chequeo_ex
         {
             get { return chequeo_ex; }
             set { chequeo_ex = value; }
         }
 
-        private List<string> chequeo_ey;
+        private string chequeo_ey;
 
-        public List<string> Chequeo_ey
+        public string Chequeo_ey
         {
             get { return chequeo_ey; }
             set { chequeo_ey = value; }
         }
 
-        private List<string> chequeo_q;
+        private string chequeo_q;
 
-        public List<string> Chequeo_Q
+        public string Chequeo_Q
         {
             get { return chequeo_q; }
             set { chequeo_q = value; }
@@ -91,24 +122,18 @@ namespace DisenioZapata_V1.Model
             Zapata = zapata_i;
         }
 
-        public void Calculo_Clase()
+        public void Calculo_Clase(Fuerzas_Modelo fuerza,int indice)
         {
-            Ex = new List<float>();
-            Ey = new List<float>();
-            QmaxX = new List<float>();
-            QminX = new List<float>();
-            QmaxY = new List<float>();
-            QminY = new List<float>();
-
-            foreach (Fuerzas_Modelo fuerza in Zapata.Fuerzas)
-            {
-                Ex.Add(Calculo_Excentricidad((float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.Mx));
-                Ey.Add(Calculo_Excentricidad((float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My));
-                QmaxX.Add(CalcQMax(Ex.Last(), (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.Mx, Zapata.L1, Zapata.L2));
-                QminX.Add(CalcQMin(Ex.Last(), (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.Mx, Zapata.L1, Zapata.L2));
-                QmaxY.Add(CalcQMax(Ey.Last(), (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My, Zapata.L2, Zapata.L1));
-                QminY.Add(CalcQMin(Ey.Last(), (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My, Zapata.L2, Zapata.L1));
-            }
+            Load = fuerza.Load;
+            Fz = (float)fuerza.Fz;
+            Mx = (float)fuerza.Mx;
+            My = (float)fuerza.My;
+            Ex = (Calculo_Excentricidad((float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.Mx));
+            Ey = (Calculo_Excentricidad((float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My));
+            QmaxX = (CalcQMax(Ex, (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.Mx, Zapata.L1, Zapata.L2));
+            QminX = (CalcQMin(Ex, (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.Mx, Zapata.L1, Zapata.L2));
+            QmaxY = (CalcQMax(Ey, (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My, Zapata.L2, Zapata.L1));
+            QminY = (CalcQMin(Ey, (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My, Zapata.L2, Zapata.L1));
         }
 
         /// <summary>
@@ -161,17 +186,10 @@ namespace DisenioZapata_V1.Model
 
         public void Chequeos_Clase()
         {
-            Chequeo_ex = new List<string>();
-            Chequeo_ey = new List<string>();
-            Chequeo_Q = new List<string>();
-
-            for (int i = 0; i < Ex.Count; i++)
-            {
-                Chequeo_ex.Add(ChequeoExcentricidad(Ex[i], Zapata.L1));
-                Chequeo_ey.Add(ChequeoExcentricidad(Ey[i], Zapata.L2));
-                var Q = new float[] { QmaxX[i], QminX[i], QmaxY[i], QminY[i] };
-                Chequeo_Q.Add(ChequeoEsfuerzos(Q, Zapata.Suelo.SigmaAdmi));
-            }
+            Chequeo_ex = (ChequeoExcentricidad(Ex, Zapata.L1));
+            Chequeo_ey = (ChequeoExcentricidad(Ey, Zapata.L2));
+            var Q = new float[] { QmaxX, QminX, QmaxY, QminY };
+            Chequeo_Q = (ChequeoEsfuerzos(Q, Zapata.Suelo.SigmaAdmi));
         }
 
         private string ChequeoExcentricidad(float excentricidad, float Lado)

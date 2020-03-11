@@ -1,6 +1,7 @@
 ﻿using B_Lectura_E2K.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace DisenioZapata_V1.Model
@@ -142,33 +143,33 @@ namespace DisenioZapata_V1.Model
             set { fuerzas = value; OnPropertyChanged(); }
         }
 
-        private Dimensionamiento dimensionamiento;
+        private ObservableCollection<Dimensionamiento> dimensionamientos;
 
-        public Dimensionamiento Dimensionamiento
+        public ObservableCollection<Dimensionamiento> Dimensionamientos
         {
-            get { return dimensionamiento; }
-            set { dimensionamiento = value; OnPropertyChanged(); }
+            get { return dimensionamientos; }
+            set { dimensionamientos = value; OnPropertyChanged(); }
         }
 
-        private CortanteUnidireccional cortanteUnidireccional;
+        private ObservableCollection< CortanteUnidireccional> cortanteUnidireccional;
 
-        public CortanteUnidireccional CortanteUnidireccional
+        public ObservableCollection<CortanteUnidireccional> CortanteUnidireccional
         {
             get { return cortanteUnidireccional; }
             set { cortanteUnidireccional = value; OnPropertyChanged(); }
         }
 
-        private CortanteBiridireccional cortanteBiridireccional;
+        private ObservableCollection<CortanteBiridireccional> cortanteBiridireccional;
 
-        public CortanteBiridireccional CortanteBiridireccional
+        public ObservableCollection<CortanteBiridireccional> CortanteBiridireccional
         {
             get { return cortanteBiridireccional; }
             set { cortanteBiridireccional = value; OnPropertyChanged(); }
         }
 
-        private Flexion flexion;
+        private ObservableCollection<Flexion> flexion;
 
-        public Flexion Flexion
+        public ObservableCollection<Flexion> Flexion
         {
             get { return flexion; }
             set { flexion = value; OnPropertyChanged(); }
@@ -190,12 +191,20 @@ namespace DisenioZapata_V1.Model
                 Area = L1 * L2;
         }
 
-        public void Presiones(float L1, float L2,float H)
+        public void Presiones(float L1, float L2, float H)
         {
-            if (L1>0 & L2>0 & H>0 & Dimensionamiento != null)
+            int cont = 0;
+            if (L1 > 0 & L2 > 0 & H > 0 & Dimensionamientos != null)
             {
-                Dimensionamiento.Calculo_Clase();
-                Dimensionamiento.Chequeos_Clase();
+                foreach (var Dimensionamiento in Dimensionamientos)
+                {
+                    if (Dimensionamiento != null)
+                    {
+                        Dimensionamiento.Calculo_Clase(Fuerzas[cont],cont);
+                        Dimensionamiento.Chequeos_Clase();
+                    }
+                    cont++;
+                }
             }
         }
 

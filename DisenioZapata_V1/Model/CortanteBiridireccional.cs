@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace DisenioZapata_V1.Model
@@ -14,11 +13,44 @@ namespace DisenioZapata_V1.Model
             set { zapata = value; }
         }
 
-        public ObservableCollection<float> Vu { get; set; }
+        private string load;
+
+        public string Load
+        {
+            get { return load; }
+            set { load = value; }
+        }
+
+        private float fz;
+
+        public float Fz
+        {
+            get { return fz; }
+            set { fz = value; }
+        }
+
+        private float mx;
+
+        public float Mx
+        {
+            get { return mx; }
+            set { mx = value; ; }
+        }
+
+        private float my;
+
+        public float My
+        {
+            get { return my; }
+            set { my = value; }
+        }
+
+        public float Vu { get; set; }
         public float PhiVc1 { get; set; }
         public float PhiVc2 { get; set; }
         public float PhiVc3 { get; set; }
         public float PhiVc { get; set; }
+        public float Qmax { get; set; }
         public string ChequeoVu { get; set; }
 
         public CortanteBiridireccional(Zapata zapata_I)
@@ -26,26 +58,25 @@ namespace DisenioZapata_V1.Model
             Zapata = zapata_I;
         }
 
-        public void Calculo_Clase()
+        public void Calculo_Clase(Fuerzas_Modelo fuerza, int indice)
         {
-            Vu = new ObservableCollection<float>();
-            Dimensionamiento dimensionamiento = Zapata.Dimensionamiento;
+            Dimensionamiento dimensionamiento = Zapata.Dimensionamientos[indice];
 
+            Load = fuerza.Load;
+            Fz = (float)fuerza.Fz;
+            Mx = (float)fuerza.Mx;
+            My = (float)fuerza.My;
             PhiVc1 = CalculoPhiVc1();
             PhiVc2 = CalculoPhiVc2();
             PhiVc3 = CalculoPhiVc3();
             PhiVc = new float[] { PhiVc1, PhiVc2, PhiVc3 }.Min();
-
-            for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
-            {
-                var Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminX[i], dimensionamiento.QminY[i] }.Max();
-                Vu.Add(CalcVu(Qmax));
-            }
+            Qmax = new float[] { dimensionamiento.QmaxX, dimensionamiento.QmaxY, dimensionamiento.QminX, dimensionamiento.QminY }.Max();
+            Vu = (CalcVu(Qmax));
         }
 
         public void Chequeos_Clase()
         {
-            if (Vu.Max() > PhiVc)
+            if (Vu > PhiVc)
                 ChequeoVu = "Cortante ultima mayor que PhiVc";
             else
                 ChequeoVu = "Ok";
@@ -101,7 +132,7 @@ namespace DisenioZapata_V1.Model
                     break;
             }
 
-            phivc = 0.75f * 0.27f * (2f + (asd*d*100 / b0)) * (float)Math.Sqrt(Zapata.Fc);
+            phivc = 0.75f * 0.27f * (2f + (asd * d * 100 / b0)) * (float)Math.Sqrt(Zapata.Fc);
             return phivc;
         }
     }

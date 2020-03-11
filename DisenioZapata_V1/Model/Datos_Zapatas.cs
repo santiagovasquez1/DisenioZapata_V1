@@ -1,6 +1,5 @@
 ﻿using B_Lectura_E2K.Entidades;
 using DisenioZapata_V1.Model.DatosTablas;
-using System;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using Xamarin.Forms;
@@ -40,7 +39,7 @@ namespace DisenioZapata_V1.Model
                 OnPropertyChanged();
             }
         }
-               
+
         private Suelo suelo;
 
         public Suelo Suelo
@@ -54,6 +53,7 @@ namespace DisenioZapata_V1.Model
         public MiComando PropiedadesProyectoCommand { get; set; }
         public MiComando DatosPresionesCommand { get; set; }
         public MiComando DatosCortantesCommand { get; set; }
+
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
@@ -62,6 +62,7 @@ namespace DisenioZapata_V1.Model
             DatosPresionesCommand = new MiComando(DatosPresionesCommandExecute);
             DatosCortantesCommand = new MiComando(DatosCortantesCommandExecute);
         }
+
         private void NuevoProyectoCommandExecute()
         {
             OpenModel();
@@ -76,7 +77,7 @@ namespace DisenioZapata_V1.Model
         }
 
         private void PropiedadesProyectoCommandExecute()
-        {            
+        {
             MessagingCenter.Send(this, "GoToDimensiones");
         }
 
@@ -84,10 +85,12 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToPresiones");
         }
+
         private void DatosCortantesCommandExecute()
         {
             MessagingCenter.Send(this, "GoToCortantes");
         }
+
         private void OpenModel()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -113,12 +116,19 @@ namespace DisenioZapata_V1.Model
             builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Aislada, modelo_proyecto);
             Zapatas = builder.Zapatas;
         }
-        private void SetPresiones()
+
+        public void SetPresiones()
         {
-            Presiones = new ObservableCollection<DatosPresiones>();
+            //Dimensionamiento Datos_Dim = Zapata_Seleccionada.Dimensionamientos;
+            //Presiones = new ObservableCollection<DatosPresiones>();
 
-
-
+            //for (int i = 0; i < Datos_Dim.Ex.Count; i++)
+            //{
+            //    DatosPresiones datoi = new DatosPresiones(Zapata_Seleccionada.Fuerzas[i].Load, (float)Zapata_Seleccionada.Fuerzas[i].Fz,
+            //        (float)Zapata_Seleccionada.Fuerzas[i].Mx, (float)Zapata_Seleccionada.Fuerzas[i].My, Datos_Dim.QmaxX[i], Datos_Dim.QmaxY[i],
+            //        Datos_Dim.QminX[i], Datos_Dim.QminY[i], Datos_Dim.Ex[i], Datos_Dim.Ey[i], Datos_Dim.Chequeo_ex[i], Datos_Dim.Chequeo_ey[i]);
+            //    Presiones.Add(datoi);
+            //}
         }
-    }   
+    }
 }

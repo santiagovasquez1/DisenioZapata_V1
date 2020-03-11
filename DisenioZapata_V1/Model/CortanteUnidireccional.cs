@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace DisenioZapata_V1.Model
@@ -14,34 +13,65 @@ namespace DisenioZapata_V1.Model
             set { zapata = value; }
         }
 
-        public List<float> VuX { get; set; }
-        public List<float> VuY { get; set; }
-        public List<float> euX { get; set; }
-        public List<float> euY { get; set; }
+        private string load;
+
+        public string Load
+        {
+            get { return load; }
+            set { load = value; }
+        }
+
+        private float fz;
+
+        public float Fz
+        {
+            get { return fz; }
+            set { fz = value; }
+        }
+
+        private float mx;
+
+        public float Mx
+        {
+            get { return mx; }
+            set { mx = value; ; }
+        }
+
+        private float my;
+
+        public float My
+        {
+            get { return my; }
+            set { my = value; }
+        }
+
+        public float VuX { get; set; }
+        public float VuY { get; set; }
+        public float euX { get; set; }
+        public float euY { get; set; }
         public float PhiVc { get; set; }
+        public float Qmax { get; set; }
         public string ChequeoCortante { get; set; }
+
         public CortanteUnidireccional(Zapata zapata_I)
         {
             Zapata = zapata_I;
         }
-        public void Calculo_Clase()
+
+        public void Calculo_Clase(Fuerzas_Modelo fuerza, int indice)
         {
-            VuX = new List<float>();
-            VuY = new List<float>();
-            euX = new List<float>();
-            euY = new List<float>();
             PhiVc = CalcPhiVc(Zapata.Fc);
+            Dimensionamiento dimensionamiento = Zapata.Dimensionamientos[indice];
 
-            Dimensionamiento dimensionamiento = Zapata.Dimensionamiento;
-
-            for (int i = 0; i < dimensionamiento.QmaxX.Count; i++)
-            {
-                float Qmax = new float[] { dimensionamiento.QmaxX[i], dimensionamiento.QminX[i], dimensionamiento.QmaxY[i], dimensionamiento.QminY[i] }.Max();
-                VuX.Add(CalculoVu(Zapata.L1, Zapata.L2, Zapata.LcX, Qmax, Zapata.R));
-                VuY.Add(CalculoVu(Zapata.L2, Zapata.L1, Zapata.LcY, Qmax, Zapata.R));
-                euX.Add(CalculoEsfuerzoCortante(Zapata.L2, VuX.Last(), Zapata.R));
-                euY.Add(CalculoEsfuerzoCortante(Zapata.L1, VuY.Last(), Zapata.R));
-            }
+            Load = fuerza.Load;
+            Fz = (float)fuerza.Fz;
+            Mx = (float)fuerza.Mx;
+            My = (float)fuerza.My;
+            Qmax = new float[] { dimensionamiento.QmaxX, dimensionamiento.QminX, dimensionamiento.QmaxY, dimensionamiento.QminY }.Max();
+            VuX = (CalculoVu(Zapata.L1, Zapata.L2, Zapata.LcX, Qmax, Zapata.R));
+            VuY = (CalculoVu(Zapata.L2, Zapata.L1, Zapata.LcY, Qmax, Zapata.R));
+            euX = (CalculoEsfuerzoCortante(Zapata.L2, VuX, Zapata.R));
+            euY = (CalculoEsfuerzoCortante(Zapata.L1, VuY, Zapata.R));
         }
 
         public void Chequeos_Clase()
@@ -69,8 +99,8 @@ namespace DisenioZapata_V1.Model
 
         private string Mensaje_PhiVc()
         {
-            float eumax = Math.Max(euX.Max(), euY.Max());
-            if (eumax/10 > PhiVc)
+            float eumax = Math.Max(euX, euY);
+            if (eumax / 10 > PhiVc)
                 return ("Esfuerzos cortante superan el esfuerzo maximo del concreto");
             else
                 return ("Ok");

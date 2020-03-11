@@ -10,7 +10,7 @@
      
     <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
         Background="Azure">
-        <DataGrid ItemsSource="{Binding Presiones}"
+        <DataGrid ItemsSource="{Binding Zapata_Seleccionada.Dimensionamientos}"
                             x:Name="Tabla1"            
                             Margin="0,0,0,0" 
                             BorderThickness="5"
@@ -29,12 +29,12 @@
                 <DataGridTextColumn Header="My" Binding="{Binding My, StringFormat='{}{0:0.00}'}" />
                 <DataGridTextColumn Header="Ex" Binding="{Binding Ex ,StringFormat='{}{0:0.00}'}" />
                 <DataGridTextColumn Header="Ey" Binding="{Binding Ey ,StringFormat='{}{0:0.00}'}" />
-                <DataGridTextColumn Header="Chequeo Ex" Binding="{Binding Chequeo_Ex }" />
-                <DataGridTextColumn Header="Chequeo Ey"  Binding="{Binding Chequeo_Ex }"/>
-                <DataGridTextColumn Header="QmaxX" Binding="{Binding Qmaxx ,StringFormat='{}{0:0.00}'}"  />
-                <DataGridTextColumn Header="QmaxY"  Binding="{Binding Qmaxy ,StringFormat='{}{0:0.00}'}"/>
-                <DataGridTextColumn Header="QminX"  Binding="{Binding Qminx ,StringFormat='{}{0:0.00}'}"/>
-                <DataGridTextColumn Header="QminY"  Binding="{Binding Qminx ,StringFormat='{}{0:0.00}'}"/>                
+                <DataGridTextColumn Header="Chequeo Ex" Binding="{Binding Chequeo_ex }" />
+                <DataGridTextColumn Header="Chequeo Ey"  Binding="{Binding Chequeo_ey }"/>
+                <DataGridTextColumn Header="QmaxX" Binding="{Binding QmaxX ,StringFormat='{}{0:0.00}'}"  />
+                <DataGridTextColumn Header="QmaxY"  Binding="{Binding QmaxY ,StringFormat='{}{0:0.00}'}"/>
+                <DataGridTextColumn Header="QminX"  Binding="{Binding QminX ,StringFormat='{}{0:0.00}'}"/>
+                <DataGridTextColumn Header="QminY"  Binding="{Binding QminY ,StringFormat='{}{0:0.00}'}"/>                
             </DataGrid.Columns>
         </DataGrid>        
     </Grid>

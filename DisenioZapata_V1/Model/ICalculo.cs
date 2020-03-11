@@ -9,7 +9,7 @@ namespace DisenioZapata_V1.Model
    public interface ICalculo
     {
         Zapata Zapata { get; set; }
-        void Calculo_Clase();
+        void Calculo_Clase(Fuerzas_Modelo fuerza,int indice);
         void Chequeos_Clase();
     }
 }
