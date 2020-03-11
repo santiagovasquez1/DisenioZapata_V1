@@ -51,13 +51,14 @@ namespace DisenioZapata_V1.Model
         public MiComando FuerzasProyectoCommand { get; set; }
         public MiComando PropiedadesProyectoCommand { get; set; }
         public MiComando DatosPresionesCommand { get; set; }
-
+        public MiComando DatosCortantesCommand { get; set; }
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
             FuerzasProyectoCommand = new MiComando(FuerzasProyectoCommandExecute);
             PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);
             DatosPresionesCommand = new MiComando(DatosPresionesCommandExecute);
+            DatosCortantesCommand = new MiComando(DatosCortantesCommandExecute);
         }
 
         public void SetPresiones()
@@ -110,7 +111,10 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToPresiones");
         }
-
+        private void DatosCortantesCommandExecute()
+        {
+            MessagingCenter.Send(this, "GoToCortantes");
+        }
         private void SetSuelo()
         {
             //Suelo = new Suelo("D", 12f);

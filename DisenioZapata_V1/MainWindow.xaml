@@ -6,11 +6,9 @@
         xmlns:local="clr-namespace:DisenioZapata_V1"
         xmlns:local1="clr-namespace:DisenioZapata_V1.Model"
         mc:Ignorable="d"
-        Title="MainWindow" Height="587" Width="1269">
-
-    <Window.Resources>
-
-    </Window.Resources>
+        Title="Diseño de Zapatas" 
+        Height="600" 
+        Width="1270">
 
     <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
         RenderTransformOrigin="0.483,0.162">
@@ -44,7 +42,8 @@
                                           Header="Dimensionamiento Zapatas"
                                           Command="{Binding DatosPresionesCommand}"/>
                     <MenuItem Name="CortanteUnidireccional"
-                                          Header="Cortante unidireccional Zapatas"/>
+                                          Header="Cortante unidireccional Zapatas"
+                                          Command="{Binding DatosCortantesCommand}"/>
                     <MenuItem Name="CortanteBidireccional"
                                           Header="Cortante bidireccional Zapatas"/>
                     <MenuItem Name="Flexion"

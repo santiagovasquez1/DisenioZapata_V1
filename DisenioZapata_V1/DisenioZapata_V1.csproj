@@ -94,7 +94,11 @@
     <Compile Include="Model\ETipoColumnas.cs" />
     <Compile Include="Model\MiComando.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
+    <Compile Include="Model\Rename\SwitchCollectionsConverter.cs" />
     <Compile Include="Model\Suelo.cs" />
+    <Compile Include="View\Cortantes.xaml.cs">
+      <DependentUpon>Cortantes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DatosPresionesPAge.xaml.cs">
       <DependentUpon>DatosPresionesPAge.xaml</DependentUpon>
     </Compile>
@@ -122,6 +126,10 @@
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Cortantes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DatosPresionesPAge.xaml">
       <SubType>Designer</SubType>
@@ -186,9 +194,7 @@
   <ItemGroup>
     <Resource Include="Apuntes.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\GetResources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

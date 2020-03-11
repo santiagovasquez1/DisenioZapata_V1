@@ -44,6 +44,10 @@ namespace DisenioZapata_V1
             {
                 Main.Content = new DatosPresionesPage();
             });
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToCortantes", (a) =>
+            {
+                Main.Content = new Cortantes();
+            });
         }
 
         private void PresionesOnClick(object sender, RoutedEventArgs e)
