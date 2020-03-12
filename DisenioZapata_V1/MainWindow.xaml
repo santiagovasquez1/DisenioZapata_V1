@@ -45,7 +45,8 @@
                                           Header="Cortante Zapatas"
                                           Command="{Binding DatosCortantesCommand}"/>
                     <MenuItem Name="Flexion"
-                                          Header="Flexion en Zapatas"/>
+                                          Header="Flexion en Zapatas"
+                                          Command="{Binding DatosFlexionCommand}"/>
                     <MenuItem Name="Resumen"
                                           Header="Resumen Zapatas"/>
                 </MenuItem>

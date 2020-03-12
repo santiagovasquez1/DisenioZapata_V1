@@ -103,6 +103,9 @@
     <Compile Include="View\DatosPresionesPAge.xaml.cs">
       <DependentUpon>DatosPresionesPAge.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FlexionPage.xaml.cs">
+      <DependentUpon>FlexionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FuerzasPage.xaml.cs">
       <DependentUpon>FuerzasPage.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DatosPresionesPAge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FlexionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

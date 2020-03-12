@@ -35,7 +35,6 @@ namespace DisenioZapata_V1.Model
             set
             {
                 zapataSeleccionada = value;
-                SetPresiones();
                 OnPropertyChanged();
             }
         }
@@ -53,7 +52,7 @@ namespace DisenioZapata_V1.Model
         public MiComando PropiedadesProyectoCommand { get; set; }
         public MiComando DatosPresionesCommand { get; set; }
         public MiComando DatosCortantesCommand { get; set; }
-
+        public MiComando DatosFlexionCommand { get; set; }
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
@@ -61,6 +60,7 @@ namespace DisenioZapata_V1.Model
             PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);
             DatosPresionesCommand = new MiComando(DatosPresionesCommandExecute);
             DatosCortantesCommand = new MiComando(DatosCortantesCommandExecute);
+            DatosFlexionCommand = new MiComando(DatosFlexionCommandExecute);
         }
 
         private void NuevoProyectoCommandExecute()
@@ -90,6 +90,10 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToCortantes");
         }
+        private void DatosFlexionCommandExecute()
+        {
+            MessagingCenter.Send(this, "GoToFlexion");
+        }
 
         private void OpenModel()
         {
@@ -115,20 +119,6 @@ namespace DisenioZapata_V1.Model
             BuilderZapatas builder = new BuilderZapatas();
             builder.BuildZapatas(Lector.Get_Fuerzas(), ETipoZapata.Zapata_Aislada, modelo_proyecto);
             Zapatas = builder.Zapatas;
-        }
-
-        public void SetPresiones()
-        {
-            //Dimensionamiento Datos_Dim = Zapata_Seleccionada.Dimensionamientos;
-            //Presiones = new ObservableCollection<DatosPresiones>();
-
-            //for (int i = 0; i < Datos_Dim.Ex.Count; i++)
-            //{
-            //    DatosPresiones datoi = new DatosPresiones(Zapata_Seleccionada.Fuerzas[i].Load, (float)Zapata_Seleccionada.Fuerzas[i].Fz,
-            //        (float)Zapata_Seleccionada.Fuerzas[i].Mx, (float)Zapata_Seleccionada.Fuerzas[i].My, Datos_Dim.QmaxX[i], Datos_Dim.QmaxY[i],
-            //        Datos_Dim.QminX[i], Datos_Dim.QminY[i], Datos_Dim.Ex[i], Datos_Dim.Ey[i], Datos_Dim.Chequeo_ex[i], Datos_Dim.Chequeo_ey[i]);
-            //    Presiones.Add(datoi);
-            //}
         }
     }
 }

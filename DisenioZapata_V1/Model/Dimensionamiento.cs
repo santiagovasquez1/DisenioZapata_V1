@@ -196,7 +196,7 @@ namespace DisenioZapata_V1.Model
         {
             if (excentricidad <= Lado / 6)
                 return ("e<L/6");
-            else if (excentricidad > Lado / 6 & excentricidad >= Lado / 2)
+            else if (excentricidad > Lado / 6 & excentricidad <= Lado / 2)
                 return ("L/6<e<L/2");
             else
                 return ("e>L2");

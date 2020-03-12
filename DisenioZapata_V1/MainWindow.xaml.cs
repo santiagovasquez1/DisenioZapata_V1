@@ -48,6 +48,10 @@ namespace DisenioZapata_V1
             {
                 Main.Content = new Cortantes();
             });
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToFlexion", (a) =>
+            {
+                Main.Content = new FlexionPage();
+            });
         }
 
         private void PresionesOnClick(object sender, RoutedEventArgs e)

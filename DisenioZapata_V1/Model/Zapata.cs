@@ -29,6 +29,7 @@ namespace DisenioZapata_V1.Model
                 Presiones(L1, L2, H);
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
+                SetFlexion();
                 OnPropertyChanged();
             }
         }
@@ -46,6 +47,7 @@ namespace DisenioZapata_V1.Model
                 Presiones(L1, L2, H);
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
+                SetFlexion();
                 OnPropertyChanged();
             }
         }
@@ -62,6 +64,7 @@ namespace DisenioZapata_V1.Model
                 Presiones(L1, L2, H);
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
+                SetFlexion();
                 OnPropertyChanged();
             }
         }
@@ -112,6 +115,7 @@ namespace DisenioZapata_V1.Model
                 fc = value;
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
+                SetFlexion();
                 OnPropertyChanged();
             }
         }
@@ -266,6 +270,18 @@ namespace DisenioZapata_V1.Model
                 foreach (var cortanteu in CortanteBiridireccional)
                 {
                     cortanteu.Calculo_Clase(Fuerzas[cont], cont);
+                    cont++;
+                }
+            }
+        }
+        public void SetFlexion()
+        {
+            int cont = 0;
+            if (Fc > 0 & L1 > 0 & L2 > 0 & H>0 & flexion != null)
+            {
+                foreach(var flexioni in Flexion)
+                {
+                    flexioni.Calculo_Clase(Fuerzas[cont], cont);
                     cont++;
                 }
             }

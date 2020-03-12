@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace DisenioZapata_V1.Model
 {
-    public class CortanteBiridireccional : NotificationObject,ICalculo
+    public class CortanteBiridireccional : NotificationObject, ICalculo
     {
         private Zapata zapata;
 
@@ -18,7 +18,7 @@ namespace DisenioZapata_V1.Model
         public string Load
         {
             get { return load; }
-            set { load = value; }
+            set { load = value; OnPropertyChanged(); }
         }
 
         private float fz;
@@ -34,7 +34,7 @@ namespace DisenioZapata_V1.Model
         public float Mx
         {
             get { return mx; }
-            set { mx = value; ; }
+            set { mx = value; }
         }
 
         private float my;
@@ -45,13 +45,20 @@ namespace DisenioZapata_V1.Model
             set { my = value; }
         }
 
-        public float Vu { get; set; }
-        public float PhiVc1 { get; set; }
-        public float PhiVc2 { get; set; }
-        public float PhiVc3 { get; set; }
-        public float PhiVc { get; set; }
-        public float Qmax { get; set; }
-        public string ChequeoVu { get; set; }
+        private float vu;
+        public float Vu { get { return vu; } set { vu = value; OnPropertyChanged(); } }
+        private float phivc1;
+        public float PhiVc1 { get { return phivc1; } set { phivc1 = value; OnPropertyChanged(); } }
+        private float phivc2;
+        public float PhiVc2 { get { return phivc2; } set { phivc2 = value; OnPropertyChanged(); } }
+        private float phivc3;
+        public float PhiVc3 { get { return phivc3; } set { phivc3 = value; OnPropertyChanged(); } }
+        private float phivc;
+        public float PhiVc { get { return phivc; } set { phivc = value; OnPropertyChanged(); } }
+        private float qmax;
+        public float Qmax { get { return qmax; } set { qmax = value; OnPropertyChanged(); } }
+        private string chequeovu;
+        public string ChequeoVu { get { return chequeovu; } set { chequeovu = value; OnPropertyChanged(); } }
 
         public CortanteBiridireccional(Zapata zapata_I)
         {

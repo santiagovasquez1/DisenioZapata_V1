@@ -52,6 +52,17 @@
                 <Setter Property="FontFamily" Value="Calibri"/>
                 <Setter Property="BorderThickness" Value="2"/>
             </Style>
+            <Style TargetType="DataGrid">
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="BorderBrush" Value="#2D2D30"/>
+                <Setter Property="ColumnWidth" Value="0.25*"/>
+                <Setter Property="CanUserReorderColumns" Value="False"/>
+                <Setter Property="CanUserAddRows" Value="False"/>
+                <Setter Property="CanUserDeleteRows" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="SelectionUnit" Value="Cell"/>
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

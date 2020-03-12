@@ -13,8 +13,31 @@ namespace DisenioZapata_V1.Model
             set { zapata = value; }
         }
 
-        public float Mux { get; set; }
-        public float Muy { get; set; }
+        private string load;
+
+        public string Load
+        {
+            get { return load; }
+            set { load = value; OnPropertyChanged(); }
+        }
+
+        private float mux;
+
+        public float Mux
+        {
+            get { return mux; }
+            set { mux = value; OnPropertyChanged(); }
+        }
+
+        private float muy;
+
+        public float Muy
+        {
+            get
+            { return muy; }
+            set { muy = value; OnPropertyChanged(); }
+        }
+
         private float asmin;
 
         public float Asmin
@@ -39,7 +62,13 @@ namespace DisenioZapata_V1.Model
             set { asReqy = value; OnPropertyChanged(); }
         }
 
-        public float Qmax { get; set; }
+        private float qmax;
+
+        public float Qmax
+        {
+            get { return qmax; }
+            set { qmax = value; OnPropertyChanged(); }
+        }
 
         public Flexion(Zapata zapata_i)
         {
@@ -50,6 +79,7 @@ namespace DisenioZapata_V1.Model
         {
             Dimensionamiento dimensionamiento = Zapata.Dimensionamientos[indice];
 
+            load = fuerza.Load;
             Qmax = new float[] { dimensionamiento.QmaxX, dimensionamiento.QmaxY, dimensionamiento.QminX, dimensionamiento.QminY }.Max();
             Mux = (CalcMu(Zapata.L2, Zapata.L1, Zapata.LcX, Qmax));
             Muy = (CalcMu(Zapata.L1, Zapata.L2, Zapata.LcY, Qmax));

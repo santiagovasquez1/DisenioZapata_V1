@@ -38,8 +38,13 @@ namespace DisenioZapata_V1
                 {
                     zapatai = new Zapata_Aislada(Label, punto, FuerzasLabel, new Suelo("TipoD", 15f));
                     zapatai.Fc = 210f;
+                    zapatai.Fy = 4220;
+                    zapatai.R = 0.07f;
                     zapatai.SetCalculos();
                     zapatai.Presiones(zapatai.L1, zapatai.L2, zapatai.H);
+                    zapatai.SetCortanteUnidireccional();
+                    zapatai.SetCortanteBidireccional();
+                    zapatai.SetFlexion();
                 }
 
                 DeterminarTipoColumna(zapatai);
