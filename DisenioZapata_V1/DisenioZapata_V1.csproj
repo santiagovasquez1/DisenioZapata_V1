@@ -89,13 +89,12 @@
     </ApplicationDefinition>
     <Compile Include="Model\BuilderZapatas.cs" />
     <Compile Include="ETipoZapata.cs" />
-    <Compile Include="Model\ConstructorCalculos\ICalculoBuilder.cs" />
-    <Compile Include="Model\DatosTablas\DatosPresiones.cs" />
     <Compile Include="Model\Datos_Zapatas.cs" />
     <Compile Include="Model\ETipoColumnas.cs" />
     <Compile Include="Model\MiComando.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
     <Compile Include="Model\Converter\SwitchCollectionsConverter.cs" />
+    <Compile Include="Model\ResumenZapata.cs" />
     <Compile Include="Model\Suelo.cs" />
     <Compile Include="View\Cortantes.xaml.cs">
       <DependentUpon>Cortantes.xaml</DependentUpon>
@@ -114,6 +113,9 @@
     </Compile>
     <Compile Include="View\PropiedadesPage.xaml.cs">
       <DependentUpon>PropiedadesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ResumenPage.xaml.cs">
+      <DependentUpon>ResumenPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PropiedadesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResumenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

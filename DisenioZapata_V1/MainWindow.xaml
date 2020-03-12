@@ -48,7 +48,8 @@
                                           Header="Flexion en Zapatas"
                                           Command="{Binding DatosFlexionCommand}"/>
                     <MenuItem Name="Resumen"
-                                          Header="Resumen Zapatas"/>
+                                          Header="Resumen Zapatas"
+                                            Command="{Binding ResumenCommand}"/>
                 </MenuItem>
                 <MenuItem Name="Ayuda"
                                       Header="Ayuda" >

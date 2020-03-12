@@ -93,6 +93,14 @@ namespace DisenioZapata_V1.Model
             set { qminy = value; OnPropertyChanged(); }
         }
 
+        private float qmax;
+
+        public float Qmax
+        {
+            get { return qmax; }
+            set { qmax = value; }
+        }
+
         private string chequeo_ex;
 
         public string Chequeo_ex
@@ -134,6 +142,7 @@ namespace DisenioZapata_V1.Model
             QminX = (CalcQMin(Ex, (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.Mx, Zapata.L1, Zapata.L2));
             QmaxY = (CalcQMax(Ey, (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My, Zapata.L2, Zapata.L1));
             QminY = (CalcQMin(Ey, (float)fuerza.Fz + Zapata.PesoPropio, (float)fuerza.My, Zapata.L2, Zapata.L1));
+            Qmax = new float[] { QmaxX, QmaxY, QminX, QminY }.Max();
         }
 
         /// <summary>

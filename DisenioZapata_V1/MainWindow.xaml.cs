@@ -52,6 +52,10 @@ namespace DisenioZapata_V1
             {
                 Main.Content = new FlexionPage();
             });
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToResumen", (a) =>
+            {
+                Main.Content = new ResumenPage();
+            });
         }
 
         private void PresionesOnClick(object sender, RoutedEventArgs e)

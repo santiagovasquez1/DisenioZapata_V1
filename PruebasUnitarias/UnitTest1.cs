@@ -39,11 +39,10 @@ namespace PruebasUnitarias
             zapataTest.CalcArea();
             zapataTest.CalcPesoPropio();
             zapataTest.SetCalculos();
-
-            foreach (ICalculo calculo in zapataTest.Calculos)
-            {
-                calculo.Calculo_Clase();
-            }
+            zapataTest.Presiones(zapataTest.L1, zapataTest.L2, zapataTest.H);
+            zapataTest.SetCortanteUnidireccional();
+            zapataTest.SetCortanteBidireccional();
+            zapataTest.SetFlexion();
         }
 
         public bool Palindromo(string palabra)

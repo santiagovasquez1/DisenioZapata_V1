@@ -119,8 +119,6 @@ namespace DisenioZapata_V1.Model
             float b = -Zapata.Fy * d * 0.90f;
             float c = (Mu * 1000f * 100f);
             float raiz = (float)Math.Sqrt((float)Math.Pow(b, 2) - 4 * a * c);
-            float AsDef = 0;
-
             float As1 = (-b + raiz) / (2 * a);
             float As2 = (-b - raiz) / (2 * a);
 
@@ -133,7 +131,7 @@ namespace DisenioZapata_V1.Model
                 As2 = (float)Math.Pow(10, 10);
             }
 
-            AsDef = new float[] { As1, As2 }.Min();
+            float AsDef = new float[] { As1, As2 }.Min();
             return AsDef;
         }
     }

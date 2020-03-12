@@ -1,5 +1,4 @@
 ﻿using B_Lectura_E2K.Entidades;
-using DisenioZapata_V1.Model.DatosTablas;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using Xamarin.Forms;
@@ -17,14 +16,6 @@ namespace DisenioZapata_V1.Model
         {
             get { return zapatas; }
             set { zapatas = value; OnPropertyChanged(); }
-        }
-
-        private ObservableCollection<DatosPresiones> presiones;
-
-        public ObservableCollection<DatosPresiones> Presiones
-        {
-            get { return presiones; }
-            set { presiones = value; OnPropertyChanged(); }
         }
 
         private Zapata zapataSeleccionada;
@@ -53,6 +44,8 @@ namespace DisenioZapata_V1.Model
         public MiComando DatosPresionesCommand { get; set; }
         public MiComando DatosCortantesCommand { get; set; }
         public MiComando DatosFlexionCommand { get; set; }
+        public MiComando ResumenCommand { get; set; }
+
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
@@ -61,6 +54,7 @@ namespace DisenioZapata_V1.Model
             DatosPresionesCommand = new MiComando(DatosPresionesCommandExecute);
             DatosCortantesCommand = new MiComando(DatosCortantesCommandExecute);
             DatosFlexionCommand = new MiComando(DatosFlexionCommandExecute);
+            ResumenCommand = new MiComando(ResumenCommandExecute);
         }
 
         private void NuevoProyectoCommandExecute()
@@ -90,9 +84,15 @@ namespace DisenioZapata_V1.Model
         {
             MessagingCenter.Send(this, "GoToCortantes");
         }
+
         private void DatosFlexionCommandExecute()
         {
             MessagingCenter.Send(this, "GoToFlexion");
+        }
+
+        private void ResumenCommandExecute()
+        {
+            MessagingCenter.Send(this, "GoToResumen");
         }
 
         private void OpenModel()
