@@ -162,7 +162,7 @@ namespace DisenioZapata_V1.Model
 
         private float CalcPhiVc(float fc)
         {
-            float PhiVc = 0.75f * 0.53f * (float)Math.Sqrt(fc);
+            float PhiVc = 0.75f * 0.53f * (float)Math.Sqrt(fc) * 10f;
             return PhiVc;
         }
 

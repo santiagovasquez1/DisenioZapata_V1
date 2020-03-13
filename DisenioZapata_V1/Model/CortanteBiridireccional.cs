@@ -103,7 +103,7 @@ namespace DisenioZapata_V1.Model
 
         private float CalculoPhiVc1()
         {
-            float phivc = 1.1f * 0.75f * (float)Math.Sqrt(Zapata.Fc);
+            float phivc = 1.1f * 0.75f * (float)Math.Sqrt(Zapata.Fc) * 10f; ;
             return phivc;
         }
 
@@ -112,7 +112,7 @@ namespace DisenioZapata_V1.Model
             float beta, phivc;
 
             beta = Math.Max(Zapata.LcX, Zapata.LcY) / Math.Min(Zapata.LcX, Zapata.LcY);
-            phivc = 0.75f * 0.53f * (1 + (2 / beta)) * (float)Math.Sqrt(Zapata.Fc);
+            phivc = 10f * 0.75f * 0.53f * (1 + (2 / beta)) * (float)Math.Sqrt(Zapata.Fc);
             return phivc;
         }
 
@@ -139,7 +139,7 @@ namespace DisenioZapata_V1.Model
                     break;
             }
 
-            phivc = 0.75f * 0.27f * (2f + (asd * d * 100 / b0)) * (float)Math.Sqrt(Zapata.Fc);
+            phivc = 10f * 0.75f * 0.27f * (2f + (asd * d * 100 / b0)) * (float)Math.Sqrt(Zapata.Fc);
             return phivc;
         }
     }

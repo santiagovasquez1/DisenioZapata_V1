@@ -28,7 +28,7 @@
                     <DataGridTextColumn Header="Vuy (Tonf)" Binding="{Binding VuY, StringFormat='{}{0:0.00}'}" />
                     <DataGridTextColumn Header="vx (Tonf/m²)" Binding="{Binding Eux, StringFormat='{}{0:0.00}'}" />
                     <DataGridTextColumn Header="vy (Tonf/m²)" Binding="{Binding Euy, StringFormat='{}{0:0.00}'}" />
-                    <DataGridTextColumn Header="PhiVc (kgf/cm²)" Binding="{Binding PhiVc, StringFormat='{}{0:0.00}'}" />
+                    <DataGridTextColumn Header="PhiVc (Tonf/m²)" Binding="{Binding PhiVc, StringFormat='{}{0:0.00}'}" />
                     <DataGridTextColumn Header="PhiVc > Vu" Binding="{Binding ChequeoCortante}" />
                 </DataGrid.Columns>
             </DataGrid>
@@ -40,10 +40,10 @@
                     <DataGridTextColumn Header="Load" Binding="{Binding Load}" />
                     <DataGridTextColumn Header="Qmax (Tonf/m²)" Binding="{Binding Qmax, StringFormat='{}{0:0.00}'}" />
                     <DataGridTextColumn Header="Vu (Tonf/m²)" Binding="{Binding Vu, StringFormat='{}{0:0.00}'}" />
-                    <DataGridTextColumn Header="PhiVc1 (kgf/cm²)" Binding="{Binding PhiVc1, StringFormat='{}{0:0.00}'}" />
-                    <DataGridTextColumn Header="PhiVc2 (kgf/cm²)" Binding="{Binding PhiVc2, StringFormat='{}{0:0.00}'}" />
-                    <DataGridTextColumn Header="PhiVc3 (kgf/cm²)" Binding="{Binding PhiVc3, StringFormat='{}{0:0.00}'}" />
-                    <DataGridTextColumn Header="PhiVc Def (kgf/cm²)" Binding="{Binding PhiVc, StringFormat='{}{0:0.00}'}" />
+                    <DataGridTextColumn Header="PhiVc1 (Tonf/m²)" Binding="{Binding PhiVc1, StringFormat='{}{0:0.00}'}" />
+                    <DataGridTextColumn Header="PhiVc2 (Tonf/m²)" Binding="{Binding PhiVc2, StringFormat='{}{0:0.00}'}" />
+                    <DataGridTextColumn Header="PhiVc3 (Tonf/m²)" Binding="{Binding PhiVc3, StringFormat='{}{0:0.00}'}" />
+                    <DataGridTextColumn Header="PhiVc Def (Tonf/m²)" Binding="{Binding PhiVc, StringFormat='{}{0:0.00}'}" />
                     <DataGridTextColumn Header="PhiVc > Vu" Binding="{Binding ChequeoVu}" />
                 </DataGrid.Columns>
             </DataGrid>
