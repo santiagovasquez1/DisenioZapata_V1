@@ -21,164 +21,164 @@
                 <GroupBox Header="Presiones Zapata" FontWeight="Normal" Margin="10">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Label Content="Load" VerticalAlignment="Center" Height="28" Margin="0,16" />
-                        <TextBox Text="SS10" Grid.Column="1"
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Loadpresionesmax}" Grid.Column="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  Margin="10,20"
                                  IsEnabled="False" Height="20" />
                         <Label Content="Qmax (Tonf/m²)" Grid.Column="2"
                                VerticalAlignment="Center" Height="28" Margin="0,16" />
-                        <TextBox Text="SS10" Grid.Column="3"
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Qmax, StringFormat='{}{0:0.00}'}" Grid.Column="3"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  Margin="10,20"
                                  IsEnabled="False" Height="20" />
-                        <CheckBox Content="¿Cumple?" 
-                                  IsChecked="False"
-                                  VerticalAlignment="Center"
-                                  Grid.Column="4" Margin="0,16"/>
+                        <CheckBox Content="¿Cumple?"
+                                  IsChecked="{Binding Zapata_Seleccionada.ResumenZapata.CumplePresiones}"
+                                  VerticalAlignment="Center" IsEnabled="False"
+                                  Grid.Column="4" Margin="0,16" />
                     </Grid>
                 </GroupBox>
                 <GroupBox Header="Cortante unidireccional" FontWeight="Normal" Margin="10" Grid.Row="1">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
-                            <ColumnDefinition  />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Label Content="Load X" VerticalAlignment="Center" />
-                        <TextBox Text="SS10" Grid.Column="1"
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.LoadVux}" Grid.Column="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Load Y" Grid.Row="1" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="1" Grid.Row="1"
+                        <Label Content="Load Y" Grid.Row="1" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.LoadVuY}" Grid.Column="1" Grid.Row="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="vu x (kgf/cm²)" Grid.Column="2" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="3"
+                        <Label Content="vu x (kgf/cm²)" Grid.Column="2" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.VuX_Max,StringFormat='{}{0:0.00}'}" Grid.Column="3"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
                         <Label Content="vu y (kgf/cm²)" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" />
-                        <TextBox Text="SS10" Grid.Row="1"  Grid.Column="3"
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Vuy_Max,StringFormat='{}{0:0.00}'}" Grid.Row="1"  Grid.Column="3"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi vc (kgf/cm²)" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Row="0"  Grid.Column="5" 
+                        <Label Content="Phi vc (kgf/cm²)" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc,StringFormat='{}{0:0.00}'}" Grid.Row="0"  Grid.Column="5"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <CheckBox Content="¿Cumple?" 
-                                  IsChecked="False"
+                        <CheckBox Content="¿Cumple?"
+                                  IsChecked="{Binding Zapata_Seleccionada.ResumenZapata.CumpleV1}"
                                   VerticalAlignment="Center"
-                                  Grid.Row="1"
-                                  Grid.Column="4" Margin="4,0"/>
+                                  Grid.Row="1" IsEnabled="False"
+                                  Grid.Column="4" Margin="4,0" />
                     </Grid>
                 </GroupBox>
                 <GroupBox Header="Cortante bidireccional" Grid.Row="2" FontWeight="Normal" Margin="10">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Load" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="1"
+                        <Label Content="Load" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Loadbidireccionalmax}" Grid.Column="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="vu máx (kgf/cm²)" Grid.Row="1" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="1" Grid.Row="1"
+                        <Label Content="vu máx (kgf/cm²)" Grid.Row="1" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Vu_Max,StringFormat='{}{0:0.00}'}" Grid.Column="1" Grid.Row="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi Vc1 (kgf/cm²)" Grid.Column="2" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="3" Grid.Row="0"
+                        <Label Content="Phi Vc1 (kgf/cm²)" Grid.Column="2" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc1,StringFormat='{}{0:0.00}'}" Grid.Column="3" Grid.Row="0"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi Vc2 (kgf/cm²)" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="3" Grid.Row="1"
+                        <Label Content="Phi Vc2 (kgf/cm²)" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc2,StringFormat='{}{0:0.00}'}" Grid.Column="3" Grid.Row="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi Vc3 (kgf/cm²)" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="5" Grid.Row="0"
+                        <Label Content="Phi Vc3 (kgf/cm²)" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc3,StringFormat='{}{0:0.00}'}" Grid.Column="5" Grid.Row="0"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <CheckBox Content="¿Cumple?" 
-                                  IsChecked="False"
+                        <CheckBox Content="¿Cumple?"
+                                  IsChecked="{Binding Zapata_Seleccionada.ResumenZapata.CumpleV2}"
                                   VerticalAlignment="Center"
-                                  Grid.Row="1"
-                                  Grid.Column="4" Margin="4,0"/>
+                                  Grid.Row="1" IsEnabled="False"
+                                  Grid.Column="4" Margin="4,0" />
                     </Grid>
                 </GroupBox>
                 <GroupBox Header="Flexion Zapata" Grid.Row="3" FontWeight="Normal" Margin="10">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Load X" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="1"
+                        <Label Content="Load X" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.LoadMux}" Grid.Column="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Load Y" Grid.Row="1" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="1" Grid.Row="1"
+                        <Label Content="Load Y" Grid.Row="1" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.LoadMuY}" Grid.Column="1" Grid.Row="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Mu x (Tonf-m)" Grid.Column="2" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Column="3"
+                        <Label Content="Mu x (Tonf-m)" Grid.Column="2" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.MuX_Max,StringFormat='{}{0:0.00}'}" Grid.Column="3"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Mu y (Tonf-m)" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Row="1"  Grid.Column="3"
+                        <Label Content="Mu y (Tonf-m)" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Muy_Max,StringFormat='{}{0:0.00}'}" Grid.Row="1"  Grid.Column="3"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="As x (cm²)" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Row="0"  Grid.Column="5"
+                        <Label Content="As x (cm²)" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Asx,StringFormat='{}{0:0.00}'}" Grid.Row="0"  Grid.Column="5"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="As y (cm²)" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"/>
-                        <TextBox Text="SS10" Grid.Row="1"  Grid.Column="5"
+                        <Label Content="As y (cm²)" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" />
+                        <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Asy,StringFormat='{}{0:0.00}'}" Grid.Row="1"  Grid.Column="5"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />

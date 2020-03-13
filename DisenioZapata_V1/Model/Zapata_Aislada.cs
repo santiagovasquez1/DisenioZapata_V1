@@ -16,7 +16,7 @@ namespace DisenioZapata_V1.Model
             CalcArea();
             CalcPesoPropio();            
             GammaConcreto = 2.4f;
-            
+            ResumenZapata = new ResumenZapata(this);
         }
 
         public override void SetCalculos()
