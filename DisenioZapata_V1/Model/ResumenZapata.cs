@@ -74,6 +74,14 @@ namespace DisenioZapata_V1.Model
             set { vuy_max = value; OnPropertyChanged(); }
         }
 
+        private float phivc;
+
+        public float PhiVc
+        {
+            get { return phivc; }
+            set { phivc = value; OnPropertyChanged(); }
+        }
+
         private bool cumpleV1;
 
         public bool CumpleV1
@@ -102,9 +110,33 @@ namespace DisenioZapata_V1.Model
             set { vu_Max = value; OnPropertyChanged(); }
         }
 
-        private float cumpleV2;
+        private float phivc1;
 
-        public float CumpleV2
+        public float PhiVc1
+        {
+            get { return phivc1; }
+            set { phivc1 = value; OnPropertyChanged(); }
+        }
+
+        private float phivc2;
+
+        public float PhiVc2
+        {
+            get { return phivc2; }
+            set { phivc2 = value; OnPropertyChanged(); }
+        }
+
+        private float phivc3;
+
+        public float PhiVc3
+        {
+            get { return phivc3; }
+            set { phivc3 = value; OnPropertyChanged(); }
+        }
+
+        private bool cumpleV2;
+
+        public bool CumpleV2
         {
             get { return cumpleV2; }
             set { cumpleV2 = value; OnPropertyChanged(); }
@@ -159,7 +191,7 @@ namespace DisenioZapata_V1.Model
         public float Asy
         {
             get { return asy; }
-            set { asy = value; }
+            set { asy = value; OnPropertyChanged(); }
         }
 
         #endregion Flexion
@@ -167,13 +199,9 @@ namespace DisenioZapata_V1.Model
         public ResumenZapata(Zapata zapata)
         {
             Zapata = zapata;
-            SetResumenPresiones();
-            SetResumenUnidireccional();
-            SetResumenBidireccional();
-            SetResumenFlexion();
         }
 
-        private void SetResumenPresiones()
+        public void SetResumenPresiones()
         {
             var prueba = Zapata.Dimensionamientos.Select(x => x.Qmax).FirstOrDefault();
             int indice = 0;
@@ -191,7 +219,7 @@ namespace DisenioZapata_V1.Model
             }
         }
 
-        private void SetResumenUnidireccional()
+        public void SetResumenUnidireccional()
         {
             var prueba = Zapata.CortanteUnidireccional.Select(x => x.Qmax).FirstOrDefault();
             int indiceX, indiceY;
@@ -207,7 +235,7 @@ namespace DisenioZapata_V1.Model
                 LoadVux = Zapata.CortanteUnidireccional.Select(x => x.Load).ToList()[indiceX];
                 LoadVuY = Zapata.CortanteUnidireccional.Select(x => x.Load).ToList()[indiceY];
 
-                float phivc = Zapata.CortanteUnidireccional.Select(x => x.PhiVc).FirstOrDefault();
+                PhiVc = Zapata.CortanteUnidireccional.Select(x => x.PhiVc).FirstOrDefault();
 
                 if (VuX_Max <= phivc && Vuy_Max <= phivc)
                     CumpleV1 = true;
@@ -216,17 +244,30 @@ namespace DisenioZapata_V1.Model
             }
         }
 
-        private void SetResumenBidireccional()
+        public void SetResumenBidireccional()
         {
             var prueba = Zapata.CortanteBiridireccional.Select(x => x.Qmax).FirstOrDefault();
             int indice;
 
             if (prueba != 0)
             {
+                Vu_Max = Zapata.CortanteBiridireccional.Select(x => x.Qmax).Max() * 1.4f;
+                indice = Zapata.CortanteBiridireccional.Select(x => x.Qmax).ToList().FindIndex(x => x == Zapata.CortanteBiridireccional.Select(x1 => x1.Qmax).Max());
+                loadbidireccionalmax = Zapata.CortanteBiridireccional.Select(x => x.Load).ToList()[indice];
+                PhiVc1 = Zapata.CortanteBiridireccional.Select(x => x.PhiVc1).FirstOrDefault();
+                PhiVc2 = Zapata.CortanteBiridireccional.Select(x => x.PhiVc2).FirstOrDefault();
+                PhiVc3 = Zapata.CortanteBiridireccional.Select(x => x.PhiVc3).FirstOrDefault();
+
+                float phivc_def = new float[] { PhiVc1 , PhiVc2 , PhiVc3 }.Min();
+
+                if (VuX_Max < phivc_def)
+                    CumpleV2 = true;
+                else
+                    CumpleV2 = false;
             }
         }
 
-        private void SetResumenFlexion()
+        public void SetResumenFlexion()
         {
             var prueba = Zapata.Flexion.Select(x => x.AsreqX).FirstOrDefault();
             int indiceX, indiceY;
