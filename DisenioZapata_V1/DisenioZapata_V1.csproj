@@ -41,6 +41,9 @@
     <Reference Include="B_Lectura_E2K">
       <HintPath>..\..\BibliotecaE2K\bin\Debug\netstandard2.0\B_Lectura_E2K.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -95,6 +98,7 @@
     <Compile Include="Model\Modelo_Estructura.cs" />
     <Compile Include="Model\Converter\SwitchCollectionsConverter.cs" />
     <Compile Include="Model\ResumenZapata.cs" />
+    <Compile Include="Model\SerializacionObjetos.cs" />
     <Compile Include="Model\Suelo.cs" />
     <Compile Include="View\Cortantes.xaml.cs">
       <DependentUpon>Cortantes.xaml</DependentUpon>
@@ -116,6 +120,9 @@
     </Compile>
     <Compile Include="View\ResumenPage.xaml.cs">
       <DependentUpon>ResumenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TipoSueloView.xaml.cs">
+      <DependentUpon>TipoSueloView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ResumenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TipoSueloView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

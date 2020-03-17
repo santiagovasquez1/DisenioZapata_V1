@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
     public class CortanteBiridireccional : NotificationObject, ICalculo
     {
         private Zapata zapata;

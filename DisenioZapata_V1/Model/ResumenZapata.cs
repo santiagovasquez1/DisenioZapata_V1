@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
     public class ResumenZapata : NotificationObject
     {
         private Zapata zapata;

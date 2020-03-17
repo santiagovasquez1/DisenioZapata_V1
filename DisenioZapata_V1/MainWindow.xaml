@@ -6,77 +6,84 @@
         xmlns:local="clr-namespace:DisenioZapata_V1"
         xmlns:local1="clr-namespace:DisenioZapata_V1.Model"
         mc:Ignorable="d"
-        Title="Diseño de Zapatas" 
-        Height="600" 
+        Title="Diseño de Zapatas"
+        Height="600"
         Width="1270">
 
     <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
         RenderTransformOrigin="0.483,0.162">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="28*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="24" />
             <RowDefinition Height="395*" />
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="2">
-            <Menu >
+            <Menu>
                 <MenuItem Name="Archivo"
                                       Header="Archivo">
-                    <MenuItem Name="Abrir"
-                                          Header="Abrir proyecto" />
                     <MenuItem Name="Nuevo"
                                          Header="Nuevo proyecto"
-                                         Command="{Binding NuevoProyectoCommand}"/>
+                                         Command="{Binding NuevoProyectoCommand}" />
+                    <MenuItem Name="Abrir"
+                                          Header="Abrir proyecto" 
+                                          Command="{Binding AbrirCommand}"/>
+                    <MenuItem Name="GuardarComo"
+                                          Header="Guardar como"
+                                          Command="{Binding GuardarComoCommand}"/>
+                    <MenuItem Name="Guardar"
+                                          Header="Guardar"
+                                          Command="{Binding GuardarCommand}"/>
                 </MenuItem>
 
                 <MenuItem Name="Editar"
                                        Header="Editar proyecto" />
                 <MenuItem Name="Ver"
-                                      Header="Ver" >
+                                      Header="Ver">
                     <MenuItem Name="Fuerzas"
                                           Header="Fuerzas Zapatas"
-                                          Command="{Binding FuerzasProyectoCommand}"/>
+                                          Command="{Binding FuerzasProyectoCommand}" />
                     <MenuItem Name="Dimensionamiento"
                                           Header="Dimensionamiento Zapatas"
-                                          Command="{Binding DatosPresionesCommand}"/>
+                                          Command="{Binding DatosPresionesCommand}" />
                     <MenuItem Name="Cortante"
                                           Header="Cortante Zapatas"
-                                          Command="{Binding DatosCortantesCommand}"/>
+                                          Command="{Binding DatosCortantesCommand}" />
                     <MenuItem Name="Flexion"
                                           Header="Flexion en Zapatas"
-                                          Command="{Binding DatosFlexionCommand}"/>
+                                          Command="{Binding DatosFlexionCommand}" />
                     <MenuItem Name="Resumen"
                                           Header="Resumen Zapatas"
-                                            Command="{Binding ResumenCommand}"/>
+                                            Command="{Binding ResumenCommand}" />
                 </MenuItem>
                 <MenuItem Name="Ayuda"
-                                      Header="Ayuda" >
+                                      Header="Ayuda">
                     <MenuItem Name="Acerca"
-                                          Header="Acerca de Diseño de Zapates"/>
+                                          Header="Acerca de Diseño de Zapates" />
                 </MenuItem>
             </Menu>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <ListBox 
+            <ListBox
             ItemsSource="{Binding Zapatas,Mode=TwoWay}"
             SelectedItem="{Binding Zapata_Seleccionada,Mode=TwoWay}">
             </ListBox>
             <Frame x:Name="MainProp"
                         Background="#2D2D30"
                         Grid.Row="1"
-                        NavigationUIVisibility="Hidden"/>
+                        NavigationUIVisibility="Hidden" />
         </Grid>
 
         <Frame x:Name="Main"
                         Background="AliceBlue"
                         Grid.Column="1"
                         Grid.Row="1"
-                        NavigationUIVisibility="Hidden"/>
+                        NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

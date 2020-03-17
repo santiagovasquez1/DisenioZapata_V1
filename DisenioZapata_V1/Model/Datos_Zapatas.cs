@@ -1,14 +1,27 @@
 ﻿using B_Lectura_E2K.Entidades;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Forms;
 using Xamarin.Forms;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
     public class Datos_Zapatas : NotificationObject
     {
-        public ILectorFuerzas Lector { get; set; }
-        public Modelo_Etabs modelo_proyecto { get; set; }
+        [NonSerialized]
+        private ILectorFuerzas lector;
+
+        [NonSerialized]
+        private const string Dato_proyecto = "DatosZapatas";
+
+        public ILectorFuerzas Lector { get => lector; set => lector = value; }
+
+        [NonSerialized]
+        private Modelo_Etabs modelo_proyecto1;
+
+        public Modelo_Etabs modelo_proyecto { get => modelo_proyecto1; set => modelo_proyecto1 = value; }
 
         private ObservableCollection<Zapata> zapatas;
 
@@ -30,22 +43,52 @@ namespace DisenioZapata_V1.Model
             }
         }
 
-        private Suelo suelo;
+        private string ruta;
 
-        public Suelo Suelo
+        public string Ruta
         {
-            get { return suelo; }
-            set { suelo = value; OnPropertyChanged(); }
+            get { return ruta; }
+            set { ruta = value; }
         }
 
+        private string rutan;
+
+        public string Rutan
+        {
+            get { return rutan; }
+            set { rutan = value; }
+        }
+
+        [field: NonSerialized]
         public MiComando NuevoProyectoCommand { get; set; }
+
+        [field: NonSerialized]
         public MiComando FuerzasProyectoCommand { get; set; }
+
+        [field: NonSerialized]
         public MiComando PropiedadesProyectoCommand { get; set; }
+
+        [field: NonSerialized]
         public MiComando DatosPresionesCommand { get; set; }
+
+        [field: NonSerialized]
         public MiComando DatosCortantesCommand { get; set; }
+
+        [field: NonSerialized]
         public MiComando DatosFlexionCommand { get; set; }
+
+        [field: NonSerialized]
         public MiComando ResumenCommand { get; set; }
 
+        [field: NonSerialized]
+        public MiComando GuardarComoCommand { get; set; }
+
+        [field: NonSerialized]
+        public MiComando GuardarCommand { get; set; }
+
+        [field: NonSerialized]
+        public MiComando AbrirCommand { get; set; }
+        
         public Datos_Zapatas()
         {
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
@@ -55,6 +98,46 @@ namespace DisenioZapata_V1.Model
             DatosCortantesCommand = new MiComando(DatosCortantesCommandExecute);
             DatosFlexionCommand = new MiComando(DatosFlexionCommandExecute);
             ResumenCommand = new MiComando(ResumenCommandExecute);
+            GuardarComoCommand = new MiComando(GuardarComoCommandExecute);
+            GuardarCommand = new MiComando(GuardarCommandExecuta);
+            AbrirCommand = new MiComando(AbrirCommandExecuta);
+        }
+
+        private void AbrirCommandExecuta()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Modelo Estructural";
+            openFileDialog.Filter = "zap|*.zap";
+            openFileDialog.ShowDialog();
+            Ruta = openFileDialog.FileName;
+
+            var temp = SerializacionObjetos.Deserealizar(Ruta);
+
+            Zapatas = temp.Zapatas;
+            Zapata_Seleccionada = temp.Zapata_Seleccionada;
+            modelo_proyecto = temp.modelo_proyecto;
+            PropiedadesProyectoCommandExecute();
+            ResumenCommandExecute();
+        }
+
+        private void GuardarCommandExecuta()
+        {
+            if (Ruta != null)
+            {
+                SerializacionObjetos.Serializar(Ruta, this);
+            }
+            else
+                GuardarComoCommandExecute();
+        }
+
+        private void GuardarComoCommandExecute()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "zap|*.zap";
+            saveFileDialog.Title = "Guardar proyecto";
+            saveFileDialog.ShowDialog();
+            Ruta = saveFileDialog.FileName;
+            SerializacionObjetos.Serializar(Ruta, this);
         }
 
         private void NuevoProyectoCommandExecute()
@@ -62,7 +145,9 @@ namespace DisenioZapata_V1.Model
             OpenModel();
             AbrirFuerzas();
             Builder();
+            Zapata_Seleccionada = Zapatas.FirstOrDefault();
             PropiedadesProyectoCommandExecute();
+            DatosPresionesCommandExecute();
         }
 
         private void FuerzasProyectoCommandExecute()
@@ -110,8 +195,8 @@ namespace DisenioZapata_V1.Model
             openFileDialog.Filter = "csv |*.csv";
             openFileDialog.Title = "Reacciones modelo";
             openFileDialog.ShowDialog();
-            string Ruta = openFileDialog.FileName;
-            Lector = new Lector_Fuerzas_Etabs(Ruta);
+            Rutan = openFileDialog.FileName;
+            Lector = new Lector_Fuerzas_Etabs(Rutan);
         }
 
         private void Builder()

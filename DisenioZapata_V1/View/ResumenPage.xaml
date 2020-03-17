@@ -70,17 +70,17 @@
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="vu x (kgf/cm²)" Grid.Column="2" VerticalAlignment="Center" />
+                        <Label Content="vu x (Tonf/m²)" Grid.Column="2" VerticalAlignment="Center" />
                         <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.VuX_Max,StringFormat='{}{0:0.00}'}" Grid.Column="3"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="vu y (kgf/cm²)" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" />
+                        <Label Content="vu y (Tonf/m²)" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" />
                         <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Vuy_Max,StringFormat='{}{0:0.00}'}" Grid.Row="1"  Grid.Column="3"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi vc (kgf/cm²)" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" />
+                        <Label Content="Phi vc (Tonf/m²)" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" />
                         <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc,StringFormat='{}{0:0.00}'}" Grid.Row="0"  Grid.Column="5"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
@@ -111,22 +111,22 @@
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="vu máx (kgf/cm²)" Grid.Row="1" VerticalAlignment="Center" />
+                        <Label Content="vu máx (Tonf/m²)" Grid.Row="1" VerticalAlignment="Center" />
                         <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.Vu_Max,StringFormat='{}{0:0.00}'}" Grid.Column="1" Grid.Row="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi Vc1 (kgf/cm²)" Grid.Column="2" VerticalAlignment="Center" />
+                        <Label Content="Phi Vc1 (Tonf/m²)" Grid.Column="2" VerticalAlignment="Center" />
                         <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc1,StringFormat='{}{0:0.00}'}" Grid.Column="3" Grid.Row="0"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi Vc2 (kgf/cm²)" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" />
+                        <Label Content="Phi Vc2 (Tonf/m²)" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" />
                         <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc2,StringFormat='{}{0:0.00}'}" Grid.Column="3" Grid.Row="1"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
                                  IsEnabled="False" Height="20" />
-                        <Label Content="Phi Vc3 (kgf/cm²)" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" />
+                        <Label Content="Phi Vc3 (Tonf/m²)" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" />
                         <TextBox Text="{Binding Zapata_Seleccionada.ResumenZapata.PhiVc3,StringFormat='{}{0:0.00}'}" Grid.Column="5" Grid.Row="0"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"

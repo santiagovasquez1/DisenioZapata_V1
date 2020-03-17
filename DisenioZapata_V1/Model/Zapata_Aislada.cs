@@ -1,9 +1,11 @@
 ﻿using B_Lectura_E2K.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
     internal class Zapata_Aislada : Zapata
     {
         public Zapata_Aislada(string nombre, MPoint point, List<Fuerzas_Modelo> fuerzas, Suelo sueloi)

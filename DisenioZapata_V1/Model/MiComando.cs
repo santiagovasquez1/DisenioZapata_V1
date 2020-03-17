@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
     public class MiComando : ICommand
     {
         Action Action;
@@ -14,6 +15,8 @@ namespace DisenioZapata_V1.Model
         {
             this.Action = action;
         }
+
+        [field:NonSerialized]
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)

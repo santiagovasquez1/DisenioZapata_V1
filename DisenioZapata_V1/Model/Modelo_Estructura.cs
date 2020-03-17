@@ -9,8 +9,10 @@ using BibliotecaE2K.Core;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
    public class Modelo_Estructura
     {
+        [field:NonSerialized]
         public Modelo_Etabs Modelo { get; set; }
         public Modelo_Estructura(string RutaModelo)
         {

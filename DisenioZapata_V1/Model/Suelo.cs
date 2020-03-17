@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DisenioZapata_V1.Model
 {
+	[Serializable]
     public class Suelo:NotificationObject
     {
 		private string tipoSuelo;
@@ -23,6 +24,11 @@ namespace DisenioZapata_V1.Model
 			get { return sigmaAdmi; }
 			set { sigmaAdmi = value; OnPropertyChanged(); }
 		}
+		public Suelo()
+		{
+
+		}
+
 		public Suelo(string nombre,float capacidad)
 		{
 			TipoSuelo = nombre;

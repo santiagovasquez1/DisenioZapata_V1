@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
    public  class Fuerzas_Modelo:NotificationObject
     {
         public string Story { get; set; }

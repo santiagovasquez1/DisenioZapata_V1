@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace DisenioZapata_V1.Model
 {
+    [Serializable]
     public abstract class Zapata : NotificationObject
     {
         private string label;
@@ -151,7 +152,7 @@ namespace DisenioZapata_V1.Model
             get { return suelo; }
             set { suelo = value; CalcArea(); OnPropertyChanged(); }
         }
-
+        [NonSerialized]
         private MPoint point;
 
         public MPoint Point
