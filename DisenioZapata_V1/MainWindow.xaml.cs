@@ -25,11 +25,10 @@ namespace DisenioZapata_V1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ILectorFuerzas Lector { get; set; }
-        public Modelo_Etabs modelo_proyecto { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+
             MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToFuerzas", (a) =>
             {
                 Main.Content = new Page1();               
@@ -55,6 +54,10 @@ namespace DisenioZapata_V1
             MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToResumen", (a) =>
             {
                 Main.Content = new ResumenPage();
+            });
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToDespiece", (a) =>
+            {
+                Main.Content = new Despiece_Refuerzo();
             });
         }
 

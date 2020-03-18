@@ -57,6 +57,9 @@
                     <MenuItem Name="Resumen"
                                           Header="Resumen Zapatas"
                                             Command="{Binding ResumenCommand}" />
+                    <MenuItem Name="Despiece"
+                                          Header="Despiece Zapata"
+                                          Command="{Binding Despiececommand}" />
                 </MenuItem>
                 <MenuItem Name="Ayuda"
                                       Header="Ayuda">

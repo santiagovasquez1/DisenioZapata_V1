@@ -224,6 +224,13 @@ namespace DisenioZapata_V1.Model
             get { return resumen; }
             set { resumen = value; OnPropertyChanged(); }
         }
+        private Despiece despiece;
+
+        public Despiece Despiece
+        {
+            get { return despiece; }
+            set { despiece = value; OnPropertyChanged(); }
+        }
 
         public void CalcArea()
         {

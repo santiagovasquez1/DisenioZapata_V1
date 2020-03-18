@@ -93,10 +93,12 @@
     <Compile Include="Model\BuilderZapatas.cs" />
     <Compile Include="ETipoZapata.cs" />
     <Compile Include="Model\Datos_Zapatas.cs" />
+    <Compile Include="Model\Despiece.cs" />
     <Compile Include="Model\ETipoColumnas.cs" />
     <Compile Include="Model\MiComando.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
     <Compile Include="Model\Converter\SwitchCollectionsConverter.cs" />
+    <Compile Include="Model\Propiedades_Refuerzo.cs" />
     <Compile Include="Model\ResumenZapata.cs" />
     <Compile Include="Model\SerializacionObjetos.cs" />
     <Compile Include="Model\Suelo.cs" />
@@ -105,6 +107,9 @@
     </Compile>
     <Compile Include="View\DatosPresionesPAge.xaml.cs">
       <DependentUpon>DatosPresionesPAge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Despiece_RefuerzoPage.xaml.cs">
+      <DependentUpon>Despiece_RefuerzoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FlexionPage.xaml.cs">
       <DependentUpon>FlexionPage.xaml</DependentUpon>
@@ -145,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DatosPresionesPAge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Despiece_RefuerzoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

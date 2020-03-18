@@ -285,6 +285,13 @@ namespace DisenioZapata_V1.Model
                 Asx = Zapata.Flexion.Select(x => x.AsreqX).ToList()[indiceX];
                 Asy = Zapata.Flexion.Select(x => x.AsreqY).ToList()[indiceX];
 
+                var Ast= Zapata.Flexion.Select(x => x.Asmin).ToList()[indiceX];
+
+                if (Asx < Ast)
+                    Asx = Ast;
+                if (Asy < Ast)
+                    Asy = Ast;
+
                 LoadMux = Zapata.Flexion.Select(x => x.Load).ToList()[indiceX];
                 LoadMuY = Zapata.Flexion.Select(x => x.Load).ToList()[indiceY];
             }

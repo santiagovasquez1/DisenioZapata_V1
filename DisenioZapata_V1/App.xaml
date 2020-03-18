@@ -7,9 +7,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Simple Styles.xaml"/>
+                <ResourceDictionary Source="Simple Styles.xaml"/>                
             </ResourceDictionary.MergedDictionaries>
             <local1:Datos_Zapatas x:Key="DatosZapatas"/>
+            <local1:Propiedades_Refuerzo x:Key="Propiedades_Refuerzo"/>
             <Style  TargetType="{x:Type Menu}">
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontFamily" Value="Verdana"/>
