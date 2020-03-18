@@ -121,7 +121,7 @@ namespace DisenioZapata_V1.Model
         {
             if (Zapata_Seleccionada.Despiece == null)
             {
-                zapataSeleccionada.Despiece = new Despiece();
+                zapataSeleccionada.Despiece = new Despiece(Propiedades_Refuerzo,Zapata_Seleccionada.L1,Zapata_Seleccionada.L2,Zapata_Seleccionada.R);
             }
 
             MessagingCenter.Send(this, "GoToDespiece");

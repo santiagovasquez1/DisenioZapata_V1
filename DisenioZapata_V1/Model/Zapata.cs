@@ -31,6 +31,8 @@ namespace DisenioZapata_V1.Model
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
                 SetFlexion();
+                if (Despiece != null)
+                    Despiece.LadoX = L1;
                 OnPropertyChanged();
             }
         }
@@ -49,6 +51,8 @@ namespace DisenioZapata_V1.Model
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
                 SetFlexion();
+                if (Despiece != null)
+                    Despiece.LadoY = L2;
                 OnPropertyChanged();
             }
         }

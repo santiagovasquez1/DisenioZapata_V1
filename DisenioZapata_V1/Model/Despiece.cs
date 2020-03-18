@@ -13,7 +13,9 @@ namespace DisenioZapata_V1.Model
             set
             {
                 barrax = value;
-                astotalx = Set_AsTotal(barrax, sepx,ladox);
+                AsTotalX = Set_AsTotal(BarraX, SepX,LadoX);
+                LongX = Set_Long(BarraX, LadoX, GanchoX);
+                ResumenX = Set_Resumen(LongX, BarraX, SepX, LadoX);
                 OnPropertyChanged();
             }
         }
@@ -26,7 +28,9 @@ namespace DisenioZapata_V1.Model
             set
             {
                 barray = value;
-                astotaly = Set_AsTotal(barray, sepy,ladoy);
+                AsTotalY = Set_AsTotal(BarraY, SepY,LadoY);
+                LongY = Set_Long(BarraY, LadoY, GanchoY);
+                ResumenY= Set_Resumen(LongY, BarraY, SepY, LadoY);
                 OnPropertyChanged();
             }
         }
@@ -39,7 +43,8 @@ namespace DisenioZapata_V1.Model
             set
             {
                 sepx = value;
-                astotalx = Set_AsTotal(barrax, sepx,ladox);
+                AsTotalX = Set_AsTotal(BarraX, SepX,LadoX);
+                ResumenX = Set_Resumen(LongX, BarraX, SepX, LadoX);
                 OnPropertyChanged();
             }
         }
@@ -52,7 +57,8 @@ namespace DisenioZapata_V1.Model
             set
             {
                 sepy = value;
-                astotaly = Set_AsTotal(barray, sepy,ladoy);
+                AsTotalY = Set_AsTotal(BarraY, SepY,LadoY);
+                ResumenY = Set_Resumen(LongY, BarraY, SepY, LadoY);
                 OnPropertyChanged();
             }
         }
@@ -81,7 +87,8 @@ namespace DisenioZapata_V1.Model
             set
             {
                 ladox = value;
-                longx = Set_Long(barrax, ladox, ganchox);
+                LongX = Set_Long(BarraX, LadoX, GanchoX);
+                ResumenX = Set_Resumen(LongX, BarraX, SepX, LadoX);
                 OnPropertyChanged();
             }
         }
@@ -94,7 +101,8 @@ namespace DisenioZapata_V1.Model
             set
             {
                 ladoy = value;
-                longy = Set_Long(barray, ladoy, ganchoy);
+                LongY = Set_Long(BarraY, LadoY, GanchoY);
+                ResumenY = Set_Resumen(LongY, BarraY, SepY, LadoY);
                 OnPropertyChanged();
             }
         }
@@ -131,7 +139,8 @@ namespace DisenioZapata_V1.Model
             set
             {
                 ganchox = value;
-                longx = Set_Long(barrax, ladox, ganchox);
+                LongX = Set_Long(BarraX, LadoX, GanchoX);
+                ResumenX = Set_Resumen(LongX, BarraX, SepX, LadoX);
                 OnPropertyChanged();
             }
         }
@@ -144,7 +153,8 @@ namespace DisenioZapata_V1.Model
             set
             {
                 ganchoy = value;
-                longy = Set_Long(barray, ladoy, ganchoy);
+                LongY = Set_Long(BarraY, LadoY, GanchoY);
+                ResumenY = Set_Resumen(LongY, BarraY, SepY, LadoY);
                 OnPropertyChanged();
             }
         }
@@ -171,15 +181,20 @@ namespace DisenioZapata_V1.Model
             LadoX = ladox;
             LadoY = ladoy;
             Recubrimiento = r;
+            GanchoX = true;
+            GanchoY = true;
         }
 
         private Propiedades_Refuerzo Propiedades { get; set; }
 
         private float Set_AsTotal(string Asi, float sep,float lado)
         {
+            if (Propiedades.As_refuerzo == null)
+                Propiedades = new Propiedades_Refuerzo();
+
             int Cantidad = 0;
 
-            if (Asi != null | Asi != "")
+            if (Asi != null)
             {
                 float As_t = Propiedades.As_refuerzo[Asi];
                 if (sep > 0)
@@ -193,11 +208,14 @@ namespace DisenioZapata_V1.Model
 
         private float Set_Long(string Asi, float lado, bool gancho)
         {
-            if (Asi != null | Asi != "")
+            if (Propiedades.Long_Gancho90 == null)
+                Propiedades = new Propiedades_Refuerzo();
+
+            if (Asi != null)
             {
                 float longGancho;
                 if (gancho == true)
-                    longGancho = Propiedades.Long_Gancho90[Asi] / 100f;
+                    longGancho = Propiedades.Long_Gancho90[Asi] ;
                 else
                     longGancho = 0;
                 float long_t = lado + 2 * longGancho - 2 * Recubrimiento;
@@ -206,5 +224,15 @@ namespace DisenioZapata_V1.Model
             else
                 return 0f;
         }
+        private string Set_Resumen(float longitud, string barra,float sep,float lado)
+        {
+            int Cantidad = 0;
+
+            if (sep > 0)
+                Cantidad = (int)Math.Ceiling((lado - 2 * recubrimiento) / sep);
+
+            return $"{Cantidad} {barra} longitud : {longitud} a {sep} m";
+        }
+
     }
 }

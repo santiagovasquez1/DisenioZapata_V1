@@ -21,9 +21,11 @@ namespace DisenioZapata_V1
         private double Ymax { get; set; }
         private double Xmin { get; set; }
         private double Ymin { get; set; }
+        private Propiedades_Refuerzo Propiedades_Refuerzo { get; set; }
 
         public void BuildZapatas(List<Fuerzas_Modelo> fuerzas, ETipoZapata tipoZapata, Modelo_Etabs modelo)
         {
+            Propiedades_Refuerzo = new Propiedades_Refuerzo();
             zapatas = new ObservableCollection<Zapata>();
             Zapata zapatai = null;
             var PuntosI = fuerzas.Select(x => x.PointLabel).Distinct().ToList();
@@ -45,6 +47,7 @@ namespace DisenioZapata_V1
                     zapatai.SetCortanteUnidireccional();
                     zapatai.SetCortanteBidireccional();
                     zapatai.SetFlexion();
+                    zapatai.Despiece = new Despiece(Propiedades_Refuerzo, zapatai.L1, zapatai.L2, zapatai.R);
                 }
 
                 DeterminarTipoColumna(zapatai);

@@ -70,22 +70,22 @@
                         <ComboBox ItemsSource="{Binding Propiedades_Refuerzo.As_refuerzo.Keys }"
                                 Grid.Column="1" Grid.Row="0"                                  
                                 SelectedValue="0"
-                                SelectedItem="{Binding Zapata_Seleccionada.Despiece.BarraX,Mode=OneWay}"
+                                SelectedItem="{Binding Zapata_Seleccionada.Despiece.BarraX,Mode=TwoWay}"
                                 Margin="5"
                                 VerticalAlignment="Center" />
                         <Label Content="Separación :"
                                 Grid.Column="2" Grid.Row="0"
                                 Margin="30,10,5,10"
                                 VerticalAlignment="Center" />
-                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.Cantx,StringFormat='{}{0:0.00}',Mode=TwoWay}"
+                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.SepX,StringFormat='{}{0:0.00}',Mode=TwoWay}"
                                 Grid.Column="3" Grid.Row="0"
                                  Margin="5"
                                 VerticalAlignment="Center" />
                         <Label Content="Acero total :"
                                 Grid.Column="4" Grid.Row="0"
-                                Margin="5"
+                                Margin="30,10,5,10"
                                 VerticalAlignment="Center" />
-                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.AsTotalX,StringFormat='{}{0:0.00}'}"
+                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.AsTotalX,StringFormat='{}{0:0.00}' ,Mode=OneWay}"
                                 Grid.Column="5" Grid.Row="0"
                                  Margin="5"
                                 VerticalAlignment="Center" 
@@ -95,7 +95,7 @@
                                 Margin="10"
                                 IsChecked="{Binding Zapata_Seleccionada.Despiece.GanchoX, Mode=TwoWay}"
                                 VerticalAlignment="Center" />
-                        <TextBlock Text="20 # 4 a 0.15m" 
+                        <TextBlock Text="{Binding Zapata_Seleccionada.Despiece.ResumenX}" 
                                    Grid.Row="1" Grid.Column="2"
                                    VerticalAlignment="Center" 
                                    Grid.ColumnSpan="4" 
@@ -131,15 +131,15 @@
                                 Grid.Column="2" Grid.Row="0"
                                 Margin="30,10,5,10"
                                 VerticalAlignment="Center" />
-                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.CantY,StringFormat='{}{0:0.00}',Mode=TwoWay}"
+                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.SepY,StringFormat='{}{0:0.00}',Mode=TwoWay}"
                                 Grid.Column="3" Grid.Row="0"
                                  Margin="5"
                                 VerticalAlignment="Center" />
                         <Label Content="Acero total :"
                                 Grid.Column="4" Grid.Row="0"
-                                Margin="5"
+                                Margin="30,10,5,10"
                                 VerticalAlignment="Center" />
-                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.AsTotalY,StringFormat='{}{0:0.00}'}"
+                        <TextBox Text="{Binding Zapata_Seleccionada.Despiece.AsTotalY,StringFormat='{}{0:0.00}',Mode=OneWay}"
                                 Grid.Column="5" Grid.Row="0"
                                  Margin="5"
                                 VerticalAlignment="Center" 
@@ -149,7 +149,7 @@
                                 Grid.Column="0" Grid.Row="1"
                                 Margin="10"
                                 VerticalAlignment="Center" />
-                        <TextBlock Text="20 # 4 a 0.15m" 
+                        <TextBlock Text="{Binding Zapata_Seleccionada.Despiece.ResumenY}" 
                                    Grid.Row="1" Grid.Column="2"
                                    VerticalAlignment="Center" 
                                    Grid.ColumnSpan="4" 
