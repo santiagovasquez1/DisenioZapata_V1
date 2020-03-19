@@ -87,7 +87,7 @@ namespace DisenioZapata_V1.Model
 
             Asmin = CalcAsMin();
             AsreqX = CalcAsReq(Mux);
-            AsreqY = CalcAsReq(Mux);
+             AsreqY = CalcAsReq(Muy);
         }
 
         public void Chequeos_Clase()

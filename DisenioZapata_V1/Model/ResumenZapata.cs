@@ -283,7 +283,7 @@ namespace DisenioZapata_V1.Model
                 indiceY = Zapata.Flexion.Select(x => x.Muy).ToList().FindIndex(x => x == Muy_Max);
 
                 Asx = Zapata.Flexion.Select(x => x.AsreqX).ToList()[indiceX];
-                Asy = Zapata.Flexion.Select(x => x.AsreqY).ToList()[indiceX];
+                Asy = Zapata.Flexion.Select(x => x.AsreqY).ToList()[indiceY];
 
                 var Ast= Zapata.Flexion.Select(x => x.Asmin).ToList()[indiceX];
 

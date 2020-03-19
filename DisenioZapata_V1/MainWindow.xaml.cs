@@ -59,6 +59,12 @@ namespace DisenioZapata_V1
             {
                 Main.Content = new Despiece_Refuerzo();
             });
+
+            MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToVbles", (a) =>
+            {
+                var vblesinicio = new VariablesProyectoPage();
+                vblesinicio.ShowDialog();
+            });
         }
 
         private void PresionesOnClick(object sender, RoutedEventArgs e)

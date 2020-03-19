@@ -84,6 +84,7 @@ namespace DisenioZapata_V1.Model
                 lcx = value;
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
+                SetFlexion();
                 OnPropertyChanged();
             }
         }
@@ -96,8 +97,9 @@ namespace DisenioZapata_V1.Model
             set
             {
                 lcy = value;
-                SetCortanteUnidireccional();
+                SetCortanteUnidireccional(); 
                 SetCortanteBidireccional();
+                SetFlexion();
                 OnPropertyChanged();
             }
         }

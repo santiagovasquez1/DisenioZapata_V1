@@ -68,7 +68,8 @@ namespace DisenioZapata_V1.Model
             set { propiedades_Refuerzo = value; OnPropertyChanged(); }
         }
 
-
+        [field: NonSerialized]
+        public MiComando Variablescommand { get; set; }
         [field: NonSerialized]
         public MiComando NuevoProyectoCommand { get; set; }
 
@@ -102,8 +103,9 @@ namespace DisenioZapata_V1.Model
         public MiComando Despiececommand { get; set; }
         
         public Datos_Zapatas()
-        {
+        {            
             Propiedades_Refuerzo = new Propiedades_Refuerzo();
+            Variablescommand = new MiComando(VariablescommandExecute);
             NuevoProyectoCommand = new MiComando(NuevoProyectoCommandExecute);
             FuerzasProyectoCommand = new MiComando(FuerzasProyectoCommandExecute);
             PropiedadesProyectoCommand = new MiComando(PropiedadesProyectoCommandExecute);
@@ -115,6 +117,11 @@ namespace DisenioZapata_V1.Model
             GuardarCommand = new MiComando(GuardarCommandExecuta);
             AbrirCommand = new MiComando(AbrirCommandExecuta);
             Despiececommand = new MiComando(DespiececommandExecute);
+        }
+
+        private void VariablescommandExecute()
+        {
+            MessagingCenter.Send(this, "GoToVbles");
         }
 
         private void DespiececommandExecute()
@@ -168,6 +175,7 @@ namespace DisenioZapata_V1.Model
         {
             OpenModel();
             AbrirFuerzas();
+            VariablescommandExecute();
             Builder();
             Zapata_Seleccionada = Zapatas.FirstOrDefault();
             PropiedadesProyectoCommandExecute();

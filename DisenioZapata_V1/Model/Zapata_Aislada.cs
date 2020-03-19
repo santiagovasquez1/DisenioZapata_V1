@@ -9,15 +9,14 @@ namespace DisenioZapata_V1.Model
     internal class Zapata_Aislada : Zapata
     {
         public Zapata_Aislada(string nombre, MPoint point, List<Fuerzas_Modelo> fuerzas, Suelo sueloi)
-        {
+        {            
             Suelo = sueloi;
             Label = nombre;
             Point = point;
             Fuerzas = fuerzas;
-            H = 0.25f;
             CalcArea();
-            CalcPesoPropio();            
-            GammaConcreto = 2.4f;
+            GammaConcreto = 2.4f;       
+            CalcPesoPropio();          
             ResumenZapata = new ResumenZapata(this);
         }
 

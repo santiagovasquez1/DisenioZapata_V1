@@ -1,6 +1,7 @@
 ﻿using B_Lectura_E2K.Entidades;
 using DisenioZapata_V1.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -35,13 +36,17 @@ namespace DisenioZapata_V1
             {
                 var FuerzasLabel = fuerzas.FindAll(x => x.PointLabel == Label).ToList();
                 var punto = modelo.Points.Find(x => x.Name == Label);
+                var VariablesModelo=GetVbles();
 
                 if (tipoZapata == ETipoZapata.Zapata_Aislada)
                 {
-                    zapatai = new Zapata_Aislada(Label, punto, FuerzasLabel, new Suelo("TipoD", 15f));
+                    zapatai = new Zapata_Aislada(Label, punto, FuerzasLabel, VariablesModelo.Suelo);
                     zapatai.Fc = 210f;
                     zapatai.Fy = 4220;
                     zapatai.R = 0.07f;
+                    zapatai.H = 0.25f;
+                    zapatai.LcX = VariablesModelo.DeltaX;
+                    zapatai.LcY = VariablesModelo.DeltaY;
                     zapatai.SetCalculos();
                     zapatai.Presiones(zapatai.L1, zapatai.L2, zapatai.H);
                     zapatai.SetCortanteUnidireccional();
@@ -60,7 +65,7 @@ namespace DisenioZapata_V1
             if (Math.Round(zapatai.Point.X, 3) == Math.Round(Xmax, 3) && Math.Round(zapatai.Point.Y, 3) == Math.Round(Ymax, 3) ||
                 Math.Round(zapatai.Point.X, 3) == Math.Round(Xmin, 3) && Math.Round(zapatai.Point.Y, 3) == Math.Round(Ymin, 3) ||
                 Math.Round(zapatai.Point.X, 3) == Math.Round(Xmin, 3) && Math.Round(zapatai.Point.Y, 3) == Math.Round(Ymax, 3) ||
-                Math.Round(zapatai.Point.X, 3) == Math.Round(Xmax, 3) && Math.Round(zapatai.Point.Y, 3) == Math.Round(Ymin, 3)) 
+                Math.Round(zapatai.Point.X, 3) == Math.Round(Xmax, 3) && Math.Round(zapatai.Point.Y, 3) == Math.Round(Ymin, 3))
             {
                 zapatai.TipoColumna = ETipoColumnas.Esquinera;
             }
@@ -84,6 +89,26 @@ namespace DisenioZapata_V1
                     select modelo.Points.Find(x => x.Name == pi).X).Min();
             Ymin = (from pi in Puntos
                     select modelo.Points.Find(x => x.Name == pi).Y).Min();
+        }
+
+        private VariablesModelo GetVbles()
+        {
+            var recursos = App.Current.Resources;
+            int cont = 0;
+            VariablesModelo variables = null;
+
+            foreach (DictionaryEntry i in recursos)
+            {
+                if (i.Key.ToString() == "VariablesModelo")
+                {
+                    variables = (VariablesModelo)i.Value;
+                    return variables;
+                }
+
+                cont++;
+            }
+
+            return variables;
         }
     }
 }

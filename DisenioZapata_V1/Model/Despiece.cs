@@ -231,7 +231,7 @@ namespace DisenioZapata_V1.Model
             if (sep > 0)
                 Cantidad = (int)Math.Ceiling((lado - 2 * recubrimiento) / sep);
 
-            return $"{Cantidad} {barra} longitud : {longitud} a {sep} m";
+            return $"{Cantidad} {barra} longitud : {Math.Round(longitud, 2)} a {sep} m";
         }
 
     }

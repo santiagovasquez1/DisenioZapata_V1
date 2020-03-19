@@ -11,6 +11,7 @@
             </ResourceDictionary.MergedDictionaries>
             <local1:Datos_Zapatas x:Key="DatosZapatas"/>
             <local1:Propiedades_Refuerzo x:Key="Propiedades_Refuerzo"/>
+            <local1:VariablesModelo x:Key="VariablesModelo" />
             <Style  TargetType="{x:Type Menu}">
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontFamily" Value="Verdana"/>
