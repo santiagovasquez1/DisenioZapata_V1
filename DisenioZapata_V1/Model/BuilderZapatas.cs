@@ -36,17 +36,19 @@ namespace DisenioZapata_V1
             {
                 var FuerzasLabel = fuerzas.FindAll(x => x.PointLabel == Label).ToList();
                 var punto = modelo.Points.Find(x => x.Name == Label);
-                var VariablesModelo=GetVbles();
+                var VariablesModelo = GetVbles();
 
                 if (tipoZapata == ETipoZapata.Zapata_Aislada)
                 {
-                    zapatai = new Zapata_Aislada(Label, punto, FuerzasLabel, VariablesModelo.Suelo);
-                    zapatai.Fc = 210f;
-                    zapatai.Fy = 4220;
-                    zapatai.R = 0.07f;
-                    zapatai.H = 0.25f;
-                    zapatai.LcX = VariablesModelo.DeltaX;
-                    zapatai.LcY = VariablesModelo.DeltaY;
+                    zapatai = new Zapata_Aislada(Label, punto, FuerzasLabel, VariablesModelo.Suelo)
+                    {
+                        Fc = 210f,
+                        Fy = 4220,
+                        R = 0.07f,
+                        H = 0.25f,
+                        LcX = VariablesModelo.DeltaX,
+                        LcY = VariablesModelo.DeltaY
+                    };
                     zapatai.SetCalculos();
                     zapatai.Presiones(zapatai.L1, zapatai.L2, zapatai.H);
                     zapatai.SetCortanteUnidireccional();

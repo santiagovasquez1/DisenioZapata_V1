@@ -28,6 +28,7 @@ namespace DisenioZapata_V1
         public MainWindow()
         {
             InitializeComponent();
+            DataBase dataBase = new DataBase();
 
             MessagingCenter.Subscribe<Datos_Zapatas>(this, "GoToFuerzas", (a) =>
             {

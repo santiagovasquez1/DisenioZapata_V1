@@ -32,7 +32,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AoACggAAALACkFEwEBAcAIAAAAEAQARIAEAAWCAEAgI=</HashCode>
+      <HashCode>ApACggAAALACkFEwEBAcAIAAAAEAQARIAEAAWCAUAgI=</HashCode>
       <FileName>Model\Dimensionamiento.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -103,32 +103,22 @@
   <Class Name="DisenioZapata_V1.BuilderZapatas">
     <Position X="9.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAIQACAACAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAABCA=</HashCode>
+      <HashCode>QAIQACAACAAAAAAAAAAAAAAAAAAAAQAEQAAAIAAABCA=</HashCode>
       <FileName>Model\BuilderZapatas.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DisenioZapata_V1.MainWindow" Collapsed="true">
     <Position X="18.5" Y="1.25" Width="1.5" />
-    <AssociationLine Name="Lector" Type="DisenioZapata_V1.Model.ILectorFuerzas" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="19.562" Y="1.25" />
-        <Point X="19.562" Y="0.825" />
-        <Point X="15.75" Y="0.825" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Lector" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="DisenioZapata_V1.Model.Zapata" Collapsed="true">
     <Position X="4.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QACAghCAMgIAgDIUCIAiBBgAAAAQABgASBIJAUoQCYM=</HashCode>
+      <HashCode>QACAghCAMgIAgDIUCIAiBBgAAAAQYBgASFIJAUoQCYM=</HashCode>
       <FileName>Model\Zapata.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -146,12 +136,11 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AIIAAAAAIAAAACCAgEAFAYkAACAAgAAACSYAoAAAAig=</HashCode>
+      <HashCode>AIMABAACAAQAAICBgEAFAYkARCAEkQABCTYgoAAAAyg=</HashCode>
       <FileName>Model\Datos_Zapatas.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Zapata_Seleccionada" />
-      <Property Name="Suelo" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Zapatas" />
@@ -164,10 +153,10 @@
       <FileName>Model\Suelo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DisenioZapata_V1.Model.ResumenZapata">
-    <Position X="11.5" Y="4.75" Width="1.5" />
+  <Class Name="DisenioZapata_V1.Model.ResumenZapata" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAAAAAAAAQAAAAAAEQAAAAEAAAAAQAAA=</HashCode>
+      <HashCode>AhAAAAIAAAgDAAgAIQCAQAABAAQFYogEBkAACCcQiAE=</HashCode>
       <FileName>Model\ResumenZapata.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -175,7 +164,7 @@
     </ShowAsAssociation>
   </Class>
   <Interface Name="DisenioZapata_V1.Model.ICalculo" Collapsed="true">
-    <Position X="7.75" Y="0.75" Width="1.5" />
+    <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAQAQAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ICalculo.cs</FileName>
