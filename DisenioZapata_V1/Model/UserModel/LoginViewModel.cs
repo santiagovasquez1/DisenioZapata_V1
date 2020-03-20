@@ -1,38 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace DisenioZapata_V1.Model.UserModel
 {
-    public class LoginViewModel:NotificationObject
+    public class LoginViewModel : NotificationObject
     {
-        private List<string> countries;
+        private string email;
 
-        public List<string> Countries
+        public string Email
         {
-            get { return countries; }
-            set { countries = value; OnPropertyChanged(); }
+            get { return email; }
+            set { email = value; MainWindowCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
-        private string selectedcountry;
+        private string password;
 
-        public string Selectedcountry
+        public string Password
         {
-            get { return selectedcountry; }
-            set { selectedcountry = value; OnPropertyChanged(); }
+            get { return password; }
+            set { password = value; MainWindowCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
         public MiComando NuevoUsuarioCommand { get; set; }
+        public MiComando MainWindowCommand { get; set; }
 
         public LoginViewModel()
         {
-            Countries = GetCountryList();
             NuevoUsuarioCommand = new MiComando(NuevoUsuarioCommandExecute);
+            MainWindowCommand = new MiComando(MainWindowCommandExecute,ConectarUsuarioCommandcanExecute);
+        }
+
+        private void MainWindowCommandExecute()
+        {
+            MessagingCenter.Send(this, "GoToMainWindow");
         }
 
         private void NuevoUsuarioCommandExecute()
@@ -40,23 +39,18 @@ namespace DisenioZapata_V1.Model.UserModel
             MessagingCenter.Send(this, "GoToNewUser");
         }
 
-        public List<string> GetCountryList()
+        private bool ConectarUsuarioCommandcanExecute()
         {
-            List<string> cultureList = new List<string>();
-
-            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
-            cultureList = cultures.Select(cult => (new RegionInfo(cult.LCID)).DisplayName).Distinct().OrderBy(q => q).ToList();
-            //foreach (CultureInfo culture in cultures)
-            //{
-            //    RegionInfo region = new RegionInfo(culture.LCID);
-
-            //    if (!(cultureList.Contains(region.EnglishName)))
-            //    {
-            //        cultureList.Add(region.EnglishName);
-            //    }
-            //}
-
-            return cultureList;
+            if (Email == null | Password == null)
+                return false;
+            else
+            {
+                DataBase data = new DataBase();
+                if (data.CheckEmail(Email, Password))
+                    return true;
+                else
+                    return false;
+            }
         }
     }
 }

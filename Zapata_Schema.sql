@@ -35,6 +35,10 @@ CREATE TABLE IF NOT EXISTS operations(
 INSERT INTO users(name,`password`,email,industry,country)
 VALUES();
 
+select email from users
+WHERE email LIKE ''
+
+GRANT SELECT ON Zapatas.users TO ‘santiagovasquez’@'localhost’;
 
 
 

@@ -31,5 +31,47 @@ namespace DisenioZapata_V1
                 MessageBox.Show(e.Message);
             }
         }
+
+        public void InsertUser(string UserName,string UserPassword, string UserEmail, string UserIndustry, string UserCountry)
+        {
+            conexion.Open();
+            string Query = $"INSERT INTO users(name,`password`, email, industry, country) " +
+                $"Values ('{UserName}',  '{UserPassword}', '{UserEmail}', '{UserIndustry}', '{UserCountry}');";
+            
+            MySqlCommand command = new MySqlCommand(Query, conexion);
+            command.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public bool CheckEmail(string email)
+        {
+            conexion.Open();
+            string Query = $"SELECT email FROM users WHERE email LIKE '{email}'";
+            MySqlCommand command = new MySqlCommand(Query, conexion);
+
+            MySqlDataReader registro = command.ExecuteReader();
+            if (registro.Read())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool CheckEmail(string email,string password)
+        {
+            conexion.Open();
+            string Query = $"SELECT email, password FROM users WHERE email LIKE '{email}'";
+            MySqlCommand command = new MySqlCommand(Query, conexion);
+            MySqlDataReader registro = command.ExecuteReader();
+
+            if (registro.Read())
+            {
+                if (registro["password"].ToString() == password)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

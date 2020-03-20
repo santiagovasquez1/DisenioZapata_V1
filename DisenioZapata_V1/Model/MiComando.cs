@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DisenioZapata_V1.Model
@@ -10,18 +6,30 @@ namespace DisenioZapata_V1.Model
     [Serializable]
     public class MiComando : ICommand
     {
-        Action Action;
-        public MiComando(Action action)
+        private Action Action;
+        private Func<bool> canExecute;
+
+        public MiComando(Action action) : this(action, () => true)
         {
-            this.Action = action;
         }
 
-        [field:NonSerialized]
+        public MiComando(Action action, Func<bool> canExecute)
+        {
+            this.Action = action;
+            this.canExecute = canExecute;
+        }
+
+        [field: NonSerialized]
         public event EventHandler CanExecuteChanged;
+
+        public void ReevaluateCanExecute()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         public bool CanExecute(object parameter)
         {
-           return true;
+            return canExecute();
         }
 
         public void Execute(object parameter)

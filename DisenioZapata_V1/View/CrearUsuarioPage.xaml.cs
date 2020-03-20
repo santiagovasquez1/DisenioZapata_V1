@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DisenioZapata_V1.Model.UserModel;
+using System.Collections;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Xamarin.Forms;
 
 namespace DisenioZapata_V1.View
 {
@@ -23,15 +14,43 @@ namespace DisenioZapata_V1.View
         {
             InitializeComponent();
 
-            
+            MessagingCenter.Subscribe<NewUserViewModel>(this, "GoToMainWindow", (a) =>
+            {
+                var MainWindow = new MainWindow();
+                MainWindow.Show();
+                Close();
+            });
         }
 
-        private void prueba()
+        private void PasswordChangedHandler1(object sender, RoutedEventArgs e)
         {
-            //var p1 = P1;
-            //p1.
-            //if(p1.Password.Length == 0);
+            var user = GetNewUser();
+            user.Password1 = P1.Password;
         }
 
+        private void PasswordChangedHandler2(object sender, RoutedEventArgs e)
+        {
+            var user = GetNewUser();
+            user.Password2 = P2.Password;
+        }
+
+        private NewUserViewModel GetNewUser()
+        {
+            var recursos = this.Resources;
+            int cont = 0;
+            NewUserViewModel variables = null;
+
+            foreach (DictionaryEntry i in recursos)
+            {
+                if (i.Key.ToString() == "NewUser")
+                {
+                    variables = i.Value as NewUserViewModel;
+                    return variables;
+                }
+                cont++;
+            }
+
+            return variables;
+        }
     }
 }

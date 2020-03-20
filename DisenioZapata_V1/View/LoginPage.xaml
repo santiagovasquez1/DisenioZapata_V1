@@ -51,8 +51,18 @@
                         Foreground="Gray"
                         FontSize="18" />
             <StackPanel VerticalAlignment="Center" Margin="10">
-                <TextBox Margin="0,10" materialDesign:HintAssist.Hint="Email:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" />
-                <PasswordBox Margin="0,10" materialDesign:HintAssist.Hint="Contraseña:" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" />
+                <TextBox 
+                    Margin="0,10" 
+                    materialDesign:HintAssist.Hint="Email:" 
+                    Text="{Binding Email}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    FontFamily="Champagne &amp; Limousines" FontSize="18" />
+                <PasswordBox  x:Name="P1"
+                    Margin="0,10" 
+                    materialDesign:HintAssist.Hint="Contraseña:" 
+                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                    PasswordChanged="PasswordChangedHandler"
+                    FontFamily="Champagne &amp; Limousines" FontSize="18" />
             </StackPanel>
         </Grid>
         <Button Width="150" HorizontalAlignment="Center"
@@ -61,7 +71,7 @@
                 Background="#686868"
                 Foreground="White"
                 Content="LOGIN"
-               />
+                Command="{Binding MainWindowCommand}"/>
         <TextBlock Text="CREAR NUEVA CUENTA?" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Bottom"
@@ -77,7 +87,6 @@
                    VerticalAlignment="Bottom"
                    TextAlignment="Center"
                    Margin="85,0,84,10" 
-
                    Foreground="Gray" Cursor="Hand" Width="175" />
     </Grid>
 </Window>

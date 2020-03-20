@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace DisenioZapata_V1.Model.UserModel
 {
@@ -12,7 +12,7 @@ namespace DisenioZapata_V1.Model.UserModel
         public string Name
         {
             get { return name; }
-            set { name = value; OnPropertyChanged(); }
+            set { name = value; CrearUsuarioCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
         private string email;
@@ -20,7 +20,7 @@ namespace DisenioZapata_V1.Model.UserModel
         public string Email
         {
             get { return email; }
-            set { email = value; OnPropertyChanged(); }
+            set { email = value; CrearUsuarioCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
         private string industry;
@@ -44,7 +44,7 @@ namespace DisenioZapata_V1.Model.UserModel
         public string Selectedcountry
         {
             get { return selectedcountry; }
-            set { selectedcountry = value; OnPropertyChanged(); }
+            set { selectedcountry = value; CrearUsuarioCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
         private string password1;
@@ -52,7 +52,7 @@ namespace DisenioZapata_V1.Model.UserModel
         public string Password1
         {
             get { return password1; }
-            set { password1 = value; OnPropertyChanged(); }
+            set { password1 = value; CrearUsuarioCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
         private string password2;
@@ -60,26 +60,60 @@ namespace DisenioZapata_V1.Model.UserModel
         public string Password2
         {
             get { return password2; }
-            set { password2 = value; OnPropertyChanged(); }
+            set { password2 = value; CrearUsuarioCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
         public MiComando CrearUsuarioCommand { get; set; }
-
+        public MiComando MainWindowCommand { get; set; }
         private CUser User { get; set; }
 
         public NewUserViewModel()
         {
             Countries = GetCountryList();
-            CrearUsuarioCommand = new MiComando(CrearUsuarioCommandExecute);
+            CrearUsuarioCommand = new MiComando(CrearUsuarioCommandExecute, CrearUsuarioCommandcanExecute);
+            MainWindowCommand = new MiComando(MainWindowExecute);
+        }
+
+        private void MainWindowExecute()
+        {
+            MessagingCenter.Send(this, "GoToMainWindow");
         }
 
         private void CrearUsuarioCommandExecute()
-        {            
+        {
             List<CultureInfo> cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures).ToList();
             var LCIDCountry = cultures.FindIndex(x => (new RegionInfo(x.LCID)).DisplayName == selectedcountry);
             RegionInfo region = new RegionInfo(cultures[LCIDCountry].LCID);
 
             User = new CUser(Name, Email, region.ThreeLetterISORegionName, Password1);
+            User.Industry = Industry;
+            User.Password = Password1;
+
+            DataBase data = new DataBase();
+            data.InsertUser(User.Name, User.Password, User.Email, User.Industry, User.Country);
+            MainWindowExecute();
+        }
+
+        private bool CrearUsuarioCommandcanExecute()
+        {
+            if (Name == null | email == null | Selectedcountry == null | Password1 == null | Password2 == null)
+                return false;
+            else if (Password1 != Password2)
+                return false;
+            else if (Email.Contains("@") == false)
+                return false;
+            else
+            {
+                if (Email.Contains("@") == true)
+                {
+                    DataBase data = new DataBase();
+                    if (data.CheckEmail(Email) == false)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            return true;
         }
 
         public List<string> GetCountryList()
