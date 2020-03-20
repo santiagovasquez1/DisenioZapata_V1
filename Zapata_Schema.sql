@@ -12,7 +12,7 @@ CREATE TABLE clients (
 CREATE TABLE users (
 	`user_id` INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(50) NOT NULL,
-	`password` VARCHAR(50) NOT NULL,
+	`password` VARCHAR(130) NOT NULL,
 	email VARCHAR(100) NOT NULL UNIQUE,
 	industry VARCHAR(50),
 	country VARCHAR(3),
@@ -30,12 +30,11 @@ CREATE TABLE IF NOT EXISTS operations(
 	finished TINYINT(1) NOT NULL
 );
 
-CREATE USER 'santiagovasquez'@'localhost' IDENTIFIED BY '12345';
+--Querys
 
-GRANT INSERT
-ON Zapatas. * 
-TO 'santiagovasquez'@'localhost';
+INSERT INTO users(name,`password`,email,industry,country)
+VALUES();
 
-GRANT UPDATE
-ON Zapatas. * 
-TO 'santiagovasquez'@'localhost';
+
+
+

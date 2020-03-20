@@ -10,7 +10,7 @@ namespace DisenioZapata_V1
 {
     public class DataBase
     {
-        MySqlConnection conexion { get; set; }
+        private MySqlConnection conexion { get; set; }
 
         public DataBase()
         {

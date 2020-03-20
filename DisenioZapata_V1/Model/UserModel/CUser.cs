@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DisenioZapata_V1.Model
+namespace DisenioZapata_V1.Model.UserModel
 {
     public class CUser:NotificationObject
     {
@@ -73,9 +73,12 @@ namespace DisenioZapata_V1.Model
 			set { update_at = value; OnPropertyChanged(); }
 		}
 
-		public CUser()
+		public CUser(string name,string email,string country,string password)
 		{
-
+			Name = name;
+			Email = email;
+			Country = country;
+			Password = password;
 		}
 	}
 }

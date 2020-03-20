@@ -1,6 +1,4 @@
-﻿using DisenioZapata_V1.Model;
-using DisenioZapata_V1.Model.UserModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,24 +11,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Xamarin.Forms;
 
 namespace DisenioZapata_V1.View
 {
     /// <summary>
-    /// Lógica de interacción para LoginPage.xaml
+    /// Lógica de interacción para CrearUsuarioPage.xaml
     /// </summary>
-    public partial class LoginPage : Window
+    public partial class CrearUsuarioPage : Window
     {
-        public LoginPage()
+        public CrearUsuarioPage()
         {
             InitializeComponent();
 
-            MessagingCenter.Subscribe<LoginViewModel>(this, "GoToNewUser", (a) =>
-            {
-                var NewUser = new CrearUsuarioPage();
-                NewUser.ShowDialog();
-            });
+            
         }
+
+        private void prueba()
+        {
+            //var p1 = P1;
+            //p1.
+            //if(p1.Password.Length == 0);
+        }
+
     }
 }

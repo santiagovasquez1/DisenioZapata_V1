@@ -104,10 +104,11 @@
     <Compile Include="DataBase.cs" />
     <Compile Include="Model\BuilderZapatas.cs" />
     <Compile Include="ETipoZapata.cs" />
-    <Compile Include="Model\CUser.cs" />
+    <Compile Include="Model\UserModel\CUser.cs" />
     <Compile Include="Model\Datos_Zapatas.cs" />
     <Compile Include="Model\Despiece.cs" />
     <Compile Include="Model\ETipoColumnas.cs" />
+    <Compile Include="Model\UserModel\LoginViewModel.cs" />
     <Compile Include="Model\MiComando.cs" />
     <Compile Include="Model\Modelo_Estructura.cs" />
     <Compile Include="Model\Converter\SwitchCollectionsConverter.cs" />
@@ -115,9 +116,13 @@
     <Compile Include="Model\ResumenZapata.cs" />
     <Compile Include="Model\SerializacionObjetos.cs" />
     <Compile Include="Model\Suelo.cs" />
+    <Compile Include="Model\UserModel\NewUserViewModel.cs" />
     <Compile Include="Model\VariablesModelo.cs" />
     <Compile Include="View\Cortantes.xaml.cs">
       <DependentUpon>Cortantes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CrearUsuarioPage.xaml.cs">
+      <DependentUpon>CrearUsuarioPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DatosPresionesPAge.xaml.cs">
       <DependentUpon>DatosPresionesPAge.xaml</DependentUpon>
@@ -163,6 +168,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Cortantes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CrearUsuarioPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,9 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apuntes.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\boy.png" />
