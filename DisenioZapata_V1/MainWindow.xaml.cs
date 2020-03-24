@@ -1,5 +1,6 @@
 ﻿using B_Lectura_E2K.Entidades;
 using DisenioZapata_V1.Model;
+using DisenioZapata_V1.Model.UserModel;
 using DisenioZapata_V1.View;
 using Microsoft.Win32;
 using System;
@@ -68,9 +69,19 @@ namespace DisenioZapata_V1
             });
         }
 
-        private void PresionesOnClick(object sender, RoutedEventArgs e)
-        {
 
+        private void MainWindowLoad(object sender, RoutedEventArgs e)
+        {
+            var User = CUser.GetUser();
+            DataBase data = new DataBase();
+
+            data.InsertOperation(User);
+        }
+
+        private void Acerca_Click(object sender, RoutedEventArgs e)
+        {
+            var acercade = new AcercadePage();
+            acercade.ShowDialog();
         }
     }
 }

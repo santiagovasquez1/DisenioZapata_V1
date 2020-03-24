@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DisenioZapata_V1"
              xmlns:local1="clr-namespace:DisenioZapata_V1.Model"
+             xmlns:local2="clr-namespace:DisenioZapata_V1.Model.UserModel"
              StartupUri="/View/LoginPage.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -16,6 +17,7 @@
             <local1:Datos_Zapatas x:Key="DatosZapatas"/>
             <local1:Propiedades_Refuerzo x:Key="Propiedades_Refuerzo"/>
             <local1:VariablesModelo x:Key="VariablesModelo" />
+            <local2:CUser x:Key="User"/>
             <Style  TargetType="{x:Type Menu}">
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontFamily" Value="Verdana"/>

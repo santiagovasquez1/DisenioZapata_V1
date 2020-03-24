@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Windows;
+using Xamarin.Forms;
 
 namespace DisenioZapata_V1.Model.UserModel
 {
@@ -20,18 +21,29 @@ namespace DisenioZapata_V1.Model.UserModel
             set { password = value; MainWindowCommand.ReevaluateCanExecute(); OnPropertyChanged(); }
         }
 
+        private CUser User { get; set; }
         public MiComando NuevoUsuarioCommand { get; set; }
         public MiComando MainWindowCommand { get; set; }
 
         public LoginViewModel()
         {
             NuevoUsuarioCommand = new MiComando(NuevoUsuarioCommandExecute);
-            MainWindowCommand = new MiComando(MainWindowCommandExecute,ConectarUsuarioCommandcanExecute);
+            MainWindowCommand = new MiComando(MainWindowCommandExecute, ConectarUsuarioCommandcanExecute);
         }
 
         private void MainWindowCommandExecute()
         {
-            MessagingCenter.Send(this, "GoToMainWindow");
+            int UserId;
+            User = CUser.GetUser();
+            DataBase data = new DataBase();
+
+            if (data.CheckEmail(Email, Password, out UserId))
+            {
+                User.User_id = UserId;
+                MessagingCenter.Send(this, "GoToMainWindow");
+            }
+            else
+                MessageBox.Show("Usuario o clave incorrectos");
         }
 
         private void NuevoUsuarioCommandExecute()
@@ -44,13 +56,7 @@ namespace DisenioZapata_V1.Model.UserModel
             if (Email == null | Password == null)
                 return false;
             else
-            {
-                DataBase data = new DataBase();
-                if (data.CheckEmail(Email, Password))
-                    return true;
-                else
-                    return false;
-            }
+                return true;
         }
     }
 }

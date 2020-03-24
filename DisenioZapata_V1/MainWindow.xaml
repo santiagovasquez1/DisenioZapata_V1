@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="Diseño de Zapatas"
         Height="600"
-        Width="1270">
+        Width="1270"
+        Loaded="MainWindowLoad">
 
     <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
         RenderTransformOrigin="0.483,0.162">
@@ -64,7 +65,8 @@
                 <MenuItem Name="Ayuda"
                                       Header="Ayuda">
                     <MenuItem Name="Acerca"
-                                          Header="Acerca de Diseño de Zapates" />
+                                          Header="Acerca de Diseño de Zapates"
+                                          Click="Acerca_Click"/>
                 </MenuItem>
             </Menu>
         </Grid>

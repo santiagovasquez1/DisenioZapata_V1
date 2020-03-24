@@ -118,6 +118,9 @@
     <Compile Include="Model\Suelo.cs" />
     <Compile Include="Model\UserModel\NewUserViewModel.cs" />
     <Compile Include="Model\VariablesModelo.cs" />
+    <Compile Include="View\AcercadePage.xaml.cs">
+      <DependentUpon>AcercadePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Cortantes.xaml.cs">
       <DependentUpon>Cortantes.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AcercadePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Cortantes.xaml">
       <SubType>Designer</SubType>

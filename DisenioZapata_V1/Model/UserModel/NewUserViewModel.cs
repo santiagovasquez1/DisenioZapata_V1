@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Windows;
 using Xamarin.Forms;
 
 namespace DisenioZapata_V1.Model.UserModel
@@ -81,17 +82,30 @@ namespace DisenioZapata_V1.Model.UserModel
 
         private void CrearUsuarioCommandExecute()
         {
-            List<CultureInfo> cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures).ToList();
-            var LCIDCountry = cultures.FindIndex(x => (new RegionInfo(x.LCID)).DisplayName == selectedcountry);
-            RegionInfo region = new RegionInfo(cultures[LCIDCountry].LCID);
-
-            User = new CUser(Name, Email, region.ThreeLetterISORegionName, Password1);
-            User.Industry = Industry;
-            User.Password = Password1;
-
             DataBase data = new DataBase();
-            data.InsertUser(User.Name, User.Password, User.Email, User.Industry, User.Country);
-            MainWindowExecute();
+
+            if (data.CheckEmail(Email) == false)
+            {
+                List<CultureInfo> cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures).ToList();
+                var LCIDCountry = cultures.FindIndex(x => (new RegionInfo(x.LCID)).DisplayName == selectedcountry);
+                RegionInfo region = new RegionInfo(cultures[LCIDCountry].LCID);
+
+                User = CUser.GetUser();
+                User.Name = Name;
+                User.Email = Email;
+                User.Country = region.ThreeLetterISORegionName;
+                User.Industry = Industry;
+                User.Password = Password1;
+
+                int id = 0;
+                data.InsertUser(User.Name, User.Password, User.Email, User.Industry, User.Country, out id);
+
+                User.User_id = id;
+
+                MainWindowExecute();
+            }
+            else
+                MessageBox.Show("El correo ya se encuentra registrado.");
         }
 
         private bool CrearUsuarioCommandcanExecute()
@@ -103,17 +117,7 @@ namespace DisenioZapata_V1.Model.UserModel
             else if (Email.Contains("@") == false)
                 return false;
             else
-            {
-                if (Email.Contains("@") == true)
-                {
-                    DataBase data = new DataBase();
-                    if (data.CheckEmail(Email) == false)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-            return true;
+                return true;
         }
 
         public List<string> GetCountryList()

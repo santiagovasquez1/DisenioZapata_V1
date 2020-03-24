@@ -9,9 +9,6 @@
       d:DesignHeight="445" d:DesignWidth="320"
       Title="PropiedadesPage">
 
-    <Page.Resources>
-    </Page.Resources>
-
     <Grid DataContext="{Binding Source={StaticResource DatosZapatas}}"
           Background="White" RenderTransformOrigin="0.425,0.5">
         <Grid.ColumnDefinitions>
