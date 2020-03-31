@@ -36,6 +36,7 @@ namespace DisenioZapata_V1
             {
                 var FuerzasLabel = fuerzas.FindAll(x => x.PointLabel == Label).ToList();
                 var punto = modelo.Points.Find(x => x.Name == Label);
+                var Section = modelo.Frames.Find(x => x.p1.Name == Label & x.Story.StoryName == modelo.Stories[1].StoryName).Section;
                 var VariablesModelo = GetVbles();
 
                 if (tipoZapata == ETipoZapata.Zapata_Aislada)
@@ -46,8 +47,8 @@ namespace DisenioZapata_V1
                         Fy = 4220,
                         R = 0.07f,
                         H = 0.25f,
-                        LcX = VariablesModelo.DeltaX,
-                        LcY = VariablesModelo.DeltaY
+                        LcX = Section.B + VariablesModelo.DeltaX,
+                        LcY = Section.H + VariablesModelo.DeltaY
                     };
                     zapatai.SetCalculos();
                     zapatai.Presiones(zapatai.L1, zapatai.L2, zapatai.H);

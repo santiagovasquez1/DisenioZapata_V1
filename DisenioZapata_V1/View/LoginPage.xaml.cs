@@ -31,7 +31,7 @@ namespace DisenioZapata_V1.View
             {
                 var NewUser = new CrearUsuarioPage();
                 NewUser.Show();
-                Close();
+                Hide();
             });
 
             MessagingCenter.Subscribe<LoginViewModel>(this, "GoToMainWindow", (a) =>

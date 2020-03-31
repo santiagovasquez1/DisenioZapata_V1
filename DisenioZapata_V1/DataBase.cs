@@ -91,7 +91,7 @@ namespace DisenioZapata_V1
         public bool CheckEmail(string email, string password, out int UserId)
         {
             conexion.Open();
-            string Query = $"SELECT user_id,email, password FROM users WHERE email LIKE '{email}'";
+            string Query = $"SELECT user_id,email, password FROM users WHERE email LIKE '{email}';";
             MySqlCommand command = new MySqlCommand(Query, conexion);
             MySqlDataReader registro = command.ExecuteReader();
 

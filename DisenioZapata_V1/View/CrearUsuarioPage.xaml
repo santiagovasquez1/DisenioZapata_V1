@@ -7,8 +7,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local1="clr-namespace:DisenioZapata_V1.Model.UserModel"
         mc:Ignorable="d"
-        Title="Crear Usuario" Height="600" Width="380" ResizeMode="NoResize" ShowInTaskbar="True">
-
+        Title="Crear Usuario" Height="600" Width="380" ResizeMode="NoResize" ShowInTaskbar="True" Closing="Window_Closing">
+        
+    
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

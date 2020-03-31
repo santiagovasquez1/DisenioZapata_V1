@@ -2,6 +2,7 @@
 using DisenioZapata_V1.Model;
 using DisenioZapata_V1.Model.UserModel;
 using DisenioZapata_V1.View;
+using DisenioZapata_V1.View.ViewsPlantaZapatas;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -72,7 +73,7 @@ namespace DisenioZapata_V1
 
         private void MainWindowLoad(object sender, RoutedEventArgs e)
         {
-            var User = CUser.GetUser();
+            var User = GetResources.GetUser();
             DataBase data = new DataBase();
 
             data.InsertOperation(User);
@@ -82,6 +83,18 @@ namespace DisenioZapata_V1
         {
             var acercade = new AcercadePage();
             acercade.ShowDialog();
+        }
+
+        private void PlantaZapata_Click(object sender, RoutedEventArgs e)
+        {
+            var ZapataPlantas = new PlantaZapatas();
+            ZapataPlantas.Show();
+        }
+
+        private void PlantaZapatas_Click(object sender, RoutedEventArgs e)
+        {
+            var VariablesDibujo = new VariablesDibujoPage();
+            VariablesDibujo.ShowDialog();
         }
     }
 }

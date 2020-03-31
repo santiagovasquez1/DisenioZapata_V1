@@ -61,6 +61,19 @@
                     <MenuItem Name="Despiece"
                                           Header="Despiece Zapata"
                                           Command="{Binding Despiececommand}" />
+                    <MenuItem Name="PlantaZapata"
+                                          Header="Ver Planta Zapatas"
+                                          IsEnabled="False"
+                                          Click="PlantaZapata_Click"/>
+                </MenuItem>
+                <MenuItem Name="Dibujo"
+                                      Header="Dibujar">
+                    <MenuItem Name="PlantaZapatas"
+                                          Header="Dibujar Planta de Zapatas"
+                                          Click="PlantaZapatas_Click"/>
+                    <MenuItem Name="CuadroZapatas"
+                                          Header="Dibujar Cuadro de Zapatas"
+                                          />
                 </MenuItem>
                 <MenuItem Name="Ayuda"
                                       Header="Ayuda">
@@ -75,7 +88,7 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <ListBox
+            <ListBox BorderBrush="#2D2D30" Background="#2D2D30"
             ItemsSource="{Binding Zapatas,Mode=TwoWay}"
             SelectedItem="{Binding Zapata_Seleccionada,Mode=TwoWay}">
             </ListBox>
@@ -86,7 +99,7 @@
         </Grid>
 
         <Frame x:Name="Main"
-                        Background="AliceBlue"
+                        Background="White"
                         Grid.Column="1"
                         Grid.Row="1"
                         NavigationUIVisibility="Hidden" />

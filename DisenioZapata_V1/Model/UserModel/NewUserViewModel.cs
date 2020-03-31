@@ -90,7 +90,7 @@ namespace DisenioZapata_V1.Model.UserModel
                 var LCIDCountry = cultures.FindIndex(x => (new RegionInfo(x.LCID)).DisplayName == selectedcountry);
                 RegionInfo region = new RegionInfo(cultures[LCIDCountry].LCID);
 
-                User = CUser.GetUser();
+                User = GetResources.GetUser();
                 User.Name = Name;
                 User.Email = Email;
                 User.Country = region.ThreeLetterISORegionName;
@@ -108,7 +108,7 @@ namespace DisenioZapata_V1.Model.UserModel
                 MessageBox.Show("El correo ya se encuentra registrado.");
         }
 
-        private bool CrearUsuarioCommandcanExecute()
+        public bool CrearUsuarioCommandcanExecute()
         {
             if (Name == null | email == null | Selectedcountry == null | Password1 == null | Password2 == null)
                 return false;

@@ -13,9 +13,6 @@ namespace DisenioZapata_V1.Model
         [NonSerialized]
         private ILectorFuerzas lector;
 
-        [NonSerialized]
-        private const string Dato_proyecto = "DatosZapatas";
-
         public ILectorFuerzas Lector { get => lector; set => lector = value; }
 
         [NonSerialized]

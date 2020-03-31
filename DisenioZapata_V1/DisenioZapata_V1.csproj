@@ -42,6 +42,9 @@
     <Reference Include="B_Lectura_E2K">
       <HintPath>..\..\BibliotecaE2K\bin\Debug\netstandard2.0\B_Lectura_E2K.dll</HintPath>
     </Reference>
+    <Reference Include="FunctionsAutoCAD">
+      <HintPath>..\..\FunctionsAutoCAD\bin\Debug\FunctionsAutoCAD.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.2.920, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.2\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -102,8 +105,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataBase.cs" />
+    <Compile Include="Drawing Autocad\DrawingZapatasAutocad.cs" />
+    <Compile Include="Drawing Autocad\DrawZapata.cs" />
+    <Compile Include="Drawing\Circle.cs" />
+    <Compile Include="Drawing\DrawingZapatas.cs" />
+    <Compile Include="Drawing\Linea.cs" />
+    <Compile Include="Drawing\IShape.cs" />
+    <Compile Include="Drawing\Rectangle.cs" />
+    <Compile Include="Drawing\RectangleWpf.cs" />
     <Compile Include="Model\BuilderZapatas.cs" />
     <Compile Include="ETipoZapata.cs" />
+    <Compile Include="Model\GetResources.cs" />
     <Compile Include="Model\UserModel\CUser.cs" />
     <Compile Include="Model\Datos_Zapatas.cs" />
     <Compile Include="Model\Despiece.cs" />
@@ -142,17 +154,20 @@
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PlantaZapatasView.xaml.cs">
-      <DependentUpon>PlantaZapatasView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\PropiedadesPage.xaml.cs">
       <DependentUpon>PropiedadesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ResumenPage.xaml.cs">
       <DependentUpon>ResumenPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VariablesDibujoPage.xaml.cs">
+      <DependentUpon>VariablesDibujoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\VariablesProyectoPage.xaml.cs">
       <DependentUpon>VariablesProyectoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewsPlantaZapatas\PlantaZapatas.xaml.cs">
+      <DependentUpon>PlantaZapatas.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -202,10 +217,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PlantaZapatasView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\PropiedadesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -214,7 +225,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\VariablesDibujoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\VariablesProyectoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewsPlantaZapatas\PlantaZapatas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,6 +271,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="Drawing\DiagramGraficos.cd" />
     <None Include="Model\Diagrama_App.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

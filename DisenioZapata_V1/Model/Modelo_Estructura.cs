@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using B_Lectura_E2K.Entidades;
 using BibliotecaE2K;
@@ -16,6 +17,7 @@ namespace DisenioZapata_V1.Model
         public Modelo_Etabs Modelo { get; set; }
         public Modelo_Estructura(string RutaModelo)
         {
+            //Regex.IsMatch(x, "SECTION")
             Modelo = new Etabs95(RutaModelo).Modelo;
         }
     }

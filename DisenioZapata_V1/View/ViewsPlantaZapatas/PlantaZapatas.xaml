@@ -1,0 +1,21 @@
+﻿<Window x:Class="DisenioZapata_V1.View.ViewsPlantaZapatas.PlantaZapatas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DisenioZapata_V1.View.ViewsPlantaZapatas"
+        xmlns:local1="clr-namespace:DisenioZapata_V1.Drawing"
+        mc:Ignorable="d"
+        Title="PlantaZapatas" Height="450" Width="800" SizeChanged="DrawingZapatas_SizeChanged" StateChanged="Window_StateChanged"  >
+    <Window.Resources>
+        <ResourceDictionary>
+            <local1:DrawingZapatas x:Key="CanvasZapatas"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="GridPpal">
+        <local1:DrawingZapatas x:Name="CanvasZapatas"
+                               Height="Auto"
+                               Width="Auto" >
+        </local1:DrawingZapatas>
+    </Grid>
+</Window>

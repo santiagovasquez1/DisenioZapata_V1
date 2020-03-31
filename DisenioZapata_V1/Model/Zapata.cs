@@ -25,9 +25,9 @@ namespace DisenioZapata_V1.Model
             set
             {
                 l1 = value;
-                CalcArea(L1 , L2);
+                CalcArea(L1, L2);
                 CalcPesoPropio();
-                Presiones(L1 , L2 , H);
+                Presiones(L1, L2, H);
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
                 SetFlexion();
@@ -45,9 +45,9 @@ namespace DisenioZapata_V1.Model
             set
             {
                 l2 = value;
-                CalcArea(L1 , L2);
+                CalcArea(L1, L2);
                 CalcPesoPropio();
-                Presiones(L1 , L2 , H);
+                Presiones(L1, L2, H);
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
                 SetFlexion();
@@ -66,7 +66,7 @@ namespace DisenioZapata_V1.Model
             {
                 h = value;
                 CalcPesoPropio();
-                Presiones(L1 , L2 , H);
+                Presiones(L1, L2, H);
                 SetCortanteUnidireccional();
                 SetCortanteBidireccional();
                 SetFlexion();
@@ -97,7 +97,7 @@ namespace DisenioZapata_V1.Model
             set
             {
                 lcy = value;
-                SetCortanteUnidireccional(); 
+                SetCortanteUnidireccional();
                 SetCortanteBidireccional();
                 SetFlexion();
                 OnPropertyChanged();
@@ -158,7 +158,7 @@ namespace DisenioZapata_V1.Model
             get { return suelo; }
             set { suelo = value; CalcArea(); OnPropertyChanged(); }
         }
-        [NonSerialized]
+
         private MPoint point;
 
         public MPoint Point
@@ -230,6 +230,7 @@ namespace DisenioZapata_V1.Model
             get { return resumen; }
             set { resumen = value; OnPropertyChanged(); }
         }
+
         private Despiece despiece;
 
         public Despiece Despiece
@@ -248,13 +249,13 @@ namespace DisenioZapata_V1.Model
             }
         }
 
-        public void CalcArea(float L1 , float L2)
+        public void CalcArea(float L1, float L2)
         {
             if (L1 > 0 & L2 > 0)
                 Area = L1 * L2;
         }
 
-        public void Presiones(float L1 , float L2 , float H)
+        public void Presiones(float L1, float L2, float H)
         {
             int cont = 0;
             if (L1 > 0 & L2 > 0 & H > 0 & Dimensionamientos != null)
@@ -263,7 +264,7 @@ namespace DisenioZapata_V1.Model
                 {
                     if (Dimensionamiento != null)
                     {
-                        Dimensionamiento.Calculo_Clase(Fuerzas[cont] , cont);
+                        Dimensionamiento.Calculo_Clase(Fuerzas[cont], cont);
                         Dimensionamiento.Chequeos_Clase();
                     }
                     cont++;
@@ -280,7 +281,7 @@ namespace DisenioZapata_V1.Model
             {
                 foreach (var cortanteu in CortanteUnidireccional)
                 {
-                    cortanteu.Calculo_Clase(Fuerzas[cont] , cont);
+                    cortanteu.Calculo_Clase(Fuerzas[cont], cont);
                     cont++;
                 }
                 if (ResumenZapata != null)
@@ -295,7 +296,7 @@ namespace DisenioZapata_V1.Model
             {
                 foreach (var cortanteu in CortanteBiridireccional)
                 {
-                    cortanteu.Calculo_Clase(Fuerzas[cont] , cont);
+                    cortanteu.Calculo_Clase(Fuerzas[cont], cont);
                     cont++;
                 }
                 if (ResumenZapata != null)
@@ -310,7 +311,7 @@ namespace DisenioZapata_V1.Model
             {
                 foreach (var flexioni in Flexion)
                 {
-                    flexioni.Calculo_Clase(Fuerzas[cont] , cont);
+                    flexioni.Calculo_Clase(Fuerzas[cont], cont);
                     cont++;
                 }
                 if (ResumenZapata != null)

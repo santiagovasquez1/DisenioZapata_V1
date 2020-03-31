@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DisenioZapata_V1.View
 {
     /// <summary>
-    /// Lógica de interacción para PlantaZapatasView.xaml
+    /// Lógica de interacción para VariablesDibujoPage.xaml
     /// </summary>
-    public partial class PlantaZapatasView : Page
+    public partial class VariablesDibujoPage : Window
     {
-        public PlantaZapatasView()
+        public VariablesDibujoPage()
         {
             InitializeComponent();
         }

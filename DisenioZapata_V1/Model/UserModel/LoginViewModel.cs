@@ -34,7 +34,7 @@ namespace DisenioZapata_V1.Model.UserModel
         private void MainWindowCommandExecute()
         {
             int UserId;
-            User = CUser.GetUser();
+            User = GetResources.GetUser();
             DataBase data = new DataBase();
 
             if (data.CheckEmail(Email, Password, out UserId))

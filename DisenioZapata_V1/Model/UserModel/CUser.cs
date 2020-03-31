@@ -86,39 +86,8 @@ namespace DisenioZapata_V1.Model.UserModel
             Password = password;
         }
 
-        public static CUser GetUser()
-        {
-            var recursos = App.Current.Resources;
-            int cont = 0;
-            CUser variables = null;
-
-            foreach (DictionaryEntry i in recursos)
-            {
-                if (i.Key.ToString() == "User")
-                {
-                    variables = i.Value as CUser;
-                    return variables;
-                }
-
-                cont++;
-            }
-
-            return variables;
-        }
-
         private int GetUserIp()
         {
-            int IP_Servidor = 0;
-            if (NetworkInterface.GetIsNetworkAvailable())
-            {
-                string hostname = "FCSAS.COM";
-
-                IPAddress[] addresses = Dns.GetHostAddresses(hostname);
-                foreach (IPAddress address in addresses)
-                {
-                   IP_Servidor = (int)BitConverter.ToUInt32( address.GetAddressBytes(),0);
-                }
-            }
 
             IPAddress ip = new IPAddress(0x2414188f);
             int address2 = BitConverter.ToInt32(ip.GetAddressBytes(), 0);

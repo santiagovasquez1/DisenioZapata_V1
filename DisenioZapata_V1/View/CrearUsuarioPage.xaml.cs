@@ -52,5 +52,24 @@ namespace DisenioZapata_V1.View
 
             return variables;
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var ventanas = App.Current.Windows;
+            var user = GetNewUser();
+
+            foreach (var ventana in ventanas)
+            {
+                if (ventana.ToString() == "DisenioZapata_V1.View.LoginPage")
+                {
+                    var LoginPage = ventana as LoginPage;
+                    if (user.CrearUsuarioCommandcanExecute() == false)
+                        LoginPage.Show();
+                    else
+                        LoginPage.Close();
+                    break;
+                }
+            }
+        }
     }
 }
