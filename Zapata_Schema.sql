@@ -66,3 +66,5 @@ GRANT SELECT ON zapatas.operations TO 'clientes'@'localhost';
 
 INSERT INTO operations(`user_id`, ip_dress)
 VALUES(4,605296783);
+
+mysql -h zapatas.cidxy8evidix.us-east-1.rds.amazonaws.com -P 3306 -u svasquez -p
