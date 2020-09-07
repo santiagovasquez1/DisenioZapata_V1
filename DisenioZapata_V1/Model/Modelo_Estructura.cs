@@ -18,7 +18,7 @@ namespace DisenioZapata_V1.Model
         public Modelo_Estructura(string RutaModelo)
         {
             //Regex.IsMatch(x, "SECTION")
-            Modelo = new Etabs95(RutaModelo).Modelo;
+            Modelo = new Etabs2018(RutaModelo).Modelo;
         }
     }
 }
